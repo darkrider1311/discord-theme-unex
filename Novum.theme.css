@@ -35,6 +35,7 @@ CUSTOMIZABLE BACKGROUND IMAGE AND MAIN COLORS BELOW*
   --app-background: var(--novum-local-wallpaper);
   --novum-wallpaper-blur: 3px;
   --novum-divider-color: color-mix(in srgb, var(--main-color) 50%, transparent);
+  --novum-floating-surface: rgb(28 11 17 / 88%);
   --novum-text-light: #ffb5b5;
   --novum-text-dark: hsl(0 27.89% 42.75%);
   --main-color: #992727; /* main color (used mostly in buttons) [default: #992727] */
@@ -544,22 +545,15 @@ Special thanks for help to: https://github.com/net-runner
     background-color: var(--novum-divider-color);
 }
 
-/* Settings change notices and the server-name menu open above the page. */
+/* Settings change notices open above the page. */
 :is(
     .container_aTnRjo,
     .saveNoticeContainer_UyQMSC .messageContainer_UyQMSC,
-    .pendingChangesToolbar_s3DB6Y,
-    :is(#guild-header-popout, [role="menu"]:has(#guild-header-popout-settings))
+    .pendingChangesToolbar_s3DB6Y
 ) {
     background: rgb(28 11 17 / 88%) !important;
     border-color: var(--novum-divider-color);
     backdrop-filter: blur(10px);
-}
-
-:is(#guild-header-popout, [role="menu"]:has(#guild-header-popout-settings))
-    .item_M3qk4j.colorDefault_M3qk4j:is(:hover, .focused_M3qk4j) {
-    background-color: var(--main-color-semitransparent-selected);
-    color: var(--novum-text-light);
 }
 
 /* Onboarding, safety and server access controls. */
@@ -810,7 +804,7 @@ Special thanks for help to: https://github.com/net-runner
     backdrop-filter: blur(10px);
 }
 
-:is(.menu_M3qk4j, .selectDropdown_vWC4bk) {
+.selectDropdown_vWC4bk {
     --background-surface-high: rgb(28 11 17 / 88%);
     --background-surface-higher: rgb(28 11 17 / 88%);
     --interactive-background-hover: var(--main-color-semitransparent-selected);
@@ -1046,11 +1040,6 @@ Special thanks for help to: https://github.com/net-runner
     background-color: var(--main-color-semitransparent-selected);
 }
 
-.menu_M3qk4j .item_M3qk4j.colorDefault_M3qk4j:not([aria-disabled="true"]):is(:hover, .focused_M3qk4j) {
-    background-color: var(--main-color-semitransparent-selected);
-    color: var(--novum-text-light);
-}
-
 /* Expressive buttons use the shared red fill instead of separate animated artwork. */
 .expressiveWrapper_F7qvhY :is(.expressiveRive_F7qvhY, .expressiveBackground_F7qvhY) {
     visibility: hidden;
@@ -1239,4 +1228,46 @@ Special thanks for help to: https://github.com/net-runner
 
 .activityNameUserActivityHover_ZbIvmP {
     color: var(--novum-text-light);
+}
+
+/* Context menus, including submenus and legacy hover action bars. */
+@media (forced-colors: none) {
+    :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6) {
+        --background-surface-high: var(--novum-floating-surface);
+        --background-surface-higher: var(--novum-floating-surface);
+        --background-mod-normal: var(--main-color-semitransparent);
+        --interactive-background-hover: var(--main-color-semitransparent-selected);
+        --border-subtle: var(--novum-divider-color);
+        --border-focus: var(--accent-saturated);
+        background: var(--novum-floating-surface) !important;
+        border-color: var(--novum-divider-color);
+        color: var(--novum-text-light);
+        backdrop-filter: blur(10px);
+    }
+
+    :is(.menu_M3qk4j, [role="menu"], #guild-header-popout)
+        :is(.colorDefault_M3qk4j, [role="menuitem"], [role="menuitemcheckbox"], [role="menuitemradio"]):not(
+            [aria-disabled="true"], .disabled_M3qk4j, .colorDanger_M3qk4j
+        ):is(:hover, :focus-visible, .focused_M3qk4j, [aria-expanded="true"], [data-highlighted="true"]) {
+        background-color: var(--main-color-semitransparent-selected) !important;
+        color: var(--novum-text-light);
+    }
+
+    :is(.menu_M3qk4j, [role="menu"]) :is(.separator_M3qk4j, [role="separator"]) {
+        border-color: var(--novum-divider-color);
+    }
+
+    .popover_DpHsW6 .separator_DpHsW6 {
+        background-color: var(--novum-divider-color);
+    }
+
+    /* Action labels like Open Chat and Invite to Voice are tooltips. */
+    :is([data-mana-component="tooltip"], .tooltip_ZDdyhE, .tooltipPrimary_3_v8qp) {
+        --background-surface-high: var(--novum-floating-surface);
+        --tooltip-pointer-bg: var(--novum-floating-surface);
+        --border-subtle: var(--novum-divider-color);
+        background-color: var(--novum-floating-surface) !important;
+        color: var(--novum-text-light);
+        backdrop-filter: blur(10px);
+    }
 }
