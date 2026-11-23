@@ -1177,6 +1177,8 @@ Special thanks for help to: https://github.com/net-runner
 }
 
 /* Unread-message banners and the compact unread-message pill. */
+.bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn),
+.bar_oJAkDB.unread_oJAkDB,
 .newMessagesBar_j9Vvzj,
 .newMessagesPill_j9Vvzj,
 .newMessagesClear_j9Vvzj {
@@ -1185,6 +1187,23 @@ Special thanks for help to: https://github.com/net-runner
     backdrop-filter: blur(10px);
 }
 
+.bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn),
+.bar_oJAkDB.unread_oJAkDB {
+    background-color: rgb(76 21 30 / 86%) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn) :is(.barText_t1P8Sn, .unreadIcon_t1P8Sn),
+.bar_oJAkDB.unread_oJAkDB,
+.bar_oJAkDB.unread_oJAkDB :is(.text_oJAkDB, svg) {
+    --interactive-text-default: #eab6b6 !important;
+    --text-strong: #eab6b6 !important;
+    color: #eab6b6 !important;
+    font-weight: 600 !important;
+}
+
+.bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn):is(:hover, :focus-visible),
+.bar_oJAkDB.unread_oJAkDB:is(:hover, :focus-visible),
 .newMessagesBar_j9Vvzj .barButtonAlt_j9Vvzj:is(:hover, :focus-visible),
 :is(.newMessagesPill_j9Vvzj, .newMessagesClear_j9Vvzj):is(:hover, :focus-visible) {
     background-color: var(--main-color-selected) !important;
