@@ -1,0 +1,1223 @@
+/**
+* @name Novum
+* @author Przemec & Net-Runner
+* @description Red galaxy theme enhanced with couple of addons and small features.
+* @version 5.9.0
+* @source https://github.com/przemec/Novum
+* @website https://przemec.github.io/Novum/
+*/
+
+/*
+CONTACT ME ON DISCORD IF YOU NEED ANY HELP WITH THEME: przemec (before Discord's nicks update: tomec#4771)
+
+IMPORTANT: CHOOSE DARK THEME VERSION IN DISCORD APPEARANCE SETTINGS!
+IMPORTANT: SOME OF FEATURES ARE TESTED ONLY ON WINDOWS VERSION OF DISCORD!
+*/
+
+/*
+===================================================================
+*/
+
+@import url(https://przemec.github.io/Novum/theme.css);
+
+/*
+===================================================================
+*/
+
+/*
+CUSTOMIZABLE BACKGROUND IMAGE AND MAIN COLORS BELOW*
+
+* EDIT THE VARIABLES BELOW TO CUSTOMIZE THE THEME. 
+*/
+
+:root {
+  --novum-local-wallpaper: url("vencord:///themes/novum-bg0.png?v=46911306369375"); /* bg0.png */
+  --app-background: var(--novum-local-wallpaper);
+  --novum-wallpaper-blur: 3px;
+  --novum-divider-color: color-mix(in srgb, var(--main-color) 50%, transparent);
+  --novum-text-light: #ffb5b5;
+  --novum-text-dark: hsl(0 27.89% 42.75%);
+  --main-color: #992727; /* main color (used mostly in buttons) [default: #992727] */
+  --main-color-selected: #aa2f2f; /* [default: #aa2f2f] */
+  --main-color-semitransparent: #d4393926; /* [default: #d4393926] */
+  --main-color-semitransparent-selected: #d336364d; /* [default: #d336364d] */
+  --accent-color: var(--novum-text-light); /* accent color (used in links, mentions etc.) [default: #fd9fa0] */
+  --accent-color-semitransparent: #fca7a918; /* [default: #fca7a918] */
+  --accent-saturated: #fd7a7c; /* [default: #fd7a7c] */
+  --accent-desaturated: #b47a7a; /* [default: #b47a7a] */
+  --button-text: var(--novum-text-light); /* [default: #dddddd] */
+  --button-text-selected: var(--novum-text-light); /* [default: #ffffff] */
+  --profile-background: url("https://przemec.github.io/Novum/assets/images/profile_min.png"); /* background of profile popout [default: url("https://przemec.github.io/Novum/assets/images/profile_min.png")] */
+  --profile-activity: #6d1515; /* color of activity field in profile left-click popout [default: #6d1515] */
+  --scroll-thumb-color: #a54b4b; /* color of scrollbars [default: #a54b4b] */
+}
+
+/*
+===================================================================
+*/
+
+/*
+Credits:
+- Original (not edited) background is taken (with the consent of author) and edited from 'Nova' theme made by https://github.com/din0s/
+- The idea of icons in Settings sidebar is taken from ClearVision theme originally designed by https://github.com/Zerthox
+- Most of custom icons come from Material Design Icons project: https://materialdesignicons.com/
+- The idea of animated activity in profile popout is taken from Comfy theme: https://github.com/NYRI4/Comfy
+
+Author of theme: https://github.com/przemec
+Special thanks for help to: https://github.com/net-runner
+*/
+
+/* Novum colors and background for Discord's current layout in Vesktop. */
+/* Put the wallpaper on the main frame, above Discord's background layers. */
+#app-mount .bg_Fd0FEH {
+    background: var(--novum-local-wallpaper) center / cover no-repeat #170c11 !important;
+    filter: blur(var(--novum-wallpaper-blur));
+}
+
+#app-mount .container_pog62O,
+#app-mount .standardSidebarView_jnk11m,
+.container_NdjzJd {
+    background: #170c11 !important;
+    isolation: isolate;
+}
+
+#app-mount .container_pog62O::before,
+#app-mount .standardSidebarView_jnk11m::before,
+.container_NdjzJd::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--novum-local-wallpaper) center / cover no-repeat;
+    filter: blur(var(--novum-wallpaper-blur));
+    clip-path: inset(0);
+}
+
+#app-mount .container_pog62O > .base_pog62O {
+    background-color: transparent !important;
+}
+
+#app-mount .sidebar_pog62O,
+#app-mount .chat_z_gUBg,
+#app-mount .members_86es0b {
+    background: transparent !important;
+}
+
+#app-mount .chatContent_z_gUBg,
+#app-mount .guilds_pog62O,
+#app-mount .container_H5ozaj,
+#app-mount .membersWrap_86es0b {
+    background: rgb(19 8 13 / 63%) !important;
+}
+
+#app-mount .subtitleContainer_z_gUBg,
+#app-mount .form_z_gUBg .scrollableContainer_2x8-Qn {
+    background: rgb(28 11 17 / 88%) !important;
+}
+
+#app-mount .modeSelected_TNyK-N .link_TNyK-N {
+    background: var(--main-color-semitransparent-selected);
+}
+
+#app-mount .mentioned_SY_P2T {
+    background: var(--accent-color-semitransparent);
+}
+
+#app-mount .mentioned_SY_P2T::before {
+    background: var(--accent-saturated);
+}
+
+#app-mount .markup_ku1OHH a {
+    color: var(--accent-color);
+}
+
+#app-mount .lookFilled_9OQtot.colorBrand_9OQtot {
+    background-color: var(--main-color);
+    color: var(--button-text);
+}
+
+#app-mount .lookFilled_9OQtot.colorBrand_9OQtot:hover {
+    background-color: var(--main-color-selected);
+    color: var(--button-text-selected);
+}
+
+/* Settings use a separate layer from the main window. */
+#app-mount .standardSidebarView_jnk11m .sidebarRegion_jnk11m,
+#app-mount .standardSidebarView_jnk11m .contentRegion_jnk11m {
+    background: transparent !important;
+}
+
+#app-mount .standardSidebarView_jnk11m .sidebarRegionScroller_jnk11m {
+    background: rgb(19 8 13 / 72%) !important;
+}
+
+#app-mount .standardSidebarView_jnk11m .contentRegionScroller_jnk11m {
+    background: rgb(19 8 13 / 81%) !important;
+}
+
+#app-mount .sidebar_jnk11m .item_6zZYhF:not([aria-disabled="true"]):hover {
+    background-color: var(--main-color-semitransparent);
+}
+
+#app-mount .sidebar_jnk11m .item_6zZYhF.selected_6zZYhF {
+    background-color: var(--main-color-semitransparent-selected);
+    box-shadow: inset 2px 0 var(--accent-saturated);
+    color: var(--button-text-selected);
+}
+
+/* The user settings dialog has its own frame, navigation and content. */
+.container_NdjzJd {
+    position: relative;
+    --text-link: var(--accent-color);
+}
+
+.container_NdjzJd .sidebar_cR4ic2 {
+    background: rgb(19 8 13 / 65%) !important;
+}
+
+.container_NdjzJd .content_3Rvb29 {
+    background: rgb(19 8 13 / 72%) !important;
+}
+
+.container_NdjzJd .contentHeader_3Rvb29 {
+    background: rgb(28 11 17 / 56%) !important;
+    border-bottom-color: var(--novum-divider-color);
+}
+
+.container_NdjzJd .contentBody_3Rvb29 {
+    background: transparent !important;
+}
+
+.container_NdjzJd .item_xyJHva:not(.destructive_xyJHva):hover {
+    background-color: var(--main-color-semitransparent);
+}
+
+.container_NdjzJd .item_xyJHva.active_xyJHva {
+    background-color: var(--main-color-semitransparent-selected) !important;
+    box-shadow: inset 2px 0 var(--accent-saturated);
+    color: var(--button-text-selected);
+}
+
+/* Direct messages and the Friends overview share the main wallpaper. */
+#app-mount .privateChannels_u88IQl,
+#app-mount .container_zrUwGA {
+    background: rgb(19 8 13 / 63%) !important;
+}
+
+#app-mount .privateChannels_u88IQl .scroller_Bce46W,
+#app-mount .container_zrUwGA .tabBody_zrUwGA {
+    background: transparent !important;
+}
+
+#app-mount .privateChannels_u88IQl .searchBarComponent_u88IQl {
+    background: rgb(28 11 17 / 88%) !important;
+}
+
+#app-mount .container_zrUwGA .nowPlayingColumn_zrUwGA {
+    background: rgb(28 11 17 / 43%) !important;
+}
+
+#app-mount .privateChannels_u88IQl .interactiveSelected_zln_tS {
+    background: var(--main-color-semitransparent-selected) !important;
+    box-shadow: inset 2px 0 var(--accent-saturated);
+}
+
+/* Keep the toolbar magnifier inside the collapsed search field. */
+#app-mount [class*="title"] [class*="search"] [class*="search"]:not([class*="open"], :hover, :focus-within) [class*="searchBar"] {
+    width: 36px;
+}
+
+#app-mount [class*="title"] [class*="search"] [class*="search"]:not([class*="open"], :hover, :focus-within) [class*="searchBar"] [class*="iconContainer"] {
+    flex-shrink: 0;
+    transform: none;
+}
+
+/* Thin dividers between main layout sections. */
+#app-mount .sidebarList_pog62O {
+    border-block-start-color: var(--novum-divider-color);
+    border-inline-start-color: var(--novum-divider-color);
+}
+
+#app-mount .container_zrUwGA {
+    border-block-start-color: var(--novum-divider-color);
+    border-inline-start-color: var(--novum-divider-color);
+}
+
+#app-mount .privateChannels_u88IQl .searchBar_u88IQl {
+    border-block-end-color: var(--novum-divider-color);
+}
+
+
+/* Discord divider elements with a one-pixel fill. */
+.akaPopoverDivider_z_gUBg,
+.connectAccountDivider_2Zx6d1,
+.consoleIconDivider_2HrAxW,
+.divider_-8GDCL,
+.divider_-94tyB,
+.divider_-uIKIT,
+.divider_1oVKG1,
+.divider_20JRSQ,
+.divider_4Qm5zV,
+.divider_5nm40Y,
+.divider_6_68tM,
+.divider_Atpnal,
+.divider_D8O-nd,
+.divider_DERYpk,
+.divider_E9MqU1,
+.divider_EWQuIu,
+.divider_Envi8p,
+.divider_GO3mMW,
+.divider_HMJaME,
+.divider_KBtu3r,
+.divider_aKCmn8,
+.divider_bWT6VE,
+.divider_c0tu5x,
+.divider_g7esM5,
+.divider_gVbU0s,
+.divider_h22-jR,
+.divider_kIBjy8,
+.divider_lm2_KW,
+.divider_oXfkC0,
+.divider_omcAqa,
+.divider_qZFuGA,
+.divider_s3GN8p,
+.divider_vo2STs,
+.divider_y75PxA,
+.divider_ybUK7Z,
+.eventDivider_5RxyqA,
+.groupDivider_m3psIG,
+.guildSeparator_3WHVfy,
+.headerDivider_VYP6oe,
+.headerDivider_utcclU,
+.nitroBottomDivider_6c9R7U,
+.nitroBottomDivider_dCw_12,
+.nitroTopDividerLockBorderReversed_KU0wA7,
+.nitroTopDividerLockBorder_KU0wA7,
+.planSelectSeparatorLower_FPIV9y,
+.planSelectSeparatorUpper_FPIV9y,
+.planSelectSeparator_HYpJ9I,
+.posterDivider_5kshUk,
+.reverseTrialContextInfoDivider_Sn3rKI,
+.sectionDivider_u88IQl,
+.sectionDivider_ysO7Gy,
+.selectPlanDivider_HYpJ9I,
+.selectPlanDivider_Ril4QO,
+.sendButtonDivider_omcAqa,
+.separator_DpHsW6,
+.separator_ExYoxz,
+.separator_NZ34f3,
+.separator_Z0MHyc,
+.separator_aoI0WQ,
+.separator_dLBw_i,
+.separator_htzddj,
+.separator_o3hXTo,
+.separator_plpOf8,
+.separator_rE8-46,
+.separator_sYzG8R,
+.settingsDivider_DKMuWq,
+.summarySeparator_FDTnC5,
+.tagsDivider_owUmX8,
+.trialForAllSeparator_y-bNoV,
+.valuePropDivider_N-Y7ZJ,
+.verticalDivider_Ag-7tW {
+    background-color: var(--novum-divider-color);
+}
+
+/* Discord divider elements drawn with a thin border. */
+.bottomDivider_VuWkDZ,
+.builtInSeparator_mTknAg,
+.divider_4TfzT5,
+.divider_O0J7OR,
+.divider_PpKUqH,
+.divider_ZPv4kD,
+.divider_ZaYWLb,
+.divider___vrnI,
+.divider_k5CETD,
+.finePrintWithOverheadSeparator_GUBo50,
+.lockDividerCircle_cuaHiV,
+.nitroTopDividerLockCircle_KU0wA7,
+.primaryActionPopoutDivider_R0WNX5,
+.reactionEmojiDetailsDivider_OU33XG,
+.scrollSeparator_lQvWfQ,
+.separator_M3qk4j,
+.separator_r0937z,
+.separator_ymaupl,
+.staticDivider_hPmUPu {
+    border-color: var(--novum-divider-color);
+}
+
+/* Text colors shared by the main window and settings dialog. */
+:root,
+.theme-dark,
+.theme-light,
+.theme-darker,
+.theme-midnight {
+    --text-default: var(--novum-text-light) !important;
+    --text-strong: var(--novum-text-light) !important;
+    --text-link: var(--novum-text-light) !important;
+    --text-brand: var(--novum-text-light) !important;
+    --text-code: var(--novum-text-light) !important;
+    --interactive-text-hover: var(--novum-text-light) !important;
+    --interactive-text-active: var(--novum-text-light) !important;
+    --text-subtle: var(--novum-text-dark) !important;
+    --text-muted: var(--novum-text-dark) !important;
+    --interactive-text-default: var(--novum-text-dark) !important;
+    --input-placeholder-text-default: var(--novum-text-dark) !important;
+    --channel-text-area-placeholder: var(--novum-text-dark) !important;
+
+    --header-primary: var(--novum-text-light) !important;
+    --header-secondary: var(--novum-text-dark) !important;
+    --text-normal: var(--novum-text-light) !important;
+    --interactive-normal: var(--novum-text-dark) !important;
+    --interactive-hover: var(--novum-text-light) !important;
+    --interactive-active: var(--novum-text-light) !important;
+}
+
+#app-mount .markup_ku1OHH,
+.container_NdjzJd .content_3Rvb29 {
+    color: var(--novum-text-light);
+}
+
+/* Regular server channels use a separate Discord text color. */
+#app-mount .container_H5ozaj {
+    --channels-default: var(--novum-text-dark) !important;
+}
+
+/* Let the chat background show through message embeds. */
+#app-mount .embedFull_XyW1ZT {
+    background: color-mix(in srgb, var(--background-surface-high) 25%, transparent) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* Quests, Shop and Nitro use their own page backgrounds. */
+#app-mount :is(.questHomePage_iar92T, .page_iar92T:has(.questHomePage_iar92T, .questHomeContent_iar92T)),
+#app-mount :is(.shop_Mqg79R, .shopContainer_XBXDcd),
+#app-mount :is(.homeWrapper_8iSxT3, .mainPageScroller_IRnLy8) {
+    background: rgb(19 8 13 / 63%) !important;
+    border-block-start-color: var(--novum-divider-color);
+}
+
+#app-mount .page_iar92T .questHomePage_iar92T,
+#app-mount .homeWrapper_8iSxT3 .mainPageScroller_IRnLy8,
+#app-mount .shop_Mqg79R :is(.shopContainer_XBXDcd, .shopWrapper_Mqg79R, .shopScroll_Mqg79R),
+#app-mount .shopContainer_XBXDcd :is(.shopWrapper_Mqg79R, .shopScroll_Mqg79R) {
+    background: transparent !important;
+}
+
+#app-mount :is(.questHomePage_iar92T, .page_iar92T:has(.questHomeContent_iar92T)) .header_iar92T {
+    background: rgb(28 11 17 / 72%) !important;
+    border-block-end-color: var(--novum-divider-color);
+}
+
+#app-mount :is(.questHomePage_iar92T, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8) {
+    --background-base-low: rgb(28 11 17 / 70%);
+    --background-base-lower: rgb(25 10 15 / 72%);
+    --background-base-lowest: rgb(19 8 13 / 76%);
+    --background-mod-subtle: rgb(76 27 35 / 36%);
+    --background-surface-high: rgb(40 14 22 / 78%);
+}
+
+/* Role editor surfaces, previews and list separators. */
+#app-mount .standardSidebarView_jnk11m:has(.roleRow_YEKbw3, .contentWidth_tLZg6c) {
+    --background-base-low: rgb(28 11 17 / 72%);
+    --background-base-lower: rgb(25 10 15 / 72%);
+    --background-base-lowest: rgb(19 8 13 / 76%);
+    --background-mod-subtle: rgb(76 27 35 / 36%);
+    --background-surface-high: rgb(40 14 22 / 78%);
+    --background-surface-higher: rgb(52 19 27 / 83%);
+    --interactive-background-hover: var(--main-color-semitransparent);
+}
+
+/* The role editor has a separate scroll surface behind the role list. */
+#app-mount .contentRegionScroller_jnk11m:has(.rolesTable_EerRtM, .page_cKeB2a, .scroller_EDKX0U),
+#app-mount .page_cKeB2a,
+#app-mount .scroller_EDKX0U,
+#app-mount .contentContainer_cKeB2a .scroller_cXmH6r {
+    background: transparent !important;
+}
+
+#app-mount .contentRegionScroller_jnk11m:has(.rolesTable_EerRtM, .emptyRoles_YEKbw3),
+#app-mount .page_cKeB2a > .contentContainer_cKeB2a,
+#app-mount .sidebarScrollable_EDKX0U + .content_EDKX0U {
+    background: rgb(19 8 13 / 55%) !important;
+}
+
+#app-mount .roleRow_YEKbw3:not(:hover)::before,
+#app-mount .roleRow_YEKbw3:last-child:not(:hover)::after {
+    background-color: var(--novum-divider-color);
+}
+
+/* Match the role sidebar's heading surface in the right pane. */
+#app-mount .header_tLZg6c,
+#app-mount .contentRegionScroller_jnk11m:has(.rolesTable_EerRtM) .customHeader_jnk11m {
+    background: var(--background-base-low) !important;
+    border-block-end-color: var(--novum-divider-color);
+}
+
+/* The default permissions card uses its own background and text colors. */
+#app-mount .container_Ax3P1g {
+    background: rgb(28 11 17 / 55%) !important;
+    border-color: var(--novum-divider-color);
+    color: var(--novum-text-dark);
+}
+
+#app-mount .container_Ax3P1g .label_Ax3P1g,
+#app-mount .container_Ax3P1g .icon_Ax3P1g {
+    color: var(--novum-text-light);
+}
+
+#app-mount .container_Ax3P1g .icon_Ax3P1g,
+#app-mount .container_Ax3P1g:is(:hover, :focus-visible) {
+    background: var(--main-color-semitransparent-selected) !important;
+}
+
+#app-mount .roleRow_YEKbw3 .roleName_YEKbw3 {
+    color: var(--novum-text-dark);
+}
+
+#app-mount .roleRow_YEKbw3:not(.roleRowDisableHover_YEKbw3):is(:hover, :focus-visible) {
+    background-color: var(--main-color-semitransparent) !important;
+}
+
+#app-mount .roleRow_YEKbw3:is(:hover, :focus-visible) .roleName_YEKbw3 {
+    color: var(--novum-text-light);
+}
+
+/* Let the wallpaper show through the member sidebar and server member table. */
+#app-mount .container_86es0b {
+    background: rgb(19 8 13 / 63%) !important;
+    border-inline-start-color: var(--novum-divider-color);
+}
+
+#app-mount .container_86es0b :is(.membersWrap_86es0b, .members_86es0b, .member_86es0b),
+#app-mount :is(.chat_z_gUBg, .chatContent_z_gUBg, .content_z_gUBg):has(.mainTableContainer_-blG2T) {
+    background: transparent !important;
+}
+
+#app-mount .mainTableContainer_-blG2T {
+    background: rgb(19 8 13 / 63%) !important;
+}
+
+/* Server settings cards, lists and previews. */
+:is(
+    .checklist_BFckb0,
+    .container_4RYWy2,
+    .descriptionBox_5tsZcq,
+    .analyticsCard_4_3FtQ,
+    .developerPortalCtaWrapper_CY6BMW,
+    .onboardingStepContainer_JssJMN,
+    .container_Relppt,
+    .item_Relppt,
+    .notice_SUjSf4,
+    .review_SUjSf4,
+    .reviewHeader_SUjSf4,
+    .upsellContainer_KrGPlR,
+    .scrollerContainer_zS9TPG,
+    .safetyChecklist_FLhhV_,
+    .changelog_FLhhV_,
+    .safetyTable_l1jyxT,
+    .safetySettingsNotice_TXFoTt,
+    .channelRow_R3nPjw,
+    .joinOptions_i0EgQh,
+    .wrapper_wc8r43,
+    .placeholderCard_7tmNTL,
+    .profilePreview_mL61Cw
+) {
+    background-color: rgb(28 11 17 / 62%) !important;
+    border-color: var(--novum-divider-color);
+}
+
+/* Keep nested cards and footers from covering the translucent outer surface. */
+.upsellContainer_KrGPlR .upsellFooter_KrGPlR,
+.scrollerContainer_zS9TPG .bannedUser_zS9TPG,
+.profilePreviewContainer_mL61Cw,
+.profilePreview_mL61Cw .body_Xweo-z {
+    background-color: transparent !important;
+}
+
+.bannedUser_zS9TPG:hover {
+    background-color: var(--main-color-semitransparent) !important;
+}
+
+:is(.divider_5tsZcq, .separator_4RYWy2, .divider_FLhhV_, .separator_R3nPjw, .divider_mL61Cw) {
+    background-color: var(--novum-divider-color);
+}
+
+/* Settings change notices and the server-name menu open above the page. */
+:is(
+    .container_aTnRjo,
+    .saveNoticeContainer_UyQMSC .messageContainer_UyQMSC,
+    .pendingChangesToolbar_s3DB6Y,
+    :is(#guild-header-popout, [role="menu"]:has(#guild-header-popout-settings))
+) {
+    background: rgb(28 11 17 / 88%) !important;
+    border-color: var(--novum-divider-color);
+    backdrop-filter: blur(10px);
+}
+
+:is(#guild-header-popout, [role="menu"]:has(#guild-header-popout-settings))
+    .item_M3qk4j.colorDefault_M3qk4j:is(:hover, .focused_M3qk4j) {
+    background-color: var(--main-color-semitransparent-selected);
+    color: var(--novum-text-light);
+}
+
+/* Onboarding, safety and server access controls. */
+:is(.onboardingContainer_r_cyVx, .onboardingStepContainer_JssJMN, .container_Relppt, .review_SUjSf4, .safetyChecklist_FLhhV_) {
+    --control-primary-background-default: var(--main-color);
+    --control-primary-background-hover: var(--main-color-selected);
+    --control-primary-background-active: var(--main-color-selected);
+    --control-primary-text-default: var(--novum-text-light);
+    --control-primary-text-hover: var(--novum-text-light);
+    --control-primary-text-active: var(--novum-text-light);
+    --control-secondary-background-default: var(--main-color-semitransparent);
+    --control-secondary-background-hover: var(--main-color-semitransparent-selected);
+    --control-secondary-background-active: var(--main-color-semitransparent-selected);
+    --control-secondary-text-default: var(--novum-text-light);
+    --control-secondary-text-hover: var(--novum-text-light);
+    --control-secondary-text-active: var(--novum-text-light);
+}
+
+.joinOptions_i0EgQh .joinOptionTab_i0EgQh[aria-disabled="false"]:hover .joinOptionContent_i0EgQh {
+    background: var(--main-color-semitransparent);
+}
+
+.joinOptions_i0EgQh .joinOptionContent_i0EgQh.active_i0EgQh {
+    background: var(--main-color-semitransparent-selected) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.container_aTnRjo .lookFilled_9OQtot.colorGreen_9OQtot:not(:disabled),
+:is(.container_aTnRjo, .pendingChangesToolbar_s3DB6Y) .primary_F7qvhY:not(:disabled) {
+    background-color: var(--main-color);
+    color: var(--novum-text-light);
+}
+
+.container_aTnRjo .lookFilled_9OQtot.colorGreen_9OQtot:not(:disabled):hover,
+:is(.container_aTnRjo, .pendingChangesToolbar_s3DB6Y) .primary_F7qvhY:not(:disabled):hover {
+    background-color: var(--main-color-selected);
+}
+
+/* Use the same backdrop as the other settings pages, below the audit cards. */
+#app-mount .contentRegion_jnk11m:has(.scroller_ohxi6x),
+#app-mount .content_ohxi6x {
+    background: transparent !important;
+}
+
+#app-mount .scroller_ohxi6x {
+    background: rgb(19 8 13 / 81%) !important;
+}
+
+.content_ohxi6x {
+    --card-background-default: rgb(28 11 17 / 62%);
+    --card-secondary-bg: rgb(54 20 29 / 63%);
+}
+
+/* Sticker tiers use separate cards for the header, grid and empty states. */
+.tier_no-mtA:has(.grid_7tmNTL, .emptyTierWrapper_7tmNTL) {
+    background-color: transparent;
+    border-color: var(--novum-divider-color);
+    --card-background-default: rgb(28 11 17 / 62%);
+    --background-mod-subtle: rgb(54 20 29 / 63%);
+    --background-mod-muted: rgb(54 20 29 / 63%);
+    --background-surface-high: rgb(54 20 29 / 63%);
+    --guild-boosting-blue-for-gradients: rgb(126 40 51 / 75%);
+    --guild-boosting-purple-for-gradients: rgb(69 21 34 / 75%);
+}
+
+.tier_no-mtA:has(.grid_7tmNTL, .emptyTierWrapper_7tmNTL) .tierHeader_no-mtA {
+    border-block-end-color: var(--novum-divider-color);
+}
+
+.grid_7tmNTL :is(.uploadCard_7tmNTL, .emptyTierWrapper_7tmNTL),
+.tier_no-mtA .emptyTierWrapper_7tmNTL {
+    background-color: rgb(28 11 17 / 55%);
+}
+
+/* Onboarding previews, after-join questions and Server Guide cards. */
+.onboardingContainer_r_cyVx :is(
+    .container__YOXq0,
+    .container_-DYsIl,
+    .optionCard_qZfI5R:not(.hasError_qZfI5R),
+    .channelCoverage_2nqf8W,
+    .rightColumn_nhgNJ0,
+    .actionItem_nhgNJ0,
+    .resourceChannel_nhgNJ0,
+    .suggestedChannels_nhgNJ0
+) {
+    background-color: rgb(28 11 17 / 62%) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.onboardingContainer_r_cyVx :is(.header__YOXq0, .channelCoverageDetails_2nqf8W) {
+    background-color: rgb(54 20 29 / 55%);
+}
+
+.onboardingContainer_r_cyVx :is(.divider__YOXq0, .sectionSeparator_nhgNJ0, .suggestedSeparator_nhgNJ0) {
+    background-color: var(--novum-divider-color);
+}
+
+.page_nhgNJ0 .previewImage_nhgNJ0 {
+    border-radius: var(--radius-md);
+    opacity: 0.85;
+    mix-blend-mode: luminosity;
+}
+
+.page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0, .uploadButton_nhgNJ0, .addActionItem_nhgNJ0, .actionItemEditButton_nhgNJ0),
+.onboardingContainer_r_cyVx .addPrompt_2nqf8W {
+    background-color: var(--main-color-semitransparent);
+    border-color: var(--novum-divider-color);
+    color: var(--novum-text-light);
+}
+
+.page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0, .uploadButton_nhgNJ0, .addActionItem_nhgNJ0, .actionItemEditButton_nhgNJ0):is(:hover, :focus-visible),
+.page_nhgNJ0 [role="tab"][aria-selected="true"],
+.onboardingContainer_r_cyVx .addPrompt_2nqf8W:is(:hover, :focus-visible) {
+    background-color: var(--main-color-semitransparent-selected);
+    color: var(--novum-text-light);
+}
+
+/* Access rules and their editable rows. */
+:is(.rules_dkXc93, .rulesTable_aaAuHv) {
+    background-color: rgb(28 11 17 / 62%) !important;
+    --input-background-default: rgb(19 8 13 / 65%);
+    --input-border-default: var(--novum-divider-color);
+}
+
+:is(.rules_dkXc93, .rulesContainer_Goax4j) .rulesTextAreaInput_Goax4j {
+    background-color: rgb(19 8 13 / 65%) !important;
+    color: var(--novum-text-light);
+}
+
+:is(.rules_dkXc93, .rulesContainer_Goax4j) .pill_Goax4j {
+    background-color: var(--main-color-semitransparent);
+    color: var(--novum-text-light);
+}
+
+.rulesTable_aaAuHv .ruleContainer_aaAuHv {
+    border-block-start-color: var(--novum-divider-color);
+}
+
+/* Controls in the deeper server safety pages and AutoMod. */
+:is(.simpleItemWrapper_NKrv-e, .itemBodyInner_NKrv-e, .backgroundModifierContainer_zYsR7a) {
+    background-color: rgb(28 11 17 / 62%) !important;
+}
+
+:is(.simpleItemWrapper_NKrv-e, .itemBodyInner_NKrv-e) {
+    border-color: var(--novum-divider-color);
+}
+
+:is(.contentRegionScroller_jnk11m, .onboardingContainer_r_cyVx)
+    :is(.clickable_NKrv-e, .valuePill_NKrv-e) {
+    background-color: var(--main-color-semitransparent);
+    color: var(--novum-text-light);
+}
+
+:is(.contentRegionScroller_jnk11m, .onboardingContainer_r_cyVx)
+    :is(.clickable_NKrv-e, .valuePill_NKrv-e):is(:hover, :focus-visible) {
+    background-color: var(--main-color-semitransparent-selected);
+}
+
+.contentRegionScroller_jnk11m:has(.header_NKrv-e, .categoryContainer_JPK15v) {
+    --control-primary-background-default: var(--main-color);
+    --control-primary-background-hover: var(--main-color-selected);
+    --control-primary-background-active: var(--main-color-selected);
+    --control-secondary-background-default: var(--main-color-semitransparent);
+    --control-secondary-background-hover: var(--main-color-semitransparent-selected);
+    --control-secondary-background-active: var(--main-color-semitransparent-selected);
+    --control-primary-text-default: var(--novum-text-light);
+    --control-secondary-text-default: var(--novum-text-light);
+}
+
+/* The Server Guide preview is an image with a separate tab switcher. */
+.page_nhgNJ0 .rightColumn_nhgNJ0 {
+    align-self: start;
+    padding: 12px;
+    border-radius: var(--radius-md);
+    isolation: isolate;
+    background:
+        linear-gradient(rgb(28 11 17 / 70%), rgb(28 11 17 / 70%)),
+        var(--novum-local-wallpaper) center / cover no-repeat #170c11 !important;
+}
+
+.page_nhgNJ0 .rightColumn_nhgNJ0 .previewImage_nhgNJ0 {
+    outline: 1px solid var(--novum-divider-color);
+    outline-offset: -1px;
+}
+
+.page_nhgNJ0 .rightColumn_nhgNJ0 [role="tab"]:not([aria-selected="true"]) {
+    color: var(--novum-text-dark);
+}
+
+/* Keep the security back action sized to its label. */
+.back_NKrv-e {
+    inline-size: fit-content;
+    max-inline-size: 100%;
+}
+
+.back_NKrv-e .backButton_NKrv-e {
+    display: inline-flex;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    background-color: var(--main-color-semitransparent);
+    color: var(--novum-text-light);
+}
+
+.back_NKrv-e:is(:hover, :focus-visible) .backButton_NKrv-e {
+    background-color: var(--main-color-semitransparent-selected);
+}
+
+/* Raid activity alerts share the safety card palette and field styling. */
+.editCard_xX0l5K:has(.itemWrapper_NKrv-e) {
+    --card-background-default: rgb(28 11 17 / 62%);
+    --background-base-lower: rgb(28 11 17 / 62%);
+    --background-mod-normal: rgb(54 20 29 / 50%);
+    --input-background-default: rgb(19 8 13 / 65%);
+    background-color: var(--card-background-default) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.editCard_xX0l5K:has(.itemWrapper_NKrv-e) .innerHeader_xX0l5K {
+    background-color: transparent;
+}
+
+.editCard_xX0l5K .itemBodyInner_NKrv-e {
+    background-color: transparent !important;
+}
+
+/* AutoMod keeps its native card structure and uses Novum colors. */
+.categoryContainer_JPK15v {
+    --card-background-default: rgb(28 11 17 / 62%);
+    --card-secondary-bg: rgb(54 20 29 / 52%);
+    --background-base-low: rgb(28 11 17 / 62%);
+    --background-base-lower: rgb(28 11 17 / 62%);
+    --background-mod-subtle: rgb(54 20 29 / 38%);
+    --background-mod-normal: rgb(54 20 29 / 52%);
+    --background-surface-high: rgb(28 11 17 / 62%);
+    --border-subtle: var(--novum-divider-color);
+    --interactive-background-hover: var(--main-color-semitransparent);
+}
+
+/* Popup surfaces are rendered on their own layers. */
+:is([role="dialog"], [data-mana-component="modal"], [data-mana-component="layer-modal"], .root__KoJTP, .panel_BfN7RR) {
+    --modal-background: rgb(28 11 17 / 90%);
+    --modal-footer-background: rgb(19 8 13 / 65%);
+}
+
+:is([data-mana-component="modal"], .root__KoJTP, .panel_BfN7RR) {
+    background-color: var(--modal-background);
+    border-color: var(--novum-divider-color);
+    backdrop-filter: blur(10px);
+}
+
+:is(.menu_M3qk4j, .selectDropdown_vWC4bk) {
+    --background-surface-high: rgb(28 11 17 / 88%);
+    --background-surface-higher: rgb(28 11 17 / 88%);
+    --interactive-background-hover: var(--main-color-semitransparent-selected);
+    border-color: var(--novum-divider-color);
+    backdrop-filter: blur(10px);
+}
+
+/* Server Tag badge picker, actions and message preview. */
+.container_SMlho9 {
+    --control-primary-background-default: var(--main-color);
+    --control-primary-background-hover: var(--main-color-selected);
+    --control-primary-background-active: var(--main-color-selected);
+    --control-primary-text-default: var(--novum-text-light);
+    --control-secondary-background-default: var(--main-color-semitransparent);
+    --control-secondary-background-hover: var(--main-color-semitransparent-selected);
+    --control-secondary-background-active: var(--main-color-semitransparent-selected);
+    --control-secondary-text-default: var(--novum-text-light);
+}
+
+.container_SMlho9 :is(.tagInputWrapper_SMlho9, .pickerItem_SMlho9, .container_YRgiYF, .container_ZcHFUr) {
+    background-color: rgb(28 11 17 / 62%) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.container_SMlho9 .pickerItem_SMlho9:is(.pickerItemSelected_SMlho9, :focus-visible, :not(:disabled):hover) {
+    background-color: var(--main-color-semitransparent-selected) !important;
+    border-color: var(--accent-saturated);
+}
+
+.container_SMlho9 .divider_ZcHFUr {
+    background-color: var(--novum-divider-color);
+}
+
+/* The unpublished Server Web Page notice is the header of the checklist. */
+.settingsContainer_BFckb0 .container_4RYWy2 {
+    background-color: rgb(28 11 17 / 62%) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.settingsContainer_BFckb0 .container_4RYWy2 .header_4RYWy2 {
+    background-color: rgb(54 20 29 / 45%) !important;
+}
+
+/* Center the radio and leading icon within each option row. */
+.radioGroupOption_oJuRbG {
+    padding-block: 8px;
+    padding-inline-start: calc(var(--custom-radio-text-start) + 10px);
+    padding-inline-end: 10px;
+}
+
+.radioGroupOption_oJuRbG.withLeadingIcon_oJuRbG {
+    padding-inline-start: calc(var(--custom-radio-text-start) + var(--custom-radio-icon-offset) + 10px);
+}
+
+.radioGroupOption_oJuRbG :is(.radioIndicator_oJuRbG, .radioItemIcon_oJuRbG) {
+    inset-block-start: 50%;
+    translate: 0 -50%;
+}
+
+.radioGroupOption_oJuRbG .radioIndicator_oJuRbG {
+    inset-inline-start: 10px;
+}
+
+.radioGroupOption_oJuRbG .radioItemIcon_oJuRbG {
+    inset-inline-start: calc(var(--custom-radio-text-start) + 10px);
+}
+
+/* Active text fields use a red focus ring. */
+:is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
+    --input-border-active: var(--accent-saturated) !important;
+}
+
+.wrapper_UcGqzv:not([data-read-only="true"], [data-error="true"]):has(input:focus, textarea:focus),
+.tagInputWrapper_SMlho9:focus-within {
+    --border-focus: var(--accent-saturated);
+    --focus: var(--accent-saturated);
+    outline-color: var(--accent-saturated);
+}
+
+/* Server Tag enable switch and its settings row. */
+.enableSwitchContainer_SMlho9 {
+    background-color: rgb(28 11 17 / 62%) !important;
+    --switch-background-selected-default: var(--main-color);
+    --switch-background-selected-hover: var(--main-color-selected);
+    --switch-border-selected-default: var(--novum-divider-color);
+    --switch-border-selected-hover: var(--accent-saturated);
+}
+
+.container_9AraPt:has(input:checked) .switchIndicator_9AraPt {
+    background-color: var(--main-color) !important;
+    border-color: var(--novum-divider-color) !important;
+}
+
+.container_9AraPt:not([data-disabled]):has(input:checked):hover .switchIndicator_9AraPt {
+    background-color: var(--main-color-selected) !important;
+    border-color: var(--accent-saturated) !important;
+}
+
+/* Shared button, radio and switch colors. */
+:is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
+    --control-primary-background-default: var(--main-color) !important;
+    --control-primary-background-hover: var(--main-color-selected) !important;
+    --control-primary-background-active: var(--main-color-selected) !important;
+    --control-primary-border-default: var(--novum-divider-color) !important;
+    --control-primary-border-hover: var(--accent-saturated) !important;
+    --control-primary-border-active: var(--accent-saturated) !important;
+    --control-primary-text-default: var(--novum-text-light) !important;
+    --control-primary-text-hover: var(--novum-text-light) !important;
+    --control-primary-text-active: var(--novum-text-light) !important;
+    --button-outline-brand-background-hover: var(--main-color-semitransparent) !important;
+    --button-outline-brand-border-active: var(--accent-saturated) !important;
+
+    --control-secondary-background-default: var(--main-color-semitransparent) !important;
+    --control-secondary-background-hover: var(--main-color-semitransparent-selected) !important;
+    --control-secondary-background-active: var(--main-color-semitransparent-selected) !important;
+    --control-secondary-border-default: var(--novum-divider-color) !important;
+    --control-secondary-border-hover: var(--accent-saturated) !important;
+    --control-secondary-border-active: var(--accent-saturated) !important;
+    --control-secondary-text-default: var(--novum-text-light) !important;
+    --control-secondary-text-hover: var(--novum-text-light) !important;
+    --control-secondary-text-active: var(--novum-text-light) !important;
+    --control-secondary-icon-default: var(--novum-text-light) !important;
+    --control-secondary-icon-hover: var(--novum-text-light) !important;
+    --control-secondary-icon-active: var(--novum-text-light) !important;
+
+    --control-overlay-secondary-background-default: var(--main-color-semitransparent) !important;
+    --control-overlay-secondary-background-hover: var(--main-color-semitransparent-selected) !important;
+    --control-overlay-secondary-background-active: var(--main-color-semitransparent-selected) !important;
+    --control-overlay-secondary-border-default: var(--novum-divider-color) !important;
+    --control-overlay-secondary-border-hover: var(--accent-saturated) !important;
+    --control-overlay-secondary-border-active: var(--accent-saturated) !important;
+    --control-overlay-secondary-text-default: var(--novum-text-light) !important;
+    --control-overlay-secondary-text-hover: var(--novum-text-light) !important;
+    --control-overlay-secondary-text-active: var(--novum-text-light) !important;
+    --control-overlay-secondary-icon-default: var(--novum-text-light) !important;
+    --control-overlay-secondary-icon-hover: var(--novum-text-light) !important;
+    --control-overlay-secondary-icon-active: var(--novum-text-light) !important;
+
+    --control-overlay-primary-background-default: var(--main-color) !important;
+    --control-overlay-primary-background-hover: var(--main-color-selected) !important;
+    --control-overlay-primary-background-active: var(--main-color-selected) !important;
+    --control-overlay-primary-border-default: var(--novum-divider-color) !important;
+    --control-overlay-primary-border-hover: var(--accent-saturated) !important;
+    --control-overlay-primary-border-active: var(--accent-saturated) !important;
+    --control-overlay-primary-text-default: var(--novum-text-light) !important;
+    --control-overlay-primary-text-hover: var(--novum-text-light) !important;
+    --control-overlay-primary-text-active: var(--novum-text-light) !important;
+    --control-overlay-primary-icon-default: var(--novum-text-light) !important;
+    --control-overlay-primary-icon-hover: var(--novum-text-light) !important;
+    --control-overlay-primary-icon-active: var(--novum-text-light) !important;
+
+    --control-expressive-background-default: var(--main-color) !important;
+    --control-expressive-background-hover: var(--main-color-selected) !important;
+    --control-expressive-background-active: var(--main-color-selected) !important;
+    --control-expressive-border-default: var(--novum-divider-color) !important;
+    --control-expressive-border-hover: var(--accent-saturated) !important;
+    --control-expressive-border-active: var(--accent-saturated) !important;
+    --control-expressive-text-default: var(--novum-text-light) !important;
+    --control-expressive-text-hover: var(--novum-text-light) !important;
+    --control-expressive-text-active: var(--novum-text-light) !important;
+    --control-expressive-icon-default: var(--novum-text-light) !important;
+    --control-expressive-icon-hover: var(--novum-text-light) !important;
+    --control-expressive-icon-active: var(--novum-text-light) !important;
+
+    --control-connected-background-default: var(--main-color-semitransparent-selected) !important;
+    --control-connected-background-hover: var(--main-color) !important;
+    --control-connected-background-active: var(--main-color) !important;
+    --control-connected-border-default: var(--novum-divider-color) !important;
+    --control-connected-border-hover: var(--accent-saturated) !important;
+    --control-connected-border-active: var(--accent-saturated) !important;
+    --control-connected-text-default: var(--novum-text-light) !important;
+    --control-connected-text-hover: var(--novum-text-light) !important;
+    --control-connected-text-active: var(--novum-text-light) !important;
+    --control-connected-icon-default: var(--novum-text-light) !important;
+    --control-connected-icon-hover: var(--novum-text-light) !important;
+    --control-connected-icon-active: var(--novum-text-light) !important;
+
+    --control-icon-only-background-hover: var(--main-color-semitransparent) !important;
+    --control-icon-only-background-active: var(--main-color-semitransparent-selected) !important;
+    --control-icon-only-border-hover: var(--novum-divider-color) !important;
+    --control-icon-only-border-active: var(--accent-saturated) !important;
+
+    --radio-background-default: rgb(19 8 13 / 72%) !important;
+    --radio-background-hover: var(--main-color-semitransparent) !important;
+    --radio-background-active: var(--main-color-semitransparent-selected) !important;
+    --radio-background-selected-default: var(--main-color) !important;
+    --radio-background-selected-hover: var(--main-color-selected) !important;
+    --radio-border-default: var(--novum-divider-color) !important;
+    --radio-border-hover: var(--accent-saturated) !important;
+    --radio-border-active: var(--accent-saturated) !important;
+    --radio-border-selected-default: var(--accent-saturated) !important;
+    --radio-border-selected-hover: var(--novum-text-light) !important;
+    --radio-thumb-background-active: var(--novum-text-light) !important;
+    --switch-background-selected-default: var(--main-color) !important;
+    --switch-background-selected-hover: var(--main-color-selected) !important;
+    --switch-border-selected-default: var(--novum-divider-color) !important;
+    --switch-border-selected-hover: var(--accent-saturated) !important;
+
+    --checkbox-background-selected-default: var(--main-color) !important;
+    --checkbox-background-selected-hover: var(--main-color-selected) !important;
+    --checkbox-border-selected-default: var(--novum-divider-color) !important;
+    --checkbox-border-selected-hover: var(--accent-saturated) !important;
+}
+
+:is(.colorBrand_9OQtot, .colorLink_9OQtot, .lookLink_9OQtot.colorPrimary_9OQtot) {
+    --brand-360: var(--novum-text-light);
+    --brand-500: var(--accent-saturated);
+}
+
+/* Radio option cards share the same states in settings and popups. */
+.radioGroupOption_oJuRbG:not([data-disabled]) {
+    background-color: rgb(19 8 13 / 45%);
+}
+
+.radioGroupOption_oJuRbG:is([data-selected], :hover, :focus-visible):not([data-disabled]) {
+    background-color: var(--main-color-semitransparent-selected);
+}
+
+/* Style select triggers, their popouts and the rendered options. */
+.selectField_vWC4bk:not(.isInert_vWC4bk) {
+    --custom-input-background-color: rgb(28 11 17 / 62%);
+    --custom-input-border-color: var(--novum-divider-color);
+    --custom-input-focus-border-color: var(--accent-saturated);
+}
+
+.selectDropdown_vWC4bk {
+    background-color: rgb(28 11 17 / 88%) !important;
+    border-color: var(--novum-divider-color);
+}
+
+.selectDropdown_vWC4bk .listBoxItem_b5PEJH[aria-selected="true"]:not([aria-disabled="true"]),
+.selectDropdown_vWC4bk .listBoxItem_b5PEJH:not([aria-disabled="true"]):is(:hover, :focus-visible, [data-focus-visible="true"]) {
+    background-color: var(--main-color-semitransparent-selected);
+}
+
+.menu_M3qk4j .item_M3qk4j.colorDefault_M3qk4j:not([aria-disabled="true"]):is(:hover, .focused_M3qk4j) {
+    background-color: var(--main-color-semitransparent-selected);
+    color: var(--novum-text-light);
+}
+
+/* Expressive buttons use the shared red fill instead of separate animated artwork. */
+.expressiveWrapper_F7qvhY :is(.expressiveRive_F7qvhY, .expressiveBackground_F7qvhY) {
+    visibility: hidden;
+}
+
+/* Keep destructive actions distinct within the same red palette. */
+:is(.critical-primary_F7qvhY, .lookFilled_9OQtot.colorRed_9OQtot) {
+    --control-critical-primary-background-default: #80232d;
+    --control-critical-primary-background-hover: #962b36;
+    --control-critical-primary-background-active: #962b36;
+    --control-critical-primary-border-default: var(--accent-saturated);
+    --control-critical-primary-text-default: var(--novum-text-light);
+}
+
+:is(.button_F7qvhY, .lookFilled_9OQtot, .lookOutlined_9OQtot, .lookLink_9OQtot):focus-visible {
+    --border-focus: var(--accent-saturated);
+    --focus: var(--accent-saturated);
+    outline-color: var(--accent-saturated);
+}
+
+/* The older channel select puts state on the outer control and paint on its child. */
+.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-disabled="true"], [aria-invalid="true"])
+    > .select_uFkqU2 {
+    --custom-input-background-color: rgb(28 11 17 / 62%);
+    --custom-input-border-color: var(--novum-divider-color);
+    --custom-input-hover-border-color: var(--accent-saturated);
+    --custom-input-focus-border-color: var(--accent-saturated);
+    background-color: var(--custom-input-background-color) !important;
+    border-color: var(--novum-divider-color);
+    color: var(--novum-text-light);
+}
+
+.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-invalid="true"]) {
+    --focus: var(--accent-saturated);
+    --border-focus: var(--accent-saturated);
+}
+
+.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-disabled="true"], [aria-invalid="true"])
+    :is(.select_uFkqU2:hover, .select_uFkqU2:focus-within) {
+    border-color: var(--accent-saturated);
+}
+
+.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:is(:focus-visible, [aria-expanded="true"]):not([aria-invalid="true"])
+    > .select_uFkqU2 {
+    border-color: var(--accent-saturated);
+    outline-color: var(--accent-saturated);
+}
+
+.popout_uFkqU2[role="listbox"] {
+    background: rgb(28 11 17 / 88%) !important;
+    border-color: var(--novum-divider-color);
+    backdrop-filter: blur(10px);
+}
+
+.popout_uFkqU2 .option_uFkqU2:not([aria-disabled="true"]):is([aria-selected="true"], .focused_uFkqU2, :hover, :focus-visible) {
+    background-color: var(--main-color-semitransparent-selected);
+    color: var(--novum-text-light);
+}
+
+.popout_uFkqU2 .selectedIcon_uFkqU2 {
+    color: var(--accent-saturated);
+}
+
+/* Custom buttons can read the brand palette directly instead of control colors. */
+:where(
+    button,
+    [role="button"],
+    .activeButton_0MrDiE,
+    .selectorButtonSelected_xCDvT_,
+    .button_plpOf8,
+    .sendButton_bWT6VE,
+    .subButton_9n0AUP
+) {
+    --brand-200: #ffd5d5;
+    --brand-360: var(--novum-text-light);
+    --brand-400: #ffa0a0;
+    --brand-430: var(--accent-saturated);
+    --brand-460: #dc5c60;
+    --brand-500: var(--main-color);
+    --brand-530: var(--main-color-selected);
+    --brand-560: #94272f;
+    --brand-600: #85232c;
+    --brand-500-hsl: 0 59% 38%;
+    --brand-530-hsl: 0 57% 43%;
+    --blurple-50: var(--main-color);
+    --blurple-60: var(--main-color-selected);
+    --blurple-65: #85232c;
+}
+
+/* Apply the button palette on the painted element as well as its theme variables. */
+:is(.primary_F7qvhY, .lookFilled_9OQtot.colorBrand_9OQtot) {
+    background-color: var(--main-color) !important;
+    border-color: var(--novum-divider-color);
+    color: var(--novum-text-light);
+}
+
+:is(.primary_F7qvhY, .lookFilled_9OQtot.colorBrand_9OQtot):not(:disabled, [aria-disabled="true"]):is(:hover, :active, :focus-visible) {
+    background-color: var(--main-color-selected) !important;
+    border-color: var(--accent-saturated);
+}
+
+/* Server-list hover cards and their member previews. */
+:is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp):has(.guildTooltipWrapper__-eZlF, .memberListWrapper_OC_CcB),
+.voiceChannelListInvite_OC_CcB {
+    --background-surface-high: rgb(28 11 17 / 88%);
+    --tooltip-pointer-bg: var(--background-surface-high);
+    --border-subtle: var(--novum-divider-color);
+    background: var(--background-surface-high) !important;
+    backdrop-filter: blur(10px);
+}
+
+.container_OC_CcB .header_OC_CcB {
+    background-color: rgb(54 20 29 / 45%);
+    box-shadow: inset 0 -1px var(--novum-divider-color);
+}
+
+.guildTooltipWrapper__-eZlF .guildNameText__-eZlF,
+.container_OC_CcB .channelName_OC_CcB {
+    color: var(--novum-text-light);
+}
+
+.container_OC_CcB .footer_OC_CcB {
+    color: var(--novum-text-dark);
+}
+
+/* Unread-message banners and the compact unread-message pill. */
+.newMessagesBar_j9Vvzj,
+.newMessagesPill_j9Vvzj,
+.newMessagesClear_j9Vvzj {
+    background-color: rgb(100 27 37 / 82%) !important;
+    color: var(--novum-text-light);
+    backdrop-filter: blur(10px);
+}
+
+.newMessagesBar_j9Vvzj .barButtonAlt_j9Vvzj:is(:hover, :focus-visible),
+:is(.newMessagesPill_j9Vvzj, .newMessagesClear_j9Vvzj):is(:hover, :focus-visible) {
+    background-color: var(--main-color-selected) !important;
+}
+
+.newMessagesClear_j9Vvzj {
+    border-inline-start-color: var(--novum-divider-color);
+}
+
+/* Rich Presence hover cards, including voice-channel and stream previews. */
+:is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp, .richTooltip_ZDdyhE):has(
+    .activityNameUserActivityHover_ZbIvmP,
+    .activityVoiceChannelUserHover_ZbIvmP,
+    .assetsUserActivityHover_ZbIvmP,
+    .bodyUserActivity_1v6-1l,
+    .previewContainerUserActivity_1v6-1l
+),
+.container_DKsPd0 {
+    --background-surface-high: rgb(28 11 17 / 88%);
+    --tooltip-pointer-bg: var(--background-surface-high);
+    background: var(--background-surface-high) !important;
+    border-color: var(--novum-divider-color);
+    backdrop-filter: blur(10px);
+}
+
+.container_DKsPd0 :is(.row_DKsPd0, .contentInventoryContainer_DKsPd0) {
+    border-block-start-color: var(--novum-divider-color);
+}
+
+.previewContainerUserActivity_1v6-1l {
+    background-color: rgb(28 11 17 / 62%);
+}
+
+.activityNameUserActivityHover_ZbIvmP {
+    color: var(--novum-text-light);
+}
