@@ -385,6 +385,40 @@ Special thanks for help to: https://github.com/net-runner
     --channels-default: var(--novum-text-dark) !important;
 }
 
+/* Voice channel occupancy badge. */
+#app-mount .container_H5ozaj .wrapper_QQRrAh {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0;
+    background-color: var(--novum-floating-surface);
+}
+
+#app-mount .container_H5ozaj .wrapper_QQRrAh > :is(.users_QQRrAh, .total_QQRrAh) {
+    inline-size: auto;
+    margin-inline: 0;
+    padding-inline: 4px;
+    border-inline: 0;
+    border-radius: 0;
+    justify-self: stretch;
+    justify-content: center;
+    text-align: center;
+}
+
+#app-mount .container_H5ozaj .users_QQRrAh {
+    background-color: color-mix(in srgb, var(--main-color) 30%, var(--novum-floating-surface));
+    color: var(--accent-color);
+}
+
+#app-mount .container_H5ozaj .total_QQRrAh {
+    background-color: transparent;
+    color: var(--accent-desaturated);
+}
+
+#app-mount .container_H5ozaj .total_QQRrAh::after {
+    content: none;
+}
+
 /* Let the chat background show through message embeds. */
 #app-mount .embedFull_XyW1ZT {
     background: color-mix(in srgb, var(--background-surface-high) 25%, transparent) !important;
@@ -1203,19 +1237,30 @@ Special thanks for help to: https://github.com/net-runner
 }
 
 /* Rich Presence hover cards, including voice-channel and stream previews. */
-:is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp, .richTooltip_ZDdyhE):has(
+:is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp, .popover_81IzEA, .popoverGradientWrapper_81IzEA):has(
+    .activityDetails_ZbIvmP,
     .activityNameUserActivityHover_ZbIvmP,
     .activityVoiceChannelUserHover_ZbIvmP,
     .assetsUserActivityHover_ZbIvmP,
     .bodyUserActivity_1v6-1l,
     .previewContainerUserActivity_1v6-1l
 ),
+.streamPreview_1v6-1l,
+.richTooltip_ZDdyhE,
+.activityPopover_yDAPhH,
 .container_DKsPd0 {
     --background-surface-high: rgb(28 11 17 / 88%);
     --tooltip-pointer-bg: var(--background-surface-high);
+    --user-profile-activity-toolbar-background: var(--background-surface-high);
+    --user-profile-toolbar-border: var(--novum-divider-color);
+    --border-subtle: var(--novum-divider-color);
     background: var(--background-surface-high) !important;
     border-color: var(--novum-divider-color);
     backdrop-filter: blur(10px);
+}
+
+.streamPreview_1v6-1l .previewHover_1v6-1l {
+    background: rgb(54 20 29 / 60%);
 }
 
 .container_DKsPd0 :is(.row_DKsPd0, .contentInventoryContainer_DKsPd0) {
@@ -1228,6 +1273,83 @@ Special thanks for help to: https://github.com/net-runner
 
 .activityNameUserActivityHover_ZbIvmP {
     color: var(--novum-text-light);
+}
+
+/* Activity popovers on voice-channel participant rows. */
+.popover_81IzEA:is([class^="experimentContainer_"], [class*=" experimentContainer_"]) {
+    --background-surface-high: var(--novum-floating-surface);
+    --background-surface-higher: var(--novum-floating-surface);
+    --border-subtle: var(--novum-divider-color);
+    background: var(--novum-floating-surface) !important;
+    border-color: var(--novum-divider-color);
+    backdrop-filter: blur(10px);
+
+    > .popover_81IzEA[class*="scroller_"] {
+        background: transparent !important;
+        box-shadow: none;
+    }
+
+    > [class*="durationContainer_"] {
+        background: color-mix(in srgb, var(--main-color) 15%, transparent) !important;
+        border-color: var(--novum-divider-color);
+    }
+}
+
+/* Request-stream action in the voice participant activity popover. */
+.popover_81IzEA:is([class^="experimentContainer_"], [class*=" experimentContainer_"])
+    :is(.primary_F7qvhY, .lookFilled_9OQtot.colorBrand_9OQtot) {
+    background-color: var(--main-color-semitransparent) !important;
+    border: 1px solid var(--novum-divider-color);
+    color: color-mix(in srgb, var(--novum-text-light) 85%, white);
+
+    &:not(:disabled, [aria-disabled="true"]):is(:hover, :active, :focus-visible) {
+        background-color: var(--main-color-semitransparent-selected) !important;
+        border-color: var(--accent-saturated);
+    }
+}
+
+/* Shared surface for Discord popover cards mounted in a floating layer. */
+.clickTrapContainer_VVADeK:has(> .layer_VVADeK[id^="popout_"] > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv)) {
+    overflow: clip;
+}
+
+
+.layer_VVADeK[id^="popout_"]:has(> [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv)) {
+    --novum-popover-background: rgb(from var(--novum-floating-surface) r g b / 1);
+    --background-surface-high: var(--novum-popover-background);
+    --background-surface-higher: var(--novum-popover-background);
+    --border-subtle: var(--novum-divider-color);
+    background: transparent !important;
+    border-radius: 14px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        backdrop-filter: blur(12px);
+        pointer-events: none;
+    }
+
+    &:has(> [data-popout-animating] > .popover_81IzEA > .streamPreviewWrapper_1v6-1l) {
+        --novum-popover-background: #1d0d12;
+    }
+
+    > [data-popout-animating] {
+        position: relative;
+        background: rgb(from var(--novum-popover-background) r g b / 70%) !important;
+        border-radius: inherit;
+        opacity: 0.8;
+    }
+
+    > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv) {
+        background: transparent !important;
+
+        &::before,
+        &::after {
+            background: transparent !important;
+        }
+    }
 }
 
 /* Context menus, including submenus and legacy hover action bars. */
