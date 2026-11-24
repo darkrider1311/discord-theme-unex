@@ -1,5 +1,13 @@
 # Patch Notes
 
+## v0.3
+
+- Reorganized the stylesheet into theme variables, shared components, and page layouts. Removed older selectors that had no matching classes in the local Discord cache.
+- Consolidated the custom palette to seven red and pink base shades. Standardized CSS color declarations on RGB and replaced the old saturation-dependent colors with references to the current palette.
+- Mapped Discord's semantic colors to the shared palette so pages and component variants can inherit a consistent look.
+- Unified dropdown surfaces and item states. Extended the shared popup styling to dropdowns, context menus, submenus, and floating action bars using 12 px backdrop blur and 80% content opacity.
+- Reduced the use of `!important` to two shared overrides for control backgrounds and the **Event Details** border. The button retains its background on hover and changes only its border color.
+
 ## v0.2.1
 
 - Continued the theme as a standalone project under the filename `UNEX.theme.css`. Removed the previous project name from CSS variables, comments, metadata, and on-screen branding.
