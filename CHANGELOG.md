@@ -1,5 +1,12 @@
 # Patch Notes
 
+## v0.4.1
+
+- Matched DM headers and the Quests and Nitro pages to the shared `r1` backdrop and static blur. Removed overlapping page fills and gradients.
+- Styled Nitro reward and perk cards with the shared palette.
+- Matched Vencord Themes and Plugins cards, switches, and controls to the theme. Added blur to the Restart Required notice and dialog.
+- Made emoji, sticker, and GIF tile backgrounds and borders transparent, including hover and selection states.
+
 ## v0.4
 
 - Reduced the readable CSS from 3,278 to 1,209 lines (63% fewer) and from 102,584 to 46,310 characters (55% smaller) compared with the full v0.3.1 stylesheet. Consolidated shared surface rules, removed redundant overrides and comments, and kept the rules focused on the Discord components they style.

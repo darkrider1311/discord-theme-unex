@@ -1,7 +1,7 @@
 /**
 * @author DarkRider
 * @description Red Cyber x Demon UNEX Discord Theme
-* @version 0.4
+* @version 0.4.1
 */
 
 :is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
@@ -964,6 +964,22 @@
     }
 }
 
+#app-mount :is(.emojiItem_6OcK5D, .sticker_5z8c5P, .result_H8nOze),
+#app-mount .sticker_5z8c5P .inspectedIndicator_5z8c5P {
+    background-color: var(--t);
+    border-color: var(--t);
+    box-shadow: none;
+    outline-color: var(--t);
+}
+
+#app-mount :is(.emojiItem_6OcK5D, .sticker_5z8c5P)::before,
+#app-mount :is(.emojiItem_6OcK5D, .sticker_5z8c5P)::after,
+#app-mount .result_H8nOze::after {
+    background: var(--t);
+    border-color: var(--t);
+    box-shadow: none;
+}
+
 #app-mount .container_ejC3ZL::before {
     content: none;
 }
@@ -1091,23 +1107,45 @@
     .privateChannels_u88IQl,
     .container_zrUwGA,
     .page_iar92T,
+    .container_ZTJWQo,
     .shop_Mqg79R,
-    .homeWrapper_8iSxT3
+    .applicationStore_6U3jXZ
 ),
+#app-mount .homeWrapper_8iSxT3:not(.applicationStore_6U3jXZ *),
 #app-mount .questHomePage_iar92T:not(.page_iar92T *),
 #app-mount .shopContainer_XBXDcd:not(.shop_Mqg79R *),
-#app-mount .mainPageScroller_IRnLy8:not(.homeWrapper_8iSxT3 *) {
+#app-mount .mainPageScroller_IRnLy8:not(:is(.applicationStore_6U3jXZ, .homeWrapper_8iSxT3) *) {
     background: var(--r1);
     backdrop-filter: blur(var(--blur-static));
 }
 
 #app-mount .privateChannels_u88IQl :is(.scroller_Bce46W, .searchBarComponent_u88IQl),
 #app-mount .container_zrUwGA :is(.tabBody_zrUwGA, .nowPlayingColumn_zrUwGA),
+#app-mount .container_ZTJWQo :is(.scroller_jkJlMe, .gradient_IBwvwD),
 #app-mount .page_iar92T .questHomePage_iar92T,
+#app-mount :is(.page_iar92T, .questHomePage_iar92T) .header_iar92T,
 #app-mount .shop_Mqg79R .shopContainer_XBXDcd,
 #app-mount :is(.shop_Mqg79R, .shopContainer_XBXDcd) :is(.shopWrapper_Mqg79R, .shopScroll_Mqg79R),
+#app-mount .applicationStore_6U3jXZ :is(.homeWrapper_8iSxT3, .mainPageScroller_IRnLy8),
 #app-mount .homeWrapper_8iSxT3 .mainPageScroller_IRnLy8 {
     background: var(--t);
+}
+
+#app-mount :is(.homeWrapper_8iSxT3, .mainPageScroller_IRnLy8)
+    :is(.gradient_u8qKJM, .blurOverlay_ualTdV, .featuredTintOverlay_ualTdV) {
+    display: none;
+}
+
+#app-mount :is(.homeWrapper_8iSxT3, .mainPageScroller_IRnLy8)
+    :is(.card_ualTdV, .container_s3GN8p) {
+    background-color: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
+}
+
+#app-mount .navBar_jHfUxk {
+    background: var(--t);
+    backdrop-filter: none;
+    border-bottom-color: var(--r3);
 }
 
 #app-mount :is(.bar_3zSH5d, .titleBar_gnMEnp, .titleBar_9Aa-7R, .titleBar_ngaTpP) {
@@ -1115,7 +1153,10 @@
     backdrop-filter: blur(var(--blur-static));
 }
 
-#app-mount .base_pog62O:has(.privateChannels_u88IQl, .container_H5ozaj) {
+#app-mount .base_pog62O:has(
+    .privateChannels_u88IQl, .container_H5ozaj, .questHomePage_iar92T, .container_ZTJWQo,
+    .applicationStore_6U3jXZ, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8
+) {
     isolation: isolate;
 
     &::before {
@@ -1132,10 +1173,11 @@
         .bar_3zSH5d, .titleBar_gnMEnp, .titleBar_9Aa-7R, .titleBar_ngaTpP, .content_pog62O,
         .guilds_pog62O, .privateChannels_u88IQl, .container_zrUwGA,
         .container_H5ozaj, .chatContent_z_gUBg, .membersWrap_86es0b, .container_86es0b,
-        .title_z_gUBg, .subtitleContainer_z_gUBg, .header_XH4OpX,
-        .headerGlass_XH4OpX, .headerEllipseBackdrop_XH4OpX,
-        .page_iar92T, .questHomePage_iar92T, .shop_Mqg79R, .shopContainer_XBXDcd,
-        .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8
+        .title_z_gUBg, .subtitleContainer_z_gUBg, .themed_ybUK7Z, .header_XH4OpX,
+        .headerBar_ViLURN, .headerBar_tSk_LE, .headerBar_ETiMTD,
+        .header_zjGJlN, .headerGlass_XH4OpX, .headerEllipseBackdrop_XH4OpX,
+        .page_iar92T, .questHomePage_iar92T, .container_ZTJWQo, .shop_Mqg79R, .shopContainer_XBXDcd,
+        .applicationStore_6U3jXZ, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8
     ) {
         background: var(--t);
         backdrop-filter: none;
@@ -1206,4 +1248,63 @@
 #app-mount .markup_ku1OHH,
 .container_NdjzJd .content_3Rvb29 {
     color: var(--text-light);
+}
+
+/* Vencord settings */
+#app-mount .vc-settings-tab :is(.vc-card-base, .vc-addon-card) {
+    background: var(--r1);
+    border-color: var(--frame-color);
+}
+
+#app-mount .vc-settings-tab :is(.vc-card-warning, .vc-card-danger) {
+    border-color: var(--accent-saturated);
+}
+
+#app-mount .vc-settings-tab .vc-plugins-info-card.vc-card-warning {
+    backdrop-filter: blur(var(--blur-static));
+}
+
+#app-mount .vc-settings-tab .vc-plugins-restart-button {
+    background: var(--button-surface) !important;
+}
+
+#app-mount .vc-settings-tab .vc-switch-container {
+    --__adaptive-focus-ring-color: var(--accent-saturated);
+    background: var(--r2);
+    border: 1px solid var(--frame-color);
+
+    &.vc-switch-checked {
+        background: var(--main-color);
+    }
+
+    & .vc-switch-slider > rect {
+        fill: var(--text-light);
+    }
+
+    & .vc-switch-slider path {
+        fill: var(--accent-desaturated);
+    }
+
+    &.vc-switch-checked .vc-switch-slider path {
+        fill: var(--main-color);
+    }
+}
+
+#app-mount .vc-settings-tab :is(.vc-plugins-info-button, .vc-plugins-filter-controls .chevronButton_vWC4bk) {
+    background: var(--t);
+    border-color: var(--t);
+
+    &:is(:hover, :focus-visible) {
+        border-color: var(--accent-saturated);
+    }
+}
+
+:is(#app-mount, body) :is([role="alertdialog"], [data-mana-component="modal"])[aria-label="Restart Required" i] {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-hover));
+    border-color: var(--frame-color);
+
+    & .footer__KoJTP {
+        background: var(--t);
+    }
 }
