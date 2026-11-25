@@ -1,6 +1,14 @@
 # Patch Notes
 
-## Unreleased
+## v0.4
+
+- Reduced the readable CSS from 3,278 to 1,209 lines (63% fewer) and from 102,584 to 46,310 characters (55% smaller) compared with the full v0.3.1 stylesheet. Consolidated shared surface rules, removed redundant overrides and comments, and kept the rules focused on the Discord components they style.
+- Unified the title bar, navigation, chat, and member list on a shared `r1` backdrop. Removed overlapping fills and gradients from the message composer and member list.
+- Added separate blur controls for fixed interface surfaces, floating surfaces, and the wallpaper. Profile windows, activity cards, tooltips, and menus use the floating-surface setting.
+- Restored targeted styling for event details, voice occupancy, Friends, Quests, Shop, and Nitro. Removed promotional hover fills from composer shortcuts.
+- **Vesktop benchmark:** Median style recalculation was **95 ms** when opening Server Settings and **104 ms** when opening User Settings. The trace covers three openings per area and sums `UpdateLayoutTree` time in the first 500 ms after each click. The local test used 3 px static blur, 10 px hover blur, 0 px wallpaper blur, and 50% opacity for `r1`.
+
+## v0.3.1
 
 - Expanded the shared palette to eight RGB colors and linked more surfaces, frames, dividers, and interaction states to it.
 - Matched channel icons to the corresponding read, unread, selected, and connected channel colors. Applied the shared hover fill to messages and posts in the active-posts popout.

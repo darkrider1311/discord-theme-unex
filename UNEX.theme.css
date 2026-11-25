@@ -1,29 +1,683 @@
 /**
 * @author DarkRider
 * @description Red Cyber x Demon UNEX Discord Theme
-* @version 0.3
+* @version 0.4
 */
-:is(:root,.theme-dark,.theme-light,.theme-darker,.theme-midnight){--app-background: var(--local-wallpaper);--local-wallpaper: url("vencord:///themes/wallpaper.png");--profile-background: url("vencord:///themes/wallpaper.png");--wallpaper-blur: 1px;--r1: rgb(23 12 17 / 70%);--r2: rgb(29 13 18 / 70%);--r3: rgb(128 35 45 / 100%);--r4: rgb(153 39 39 / 100%);--r5: rgb(253 122 124 / 100%);--r6: rgb(180 122 122 / 100%);--r7: rgb(255 181 181 / 100%);--r8: rgb(43 16 20 / 70%);--accent-color: var(--text-light);--accent-desaturated: var(--r6);--accent-saturated: var(--r5);--active-accent-color: var(--main-color);--app-border-frame: var(--frame-color);--app-frame-border: var(--frame-color);--background-floating: var(--r2);--background-modifier-accent: var(--r2);--background-modifier-active: var(--r3);--background-modifier-hover: var(--r2);--background-modifier-selected: var(--r3);--background-primary: var(--t);--background-secondary: var(--t);--background-secondary-alt: var(--t);--background-tertiary: var(--r1);--button-surface: var(--r8);--button-text: var(--text-light);--button-text-selected: var(--text-light);--canvas-color: var(--r1);--channels-default: var(--r6);--critical-color: var(--r3);--critical-hover: var(--main-color);--divider-color: var(--line-color);--feedback-positive: var(--r7);--feedback-warning: var(--r5);--floating-surface: var(--surface-color);--frame-color: var(--r3);--hover-surface: var(--r8);--input-background: var(--r1);--interactive-muted: var(--r6);--line-color: var(--r3);--main-color: var(--r4);--menu-item-highlight: var(--hover-surface);--modal-background: var(--r2);--modal-footer-background: var(--r2);--page-surface: var(--surface-color);--profile-activity: var(--critical-color);--scroll-thumb-color: var(--accent-desaturated);--scrollbar-auto-track: var(--r1);--scrollbar-thin-track: var(--t);--subtle-accent-color: var(--surface-color);--surface-color: var(--r2);--t: transparent;--text-light: var(--r7);--unread-line-color: var(--r5);--app-frame-background: var(--canvas-color);--app-message-embed-secondary-text: var(--accent-desaturated);--background-gradient-app-frame: linear-gradient(var(--page-surface),var(--page-surface));--background-gradient-chat: linear-gradient(var(--page-surface),var(--page-surface));--background-gradient-high: linear-gradient(var(--floating-surface),var(--floating-surface));--background-gradient-higher: linear-gradient(var(--floating-surface),var(--floating-surface));--background-gradient-highest: linear-gradient(var(--floating-surface),var(--floating-surface));--background-gradient-low: linear-gradient(var(--page-surface),var(--page-surface));--background-gradient-lower: linear-gradient(var(--page-surface),var(--page-surface));--background-gradient-lowest: linear-gradient(var(--page-surface),var(--page-surface));--background-scrim: var(--page-surface);--background-scrim-lightbox: var(--page-surface);--background-tile-gradient-pink-end: var(--surface-color);--background-tile-gradient-pink-start: var(--canvas-color);--badge-common-background: var(--r2);--badge-common-border: var(--r3);--badge-common-text: var(--r7);--badge-critical-background: var(--r3);--badge-critical-border: var(--r5);--badge-critical-text: var(--r7);--badge-epic-background: var(--r2);--badge-epic-border-gradient-end: var(--r3);--badge-epic-border-gradient-start: var(--r3);--badge-epic-text: var(--r7);--badge-expressive-background: var(--r2);--badge-expressive-border: var(--r5);--badge-expressive-text: var(--r7);--badge-inverted-background: var(--r7);--badge-inverted-border: var(--r3);--badge-inverted-text: var(--r1);--badge-mythic-background: var(--r2);--badge-mythic-border-gradient-end: var(--r5);--badge-mythic-border-gradient-start: var(--r5);--badge-mythic-text: var(--r7);--badge-notification-background: var(--r3);--badge-notification-border: var(--r5);--badge-notification-text: var(--r7);--badge-premium-background-gradient-end: var(--r2);--badge-premium-background-gradient-mid: var(--r2);--badge-premium-background-gradient-start: var(--r2);--badge-premium-text: var(--r7);--badge-primary-background: var(--r2);--badge-primary-border: var(--r3);--badge-primary-text: var(--r7);--badge-rare-background: var(--r2);--badge-rare-border-gradient-end: var(--r3);--badge-rare-border-gradient-start: var(--r3);--badge-rare-text: var(--r7);--badge-secondary-background: var(--r2);--badge-secondary-border: var(--r3);--badge-secondary-text: var(--r7);--badge-success-background: var(--r2);--badge-success-border: var(--r3);--badge-success-text: var(--r7);--badge-warning-background: var(--r2);--badge-warning-border: var(--r3);--badge-warning-text: var(--r7);--button--underline-color: var(--accent-saturated);--chat-background-default: var(--canvas-color);--chat-text-muted: var(--accent-desaturated);--brand-05a: var(--subtle-accent-color);--brand-300: var(--accent-desaturated);--mention-background: var(--subtle-accent-color);--mention-foreground: var(--r7);--message-automod-background-default: var(--background-message-automod);--message-automod-background-hover: var(--background-message-automod-hover);--message-highlight-background-default: var(--background-message-highlight);--message-highlight-background-hover: var(--background-message-highlight-hover);--message-mentioned-background-default: var(--background-mentioned);--message-mentioned-background-hover: var(--background-mentioned-hover);--spine-default: var(--line-color);--text-code-addition: var(--r5);--text-code-attribute: var(--r5);--text-code-builtin: var(--r5);--text-code-bullet: var(--r7);--text-code-comment: var(--r6);--text-code-decorator: var(--r7);--text-code-deletion: var(--r5);--text-code-error: var(--r5);--text-code-escape: var(--r7);--text-code-keyword: var(--r5);--text-code-link: var(--r7);--text-code-namespace: var(--r7);--text-code-number: var(--r5);--text-code-operator: var(--r5);--text-code-property: var(--r7);--text-code-regexp: var(--r7);--text-code-section: var(--r7);--text-code-string: var(--r7);--text-code-tag: var(--r5);--text-code-title: var(--r7);--text-code-type: var(--r5);--text-code-variable: var(--r7);--activity-card-background: var(--canvas-color);--android-navigation-bar-background: var(--canvas-color);--android-ripple: var(--r2);--background-mentioned: var(--surface-color);--background-mentioned-hover: var(--hover-surface);--background-message-automod: var(--critical-color);--background-message-automod-hover: var(--hover-surface);--background-message-highlight: var(--main-color);--background-message-highlight-hover: var(--hover-surface);--background-message-hover: var(--hover-surface);--background-mobile-primary: var(--page-surface);--background-mobile-secondary: var(--floating-surface);--background-nested-floating: var(--floating-surface);--brand-experiment: var(--main-color);--button-danger-background: var(--critical-color);--button-danger-background-active: var(--critical-color);--button-danger-background-disabled: var(--critical-color);--button-danger-background-hover: var(--main-color);--button-outline-brand-background: var(--t);--button-outline-brand-background-active: var(--button-surface);--button-outline-brand-border: var(--accent-saturated);--button-outline-brand-border-hover: var(--accent-saturated);--button-outline-brand-text: var(--text-light);--button-outline-brand-text-active: var(--text-light);--button-outline-brand-text-hover: var(--text-light);--button-outline-danger-background: var(--t);--button-outline-danger-background-active: var(--main-color);--button-outline-danger-background-hover: var(--critical-color);--button-outline-danger-border: var(--accent-saturated);--button-outline-danger-border-active: var(--critical-color);--button-outline-danger-border-hover: var(--critical-color);--button-outline-danger-text: var(--text-light);--button-outline-danger-text-active: var(--text-light);--button-outline-danger-text-hover: var(--text-light);--button-outline-positive-background: var(--t);--button-outline-positive-background-active: var(--main-color);--button-outline-positive-background-hover: var(--critical-color);--button-outline-positive-border: var(--feedback-positive);--button-outline-positive-border-active: var(--feedback-positive);--button-outline-positive-border-hover: var(--feedback-positive);--button-outline-positive-text: var(--text-light);--button-outline-positive-text-active: var(--text-light);--button-outline-positive-text-hover: var(--text-light);--button-outline-primary-background: var(--t);--button-outline-primary-background-active: var(--button-surface);--button-outline-primary-background-hover: var(--button-surface);--button-outline-primary-border: var(--subtle-accent-color);--button-outline-primary-border-active: var(--active-accent-color);--button-outline-primary-border-hover: var(--subtle-accent-color);--button-outline-primary-text: var(--text-light);--button-outline-primary-text-active: var(--text-light);--button-outline-primary-text-hover: var(--text-light);--button-positive-background: var(--critical-color);--button-positive-background-active: var(--main-color);--button-positive-background-disabled: var(--surface-color);--button-positive-background-hover: var(--main-color);--button-secondary-background: var(--button-surface);--button-secondary-background-active: var(--button-surface);--button-secondary-background-disabled: var(--button-surface);--button-secondary-background-hover: var(--button-surface);--channel-icon: var(--accent-desaturated);--channeltextarea-background: var(--floating-surface);--chat-background: var(--page-surface);--chat-border: var(--canvas-color);--chat-input-container-background: var(--page-surface);--control-brand-foreground: var(--main-color);--control-brand-foreground-new: var(--main-color);--deprecated-card-bg: var(--surface-color);--deprecated-card-editable-bg: var(--surface-color);--deprecated-quickswitcher-input-background: var(--active-accent-color);--deprecated-quickswitcher-input-placeholder: var(--r6);--deprecated-store-bg: var(--page-surface);--deprecated-text-input-bg: var(--canvas-color);--deprecated-text-input-border: var(--r2);--deprecated-text-input-border-disabled: var(--canvas-color);--deprecated-text-input-border-hover: var(--frame-color);--deprecated-text-input-prefix: var(--text-light);--info-danger-background: var(--critical-color);--info-danger-foreground: var(--accent-saturated);--info-danger-text: var(--text-light);--info-help-background: var(--surface-color);--info-help-foreground: var(--text-light);--info-help-text: var(--text-light);--info-positive-background: var(--surface-color);--info-positive-foreground: var(--feedback-positive);--info-positive-text: var(--text-light);--info-warning-background: var(--surface-color);--info-warning-foreground: var(--feedback-warning);--info-warning-text: var(--text-light);--input-placeholder-text: var(--accent-desaturated);--logo-primary: var(--text-light);--scrollbar-auto-scrollbar-color-thumb: var(--canvas-color);--scrollbar-auto-scrollbar-color-track: var(--floating-surface);--scrollbar-auto-thumb: var(--scroll-thumb-color);--scrollbar-thin-thumb: var(--scroll-thumb-color);--spoiler-hidden-background: var(--canvas-color);--spoiler-revealed-background: var(--surface-color);--text-danger: var(--accent-saturated);--text-link-low-saturation: var(--accent-desaturated);--text-positive: var(--feedback-positive);--text-warning: var(--feedback-warning);--textbox-markdown-syntax: var(--accent-desaturated);--background-accent: var(--main-color);--background-base-low: var(--page-surface);--background-base-lower: var(--page-surface);--background-base-lowest: var(--canvas-color);--background-brand: var(--main-color);--background-code: var(--canvas-color);--background-code-addition: var(--surface-color);--background-code-deletion: var(--critical-color);--background-feedback-mod-critical: var(--critical-color);--background-feedback-mod-info: var(--subtle-accent-color);--background-feedback-mod-positive: var(--surface-color);--background-feedback-mod-warning: var(--surface-color);--background-feedback-notification: var(--subtle-accent-color);--background-feedback-positive: var(--surface-color);--background-mod-muted: var(--subtle-accent-color);--background-mod-normal: var(--active-accent-color);--background-mod-strong: var(--active-accent-color);--background-mod-subtle: var(--subtle-accent-color);--background-surface-high: var(--floating-surface);--background-surface-higher: var(--floating-surface);--background-surface-highest: var(--floating-surface);--bg-surface-raised: var(--page-surface);--border-feedback-critical: var(--accent-saturated);--border-feedback-warning: var(--feedback-warning);--border-focus: var(--accent-saturated);--border-muted: var(--frame-color);--border-normal: var(--frame-color);--border-strong: var(--accent-saturated);--border-subtle: var(--frame-color);--brand-200: var(--text-light);--brand-360: var(--text-light);--brand-400: var(--text-light);--brand-430: var(--accent-saturated);--brand-460: var(--accent-saturated);--brand-500: var(--main-color);--brand-530: var(--main-color);--brand-560: var(--main-color);--brand-600: var(--critical-color);--brand-630: var(--canvas-color);--brand-700: var(--canvas-color);--checkbox-background-default: var(--canvas-color);--checkbox-background-hover: var(--subtle-accent-color);--checkbox-border-default: var(--frame-color);--checkbox-border-hover: var(--accent-saturated);--checkbox-icon-active: var(--main-color);--control-critical-primary-background-active: var(--critical-hover);--control-critical-primary-background-default: var(--critical-color);--control-critical-primary-background-hover: var(--critical-hover);--control-critical-primary-border-active: var(--accent-saturated);--control-critical-primary-border-hover: var(--accent-saturated);--control-critical-primary-icon-default: var(--text-light);--control-critical-primary-text-active: var(--text-light);--control-critical-primary-text-hover: var(--text-light);--control-critical-secondary-background-active: var(--critical-color);--control-critical-secondary-background-default: var(--subtle-accent-color);--control-critical-secondary-background-hover: var(--critical-color);--control-critical-secondary-border-active: var(--accent-saturated);--control-critical-secondary-border-default: var(--frame-color);--control-critical-secondary-border-hover: var(--accent-saturated);--control-critical-secondary-text-active: var(--text-light);--control-critical-secondary-text-default: var(--text-light);--control-critical-secondary-text-hover: var(--text-light);--control-icon-only-icon-active: var(--text-light);--control-icon-only-icon-default: var(--accent-desaturated);--control-icon-only-icon-hover: var(--text-light);--icon-default: var(--accent-desaturated);--icon-feedback-critical: var(--accent-saturated);--icon-feedback-info: var(--text-light);--icon-feedback-notification: var(--accent-saturated);--icon-feedback-positive: var(--feedback-positive);--icon-feedback-warning: var(--feedback-warning);--icon-invert: var(--canvas-color);--icon-muted: var(--accent-desaturated);--icon-overlay-dark: var(--text-light);--icon-overlay-light: var(--canvas-color);--icon-strong: var(--text-light);--icon-subtle: var(--accent-desaturated);--input-background-default: var(--page-surface);--input-background-error-default: var(--critical-color);--input-border-default: var(--frame-color);--input-border-error-default: var(--accent-saturated);--input-border-hover: var(--accent-saturated);--input-border-readonly: var(--frame-color);--input-text-default: var(--text-light);--input-text-error-default: var(--text-light);--interactive-background-active: var(--active-accent-color);--interactive-background-hover: var(--hover-surface);--interactive-background-selected: var(--active-accent-color);--interactive-icon-active: var(--text-light);--interactive-icon-default: var(--accent-desaturated);--interactive-icon-hover: var(--text-light);--text-feedback-critical: var(--accent-saturated);--text-feedback-info: var(--text-light);--text-feedback-positive: var(--feedback-positive);--text-feedback-warning: var(--feedback-warning);--text-invert: var(--canvas-color);--text-overlay-dark: var(--text-light);--text-overlay-light: var(--canvas-color);--channel-text-area-placeholder: var(--accent-desaturated);--header-primary: var(--text-light);--header-secondary: var(--accent-desaturated);--input-placeholder-text-default: var(--accent-desaturated);--interactive-active: var(--text-light);--interactive-hover: var(--text-light);--interactive-normal: var(--accent-desaturated);--interactive-text-active: var(--text-light);--interactive-text-default: var(--accent-desaturated);--interactive-text-hover: var(--text-light);--text-brand: var(--text-light);--text-code: var(--text-light);--text-default: var(--text-light);--text-link: var(--text-light);--text-muted: var(--accent-desaturated);--text-normal: var(--text-light);--text-strong: var(--text-light);--text-subtle: var(--accent-desaturated);--input-border-active: var(--accent-saturated);--button-outline-brand-background-hover: var(--button-surface);--button-outline-brand-border-active: var(--accent-saturated);--checkbox-background-selected-default: var(--main-color);--checkbox-background-selected-hover: var(--main-color);--checkbox-border-selected-default: var(--frame-color);--checkbox-border-selected-hover: var(--accent-saturated);--control-connected-background-active: var(--button-surface);--control-connected-background-default: var(--button-surface);--control-connected-background-hover: var(--button-surface);--control-connected-border-active: var(--accent-saturated);--control-connected-border-default: var(--frame-color);--control-connected-border-hover: var(--accent-saturated);--control-connected-icon-active: var(--text-light);--control-connected-icon-default: var(--text-light);--control-connected-icon-hover: var(--text-light);--control-connected-text-active: var(--text-light);--control-connected-text-default: var(--text-light);--control-connected-text-hover: var(--text-light);--control-expressive-background-active: var(--button-surface);--control-expressive-background-default: var(--button-surface);--control-expressive-background-hover: var(--button-surface);--control-expressive-border-active: var(--accent-saturated);--control-expressive-border-default: var(--frame-color);--control-expressive-border-hover: var(--accent-saturated);--control-expressive-icon-active: var(--text-light);--control-expressive-icon-default: var(--text-light);--control-expressive-icon-hover: var(--text-light);--control-expressive-text-active: var(--text-light);--control-expressive-text-default: var(--text-light);--control-expressive-text-hover: var(--text-light);--control-icon-only-background-active: var(--button-surface);--control-icon-only-background-hover: var(--button-surface);--control-icon-only-border-active: var(--accent-saturated);--control-icon-only-border-hover: var(--frame-color);--control-overlay-primary-background-active: var(--button-surface);--control-overlay-primary-background-default: var(--button-surface);--control-overlay-primary-background-hover: var(--button-surface);--control-overlay-primary-border-active: var(--accent-saturated);--control-overlay-primary-border-default: var(--frame-color);--control-overlay-primary-border-hover: var(--accent-saturated);--control-overlay-primary-icon-active: var(--text-light);--control-overlay-primary-icon-default: var(--text-light);--control-overlay-primary-icon-hover: var(--text-light);--control-overlay-primary-text-active: var(--text-light);--control-overlay-primary-text-default: var(--text-light);--control-overlay-primary-text-hover: var(--text-light);--control-overlay-secondary-background-active: var(--button-surface);--control-overlay-secondary-background-default: var(--button-surface);--control-overlay-secondary-background-hover: var(--button-surface);--control-overlay-secondary-border-active: var(--accent-saturated);--control-overlay-secondary-border-default: var(--frame-color);--control-overlay-secondary-border-hover: var(--accent-saturated);--control-overlay-secondary-icon-active: var(--text-light);--control-overlay-secondary-icon-default: var(--text-light);--control-overlay-secondary-icon-hover: var(--text-light);--control-overlay-secondary-text-active: var(--text-light);--control-overlay-secondary-text-default: var(--text-light);--control-overlay-secondary-text-hover: var(--text-light);--control-primary-background-active: var(--button-surface);--control-primary-background-default: var(--button-surface);--control-primary-background-hover: var(--button-surface);--control-primary-border-active: var(--accent-saturated);--control-primary-border-default: var(--frame-color);--control-primary-border-hover: var(--accent-saturated);--control-primary-text-active: var(--text-light);--control-primary-text-default: var(--text-light);--control-primary-text-hover: var(--text-light);--control-secondary-background-active: var(--button-surface);--control-secondary-background-default: var(--button-surface);--control-secondary-background-hover: var(--button-surface);--control-secondary-border-active: var(--accent-saturated);--control-secondary-border-default: var(--frame-color);--control-secondary-border-hover: var(--accent-saturated);--control-secondary-icon-active: var(--text-light);--control-secondary-icon-default: var(--text-light);--control-secondary-icon-hover: var(--text-light);--control-secondary-text-active: var(--text-light);--control-secondary-text-default: var(--text-light);--control-secondary-text-hover: var(--text-light);--radio-background-active: var(--active-accent-color);--radio-background-default: var(--canvas-color);--radio-background-hover: var(--hover-surface);--radio-background-selected-default: var(--main-color);--radio-background-selected-hover: var(--hover-surface);--radio-border-active: var(--accent-saturated);--radio-border-default: var(--frame-color);--radio-border-hover: var(--accent-saturated);--radio-border-selected-default: var(--accent-saturated);--radio-border-selected-hover: var(--text-light);--radio-thumb-background-active: var(--text-light);--switch-background-selected-default: var(--main-color);--switch-background-selected-hover: var(--main-color);--switch-border-selected-default: var(--frame-color);--switch-border-selected-hover: var(--accent-saturated);--popover-blur: 12px;}
-#app-mount .bg_Fd0FEH{background: var(--local-wallpaper) center / cover no-repeat var(--canvas-color);filter: blur(var(--wallpaper-blur));}
-#app-mount :where( button:not([role="tab"],.item_ydey4M),input:is([type="button"],[type="submit"],[type="reset"]),[data-mana-component="button"],.button_F7qvhY,.button_9OQtot,[class*=circleButton],[class*=circleIconButton],.ChannelDms-channelpopout-popout > [role="button"],.popout_j5xNzb .list_j5xNzb > .row_j5xNzb:last-child,.page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0,.uploadButton_nhgNJ0,.addActionItem_nhgNJ0,.actionItemEditButton_nhgNJ0),.onboardingContainer_r_cyVx .addPrompt_2nqf8W,.back_NKrv-e .backButton_NKrv-e ){--control-fill: var(--button-surface);--connected-hover-fill: var(--button-surface);background: var(--button-surface);border: 1px solid var(--frame-color);color: var(--button-text);&:not(:disabled,[aria-disabled="true"]):is( :hover,:active,:focus-visible,:where(.iconInput_nJ7Ws3:is(:hover,:focus-within)) > :where(.button_F7qvhY[tabindex="-1"]) ){border-color: var(--accent-saturated);}}#app-mount .back_NKrv-e:is(:hover,:focus-visible) .backButton_NKrv-e{border-color: var(--accent-saturated);}#app-mount .textButton_nJgowo{border-radius: var(--radius-sm);padding: var(--space-4) var(--space-8);}#app-mount .textButton_nJgowo .text_nJgowo{text-decoration: none;}#app-mount .lookLink_9OQtot:hover > .contents_9OQtot{border-color: var(--t);text-decoration: none;}
-#app-mount .container_pog62O > .base_pog62O{background-color: var(--t);}#app-mount .markup_ku1OHH a{color: var(--accent-color);}#app-mount .sidebar_pog62O,#app-mount .chat_z_gUBg,#app-mount .members_86es0b{background: var(--t);}#app-mount .chatContent_z_gUBg,#app-mount .guilds_pog62O,#app-mount .container_H5ozaj,#app-mount .membersWrap_86es0b{background: var(--r1);}
 
-/* Server-list hover cards and their member previews. */
+:is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
+  /* Wallpaper */
+  --app-background: var(--local-wallpaper);
+  --local-wallpaper: url("vencord:///themes/wallpaper.png");
+  --profile-background: url("vencord:///themes/wallpaper.png");
+  --wallpaper-blur: 0px;
+
+  /* UI blur */
+  --blur-static: 3px;
+  --blur-hover: 10px;
+
+  /* Palette */
+  --r1: rgb(23 12 17 / 50%); /* Base surfaces */
+  --r2: rgb(29 13 18 / 70%); /* Muted fills */
+  --r3: rgb(128 35 45 / 40%); /* Frames and dividers */
+  --r4: rgb(153 39 39 / 30%); /* Active accents */
+  --r5: rgb(253 122 124 / 100%); /* Focus and hover borders */
+  --r6: rgb(180 122 122 / 100%); /* Secondary text and icons */
+  --r7: rgb(255 181 181 / 100%); /* Primary text and icons */
+  --r8: rgb(43 16 20 / 70%); /* Buttons, selections, and hover */
+
+  /* Color aliases */
+  --accent-color: var(--text-light);
+  --accent-desaturated: var(--r6);
+  --accent-saturated: var(--r5);
+  --active-accent-color: var(--main-color);
+  --app-border-frame: var(--frame-color);
+  --app-frame-border: var(--frame-color);
+  --background-floating: var(--floating-surface);
+  --background-modifier-accent: var(--r2);
+  --background-modifier-active: var(--r3);
+  --background-modifier-hover: var(--r2);
+  --background-modifier-selected: var(--r3);
+  --background-primary: var(--t);
+  --background-secondary: var(--t);
+  --background-secondary-alt: var(--t);
+  --background-tertiary: var(--r1);
+  --button-surface: var(--r8);
+  --button-text: var(--text-light);
+  --button-text-selected: var(--text-light);
+  --canvas-color: var(--r1);
+  --channels-default: var(--r6);
+  --critical-color: var(--r3);
+  --critical-hover: var(--main-color);
+  --divider-color: var(--line-color);
+  --feedback-positive: var(--r7);
+  --feedback-warning: var(--r5);
+  --floating-surface: var(--surface-color);
+  --frame-color: var(--r3);
+  --hover-surface: var(--r8);
+  --input-background: var(--r1);
+  --interactive-muted: var(--r6);
+  --line-color: var(--r3);
+  --main-color: var(--r4);
+  --menu-item-highlight: var(--hover-surface);
+  --modal-background: var(--surface-color);
+  --modal-footer-background: var(--surface-color);
+  --page-surface: var(--surface-color);
+  --profile-activity: var(--critical-color);
+  --scroll-thumb-color: var(--accent-desaturated);
+  --scrollbar-auto-track: var(--r1);
+  --scrollbar-thin-track: var(--t);
+  --subtle-accent-color: var(--r2);
+  --surface-color: var(--r1);
+  --t: transparent;
+  --text-light: var(--r7);
+  --unread-line-color: var(--r5);
+
+  /* Discord colors */
+  --app-frame-background: var(--canvas-color);
+  --app-message-embed-secondary-text: var(--accent-desaturated);
+  --background-gradient-app-frame: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-chat: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-high: linear-gradient(var(--floating-surface), var(--floating-surface));
+  --background-gradient-higher: linear-gradient(var(--floating-surface), var(--floating-surface));
+  --background-gradient-highest: linear-gradient(var(--floating-surface), var(--floating-surface));
+  --background-gradient-low: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-lower: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-lowest: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-scrim: var(--page-surface);
+  --background-scrim-lightbox: var(--page-surface);
+  --background-tile-gradient-pink-end: var(--surface-color);
+  --background-tile-gradient-pink-start: var(--canvas-color);
+  --badge-common-background: var(--r2);
+  --badge-common-border: var(--r3);
+  --badge-common-text: var(--r7);
+  --badge-critical-background: var(--r3);
+  --badge-critical-border: var(--r5);
+  --badge-critical-text: var(--r7);
+  --badge-epic-background: var(--r2);
+  --badge-epic-border-gradient-end: var(--r3);
+  --badge-epic-border-gradient-start: var(--r3);
+  --badge-epic-text: var(--r7);
+  --badge-expressive-background: var(--r2);
+  --badge-expressive-border: var(--r5);
+  --badge-expressive-text: var(--r7);
+  --badge-inverted-background: var(--r7);
+  --badge-inverted-border: var(--r3);
+  --badge-inverted-text: var(--r1);
+  --badge-mythic-background: var(--r2);
+  --badge-mythic-border-gradient-end: var(--r5);
+  --badge-mythic-border-gradient-start: var(--r5);
+  --badge-mythic-text: var(--r7);
+  --badge-notification-background: var(--r3);
+  --badge-notification-border: var(--r5);
+  --badge-notification-text: var(--r7);
+  --badge-premium-background-gradient-end: var(--r2);
+  --badge-premium-background-gradient-mid: var(--r2);
+  --badge-premium-background-gradient-start: var(--r2);
+  --badge-premium-text: var(--r7);
+  --badge-primary-background: var(--r2);
+  --badge-primary-border: var(--r3);
+  --badge-primary-text: var(--r7);
+  --badge-rare-background: var(--r2);
+  --badge-rare-border-gradient-end: var(--r3);
+  --badge-rare-border-gradient-start: var(--r3);
+  --badge-rare-text: var(--r7);
+  --badge-secondary-background: var(--r2);
+  --badge-secondary-border: var(--r3);
+  --badge-secondary-text: var(--r7);
+  --badge-success-background: var(--r2);
+  --badge-success-border: var(--r3);
+  --badge-success-text: var(--r7);
+  --badge-warning-background: var(--r2);
+  --badge-warning-border: var(--r3);
+  --badge-warning-text: var(--r7);
+  --button--underline-color: var(--accent-saturated);
+  --chat-background-default: var(--canvas-color);
+  --chat-text-muted: var(--accent-desaturated);
+  --brand-05a: var(--subtle-accent-color);
+  --brand-300: var(--accent-desaturated);
+  --mention-background: var(--subtle-accent-color);
+  --mention-foreground: var(--r7);
+  --message-automod-background-default: var(--background-message-automod);
+  --message-automod-background-hover: var(--background-message-automod-hover);
+  --message-highlight-background-default: var(--background-message-highlight);
+  --message-highlight-background-hover: var(--background-message-highlight-hover);
+  --message-mentioned-background-default: var(--background-mentioned);
+  --message-mentioned-background-hover: var(--background-mentioned-hover);
+  --spine-default: var(--line-color);
+  --text-code-addition: var(--r5);
+  --text-code-attribute: var(--r5);
+  --text-code-builtin: var(--r5);
+  --text-code-bullet: var(--r7);
+  --text-code-comment: var(--r6);
+  --text-code-decorator: var(--r7);
+  --text-code-deletion: var(--r5);
+  --text-code-error: var(--r5);
+  --text-code-escape: var(--r7);
+  --text-code-keyword: var(--r5);
+  --text-code-link: var(--r7);
+  --text-code-namespace: var(--r7);
+  --text-code-number: var(--r5);
+  --text-code-operator: var(--r5);
+  --text-code-property: var(--r7);
+  --text-code-regexp: var(--r7);
+  --text-code-section: var(--r7);
+  --text-code-string: var(--r7);
+  --text-code-tag: var(--r5);
+  --text-code-title: var(--r7);
+  --text-code-type: var(--r5);
+  --text-code-variable: var(--r7);
+
+  --activity-card-background: var(--canvas-color);
+  --android-navigation-bar-background: var(--canvas-color);
+  --android-ripple: var(--r2);
+  --background-mentioned: var(--r2);
+  --background-mentioned-hover: var(--hover-surface);
+  --background-message-automod: var(--critical-color);
+  --background-message-automod-hover: var(--hover-surface);
+  --background-message-highlight: var(--main-color);
+  --background-message-highlight-hover: var(--hover-surface);
+  --background-message-hover: var(--hover-surface);
+  --background-mobile-primary: var(--page-surface);
+  --background-mobile-secondary: var(--floating-surface);
+  --background-nested-floating: var(--floating-surface);
+  --brand-experiment: var(--main-color);
+  --button-danger-background: var(--critical-color);
+  --button-danger-background-active: var(--critical-color);
+  --button-danger-background-disabled: var(--critical-color);
+  --button-danger-background-hover: var(--main-color);
+  --button-outline-brand-background: var(--t);
+  --button-outline-brand-background-active: var(--button-surface);
+  --button-outline-brand-border: var(--accent-saturated);
+  --button-outline-brand-border-hover: var(--accent-saturated);
+  --button-outline-brand-text: var(--text-light);
+  --button-outline-brand-text-active: var(--text-light);
+  --button-outline-brand-text-hover: var(--text-light);
+  --button-outline-danger-background: var(--t);
+  --button-outline-danger-background-active: var(--main-color);
+  --button-outline-danger-background-hover: var(--critical-color);
+  --button-outline-danger-border: var(--accent-saturated);
+  --button-outline-danger-border-active: var(--critical-color);
+  --button-outline-danger-border-hover: var(--critical-color);
+  --button-outline-danger-text: var(--text-light);
+  --button-outline-danger-text-active: var(--text-light);
+  --button-outline-danger-text-hover: var(--text-light);
+  --button-outline-positive-background: var(--t);
+  --button-outline-positive-background-active: var(--main-color);
+  --button-outline-positive-background-hover: var(--critical-color);
+  --button-outline-positive-border: var(--feedback-positive);
+  --button-outline-positive-border-active: var(--feedback-positive);
+  --button-outline-positive-border-hover: var(--feedback-positive);
+  --button-outline-positive-text: var(--text-light);
+  --button-outline-positive-text-active: var(--text-light);
+  --button-outline-positive-text-hover: var(--text-light);
+  --button-outline-primary-background: var(--t);
+  --button-outline-primary-background-active: var(--button-surface);
+  --button-outline-primary-background-hover: var(--button-surface);
+  --button-outline-primary-border: var(--subtle-accent-color);
+  --button-outline-primary-border-active: var(--active-accent-color);
+  --button-outline-primary-border-hover: var(--subtle-accent-color);
+  --button-outline-primary-text: var(--text-light);
+  --button-outline-primary-text-active: var(--text-light);
+  --button-outline-primary-text-hover: var(--text-light);
+  --button-positive-background: var(--critical-color);
+  --button-positive-background-active: var(--main-color);
+  --button-positive-background-disabled: var(--surface-color);
+  --button-positive-background-hover: var(--main-color);
+  --button-secondary-background: var(--button-surface);
+  --button-secondary-background-active: var(--button-surface);
+  --button-secondary-background-disabled: var(--button-surface);
+  --button-secondary-background-hover: var(--button-surface);
+  --channel-icon: var(--accent-desaturated);
+  --channeltextarea-background: var(--floating-surface);
+  --chat-background: var(--page-surface);
+  --chat-border: var(--canvas-color);
+  --chat-input-container-background: var(--page-surface);
+  --control-brand-foreground: var(--main-color);
+  --control-brand-foreground-new: var(--main-color);
+  --deprecated-card-bg: var(--surface-color);
+  --deprecated-card-editable-bg: var(--surface-color);
+  --deprecated-quickswitcher-input-background: var(--active-accent-color);
+  --deprecated-quickswitcher-input-placeholder: var(--r6);
+  --deprecated-store-bg: var(--page-surface);
+  --deprecated-text-input-bg: var(--canvas-color);
+  --deprecated-text-input-border: var(--r2);
+  --deprecated-text-input-border-disabled: var(--canvas-color);
+  --deprecated-text-input-border-hover: var(--frame-color);
+  --deprecated-text-input-prefix: var(--text-light);
+  --info-danger-background: var(--critical-color);
+  --info-danger-foreground: var(--accent-saturated);
+  --info-danger-text: var(--text-light);
+  --info-help-background: var(--surface-color);
+  --info-help-foreground: var(--text-light);
+  --info-help-text: var(--text-light);
+  --info-positive-background: var(--surface-color);
+  --info-positive-foreground: var(--feedback-positive);
+  --info-positive-text: var(--text-light);
+  --info-warning-background: var(--surface-color);
+  --info-warning-foreground: var(--feedback-warning);
+  --info-warning-text: var(--text-light);
+  --input-placeholder-text: var(--accent-desaturated);
+  --logo-primary: var(--text-light);
+  --scrollbar-auto-scrollbar-color-thumb: var(--canvas-color);
+  --scrollbar-auto-scrollbar-color-track: var(--floating-surface);
+  --scrollbar-auto-thumb: var(--scroll-thumb-color);
+  --scrollbar-thin-thumb: var(--scroll-thumb-color);
+  --spoiler-hidden-background: var(--canvas-color);
+  --spoiler-revealed-background: var(--r2);
+  --text-danger: var(--accent-saturated);
+  --text-link-low-saturation: var(--accent-desaturated);
+  --text-positive: var(--feedback-positive);
+  --text-warning: var(--feedback-warning);
+  --textbox-markdown-syntax: var(--accent-desaturated);
+
+  --background-accent: var(--main-color);
+  --background-base-low: var(--page-surface);
+  --background-base-lower: var(--page-surface);
+  --background-base-lowest: var(--canvas-color);
+  --background-brand: var(--main-color);
+  --background-code: var(--canvas-color);
+  --background-code-addition: var(--surface-color);
+  --background-code-deletion: var(--critical-color);
+  --background-feedback-mod-critical: var(--critical-color);
+  --background-feedback-mod-info: var(--subtle-accent-color);
+  --background-feedback-mod-positive: var(--surface-color);
+  --background-feedback-mod-warning: var(--surface-color);
+  --background-feedback-notification: var(--subtle-accent-color);
+  --background-feedback-positive: var(--surface-color);
+  --background-mod-muted: var(--subtle-accent-color);
+  --background-mod-normal: var(--active-accent-color);
+  --background-mod-strong: var(--active-accent-color);
+  --background-mod-subtle: var(--subtle-accent-color);
+  --background-surface-high: var(--floating-surface);
+  --background-surface-higher: var(--floating-surface);
+  --background-surface-highest: var(--floating-surface);
+  --bg-surface-raised: var(--page-surface);
+  --border-feedback-critical: var(--accent-saturated);
+  --border-feedback-warning: var(--feedback-warning);
+  --border-focus: var(--accent-saturated);
+  --border-muted: var(--frame-color);
+  --border-normal: var(--frame-color);
+  --border-strong: var(--accent-saturated);
+  --border-subtle: var(--frame-color);
+  --brand-200: var(--text-light);
+  --brand-360: var(--text-light);
+  --brand-400: var(--text-light);
+  --brand-430: var(--accent-saturated);
+  --brand-460: var(--accent-saturated);
+  --brand-500: var(--main-color);
+  --brand-530: var(--main-color);
+  --brand-560: var(--main-color);
+  --brand-600: var(--critical-color);
+  --brand-630: var(--canvas-color);
+  --brand-700: var(--canvas-color);
+  --checkbox-background-default: var(--canvas-color);
+  --checkbox-background-hover: var(--subtle-accent-color);
+  --checkbox-border-default: var(--frame-color);
+  --checkbox-border-hover: var(--accent-saturated);
+  --checkbox-icon-active: var(--main-color);
+  --control-critical-primary-background-active: var(--critical-hover);
+  --control-critical-primary-background-default: var(--critical-color);
+  --control-critical-primary-background-hover: var(--critical-hover);
+  --control-critical-primary-border-active: var(--accent-saturated);
+  --control-critical-primary-border-hover: var(--accent-saturated);
+  --control-critical-primary-icon-default: var(--text-light);
+  --control-critical-primary-text-active: var(--text-light);
+  --control-critical-primary-text-hover: var(--text-light);
+  --control-critical-secondary-background-active: var(--critical-color);
+  --control-critical-secondary-background-default: var(--subtle-accent-color);
+  --control-critical-secondary-background-hover: var(--critical-color);
+  --control-critical-secondary-border-active: var(--accent-saturated);
+  --control-critical-secondary-border-default: var(--frame-color);
+  --control-critical-secondary-border-hover: var(--accent-saturated);
+  --control-critical-secondary-text-active: var(--text-light);
+  --control-critical-secondary-text-default: var(--text-light);
+  --control-critical-secondary-text-hover: var(--text-light);
+  --control-icon-only-icon-active: var(--text-light);
+  --control-icon-only-icon-default: var(--accent-desaturated);
+  --control-icon-only-icon-hover: var(--text-light);
+  --icon-default: var(--accent-desaturated);
+  --icon-feedback-critical: var(--accent-saturated);
+  --icon-feedback-info: var(--text-light);
+  --icon-feedback-notification: var(--accent-saturated);
+  --icon-feedback-positive: var(--feedback-positive);
+  --icon-feedback-warning: var(--feedback-warning);
+  --icon-invert: var(--canvas-color);
+  --icon-muted: var(--accent-desaturated);
+  --icon-overlay-dark: var(--text-light);
+  --icon-overlay-light: var(--canvas-color);
+  --icon-strong: var(--text-light);
+  --icon-subtle: var(--accent-desaturated);
+  --input-background-default: var(--page-surface);
+  --input-background-error-default: var(--critical-color);
+  --input-border-default: var(--frame-color);
+  --input-border-error-default: var(--accent-saturated);
+  --input-border-hover: var(--accent-saturated);
+  --input-border-readonly: var(--frame-color);
+  --input-text-default: var(--text-light);
+  --input-text-error-default: var(--text-light);
+  --interactive-background-active: var(--active-accent-color);
+  --interactive-background-hover: var(--hover-surface);
+  --interactive-background-selected: var(--active-accent-color);
+  --interactive-icon-active: var(--text-light);
+  --interactive-icon-default: var(--accent-desaturated);
+  --interactive-icon-hover: var(--text-light);
+  --text-feedback-critical: var(--accent-saturated);
+  --text-feedback-info: var(--text-light);
+  --text-feedback-positive: var(--feedback-positive);
+  --text-feedback-warning: var(--feedback-warning);
+  --text-invert: var(--canvas-color);
+  --text-overlay-dark: var(--text-light);
+  --text-overlay-light: var(--canvas-color);
+
+  --channel-text-area-placeholder: var(--accent-desaturated);
+  --header-primary: var(--text-light);
+  --header-secondary: var(--accent-desaturated);
+  --input-placeholder-text-default: var(--accent-desaturated);
+  --interactive-active: var(--text-light);
+  --interactive-hover: var(--text-light);
+  --interactive-normal: var(--accent-desaturated);
+  --interactive-text-active: var(--text-light);
+  --interactive-text-default: var(--accent-desaturated);
+  --interactive-text-hover: var(--text-light);
+  --text-brand: var(--text-light);
+  --text-code: var(--text-light);
+  --text-default: var(--text-light);
+  --text-link: var(--text-light);
+  --text-muted: var(--accent-desaturated);
+  --text-normal: var(--text-light);
+  --text-strong: var(--text-light);
+  --text-subtle: var(--accent-desaturated);
+
+  --input-border-active: var(--accent-saturated);
+
+  --button-outline-brand-background-hover: var(--button-surface);
+  --button-outline-brand-border-active: var(--accent-saturated);
+  --checkbox-background-selected-default: var(--main-color);
+  --checkbox-background-selected-hover: var(--main-color);
+  --checkbox-border-selected-default: var(--frame-color);
+  --checkbox-border-selected-hover: var(--accent-saturated);
+  --control-connected-background-active: var(--button-surface);
+  --control-connected-background-default: var(--button-surface);
+  --control-connected-background-hover: var(--button-surface);
+  --control-connected-border-active: var(--accent-saturated);
+  --control-connected-border-default: var(--frame-color);
+  --control-connected-border-hover: var(--accent-saturated);
+  --control-connected-icon-active: var(--text-light);
+  --control-connected-icon-default: var(--text-light);
+  --control-connected-icon-hover: var(--text-light);
+  --control-connected-text-active: var(--text-light);
+  --control-connected-text-default: var(--text-light);
+  --control-connected-text-hover: var(--text-light);
+  --control-expressive-background-active: var(--button-surface);
+  --control-expressive-background-default: var(--button-surface);
+  --control-expressive-background-hover: var(--button-surface);
+  --control-expressive-border-active: var(--accent-saturated);
+  --control-expressive-border-default: var(--frame-color);
+  --control-expressive-border-hover: var(--accent-saturated);
+  --control-expressive-icon-active: var(--text-light);
+  --control-expressive-icon-default: var(--text-light);
+  --control-expressive-icon-hover: var(--text-light);
+  --control-expressive-text-active: var(--text-light);
+  --control-expressive-text-default: var(--text-light);
+  --control-expressive-text-hover: var(--text-light);
+  --control-icon-only-background-active: var(--button-surface);
+  --control-icon-only-background-hover: var(--button-surface);
+  --control-icon-only-border-active: var(--accent-saturated);
+  --control-icon-only-border-hover: var(--frame-color);
+  --control-overlay-primary-background-active: var(--button-surface);
+  --control-overlay-primary-background-default: var(--button-surface);
+  --control-overlay-primary-background-hover: var(--button-surface);
+  --control-overlay-primary-border-active: var(--accent-saturated);
+  --control-overlay-primary-border-default: var(--frame-color);
+  --control-overlay-primary-border-hover: var(--accent-saturated);
+  --control-overlay-primary-icon-active: var(--text-light);
+  --control-overlay-primary-icon-default: var(--text-light);
+  --control-overlay-primary-icon-hover: var(--text-light);
+  --control-overlay-primary-text-active: var(--text-light);
+  --control-overlay-primary-text-default: var(--text-light);
+  --control-overlay-primary-text-hover: var(--text-light);
+  --control-overlay-secondary-background-active: var(--button-surface);
+  --control-overlay-secondary-background-default: var(--button-surface);
+  --control-overlay-secondary-background-hover: var(--button-surface);
+  --control-overlay-secondary-border-active: var(--accent-saturated);
+  --control-overlay-secondary-border-default: var(--frame-color);
+  --control-overlay-secondary-border-hover: var(--accent-saturated);
+  --control-overlay-secondary-icon-active: var(--text-light);
+  --control-overlay-secondary-icon-default: var(--text-light);
+  --control-overlay-secondary-icon-hover: var(--text-light);
+  --control-overlay-secondary-text-active: var(--text-light);
+  --control-overlay-secondary-text-default: var(--text-light);
+  --control-overlay-secondary-text-hover: var(--text-light);
+  --control-primary-background-active: var(--button-surface);
+  --control-primary-background-default: var(--button-surface);
+  --control-primary-background-hover: var(--button-surface);
+  --control-primary-border-active: var(--accent-saturated);
+  --control-primary-border-default: var(--frame-color);
+  --control-primary-border-hover: var(--accent-saturated);
+  --control-primary-text-active: var(--text-light);
+  --control-primary-text-default: var(--text-light);
+  --control-primary-text-hover: var(--text-light);
+  --control-secondary-background-active: var(--button-surface);
+  --control-secondary-background-default: var(--button-surface);
+  --control-secondary-background-hover: var(--button-surface);
+  --control-secondary-border-active: var(--accent-saturated);
+  --control-secondary-border-default: var(--frame-color);
+  --control-secondary-border-hover: var(--accent-saturated);
+  --control-secondary-icon-active: var(--text-light);
+  --control-secondary-icon-default: var(--text-light);
+  --control-secondary-icon-hover: var(--text-light);
+  --control-secondary-text-active: var(--text-light);
+  --control-secondary-text-default: var(--text-light);
+  --control-secondary-text-hover: var(--text-light);
+  --radio-background-active: var(--active-accent-color);
+  --radio-background-default: var(--canvas-color);
+  --radio-background-hover: var(--hover-surface);
+  --radio-background-selected-default: var(--main-color);
+  --radio-background-selected-hover: var(--hover-surface);
+  --radio-border-active: var(--accent-saturated);
+  --radio-border-default: var(--frame-color);
+  --radio-border-hover: var(--accent-saturated);
+  --radio-border-selected-default: var(--accent-saturated);
+  --radio-border-selected-hover: var(--text-light);
+  --radio-thumb-background-active: var(--text-light);
+  --switch-background-selected-default: var(--main-color);
+  --switch-background-selected-hover: var(--main-color);
+  --switch-border-selected-default: var(--frame-color);
+  --switch-border-selected-hover: var(--accent-saturated);
+
+}
+
+/* Controls and surfaces */
+
+#app-mount .bg_Fd0FEH {
+    background: var(--local-wallpaper, var(--canvas-color)) center / cover no-repeat;
+    filter: blur(var(--wallpaper-blur));
+}
+
+#app-mount :where(
+    button:not([role="tab"], .item_ydey4M),
+    input:is([type="button"], [type="submit"], [type="reset"]),
+    [data-mana-component="button"],
+    .button_F7qvhY,
+    .button_9OQtot,
+    [class*=circleButton],
+    [class*=circleIconButton],
+    .ChannelDms-channelpopout-popout > [role="button"],
+    .popout_j5xNzb .list_j5xNzb > .row_j5xNzb:last-child,
+    .page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0, .uploadButton_nhgNJ0, .addActionItem_nhgNJ0, .actionItemEditButton_nhgNJ0),
+    .onboardingContainer_r_cyVx .addPrompt_2nqf8W,
+    .back_NKrv-e .backButton_NKrv-e
+) {
+    --control-fill: var(--button-surface);
+    --connected-hover-fill: var(--button-surface);
+    background: var(--button-surface);
+    border: 1px solid var(--frame-color);
+    color: var(--button-text);
+    &:not(:disabled, [aria-disabled="true"]):is(
+        :hover,
+        :active,
+        :focus-visible,
+        :where(.iconInput_nJ7Ws3:is(:hover, :focus-within)) > :where(.button_F7qvhY[tabindex="-1"])
+    ) {
+        border-color: var(--accent-saturated);
+    }
+}
+
+#app-mount .back_NKrv-e:is(:hover,:focus-visible) .backButton_NKrv-e {
+    border-color: var(--accent-saturated);
+}
+
+#app-mount .textButton_nJgowo {
+    border-radius: var(--radius-sm);
+    padding: var(--space-4) var(--space-8);
+}
+
+#app-mount .textButton_nJgowo .text_nJgowo {
+    text-decoration: none;
+}
+
+#app-mount .lookLink_9OQtot:hover > .contents_9OQtot {
+    border-color: var(--t);
+    text-decoration: none;
+}
+
+#app-mount .container_pog62O > .base_pog62O {
+    background-color: var(--t);
+}
+
+#app-mount .markup_ku1OHH a {
+    color: var(--accent-color);
+}
+
+#app-mount .sidebar_pog62O,
+#app-mount .chat_z_gUBg,
+#app-mount .members_86es0b {
+    background: var(--t);
+}
+
+#app-mount .chatContent_z_gUBg,
+#app-mount .guilds_pog62O,
+#app-mount .container_H5ozaj,
+#app-mount .membersWrap_86es0b {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
+}
+
+:is(#app-mount, body) :is(.panels_pog62O, .actionButtons_Q2cxvN) {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
+}
+
+:is(#app-mount, body) :is(
+    .panels_pog62O button,
+    .panels_pog62O .buttonColor_9U6LUN,
+    .colorable_K9Xq13,
+    .fullRegionDropdownButton_K9Xq13
+) {
+    --control-fill: var(--r1);
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
+    color: var(--button-text);
+}
+
+#app-mount .panels_pog62O .accountPopoutButtonWrapper_g6VwXp {
+    --text-default: var(--text-light);
+    --text-strong: var(--text-light);
+    --text-subtle: var(--accent-desaturated);
+    --text-muted: var(--accent-desaturated);
+    background: var(--t) !important;
+    color: var(--text-light);
+
+    &:hover {
+        background: var(--hover-surface) !important;
+    }
+}
+
+#app-mount .panels_pog62O .panelSubtextContainer_g6VwXp {
+    color: var(--accent-desaturated);
+}
+
+#app-mount .panels_pog62O .iconForeground_g6VwXp {
+    color: var(--button-text);
+}
+
+.tabs_ydey4M {
+    --tabs-indicator-default: var(--accent-saturated);
+    --tabs-indicator-overlay: var(--accent-saturated);
+}
+
+.rsvpCount_dUw4ZS {
+    background-color: var(--button-surface);
+    color: var(--text-light);
+}
+
+:is(.rsvpIcon_dUw4ZS, .eventIcon_5RxyqA, .leadingAction_7pDS2B svg) {
+    color: var(--text-light);
+}
+
+/* Popups and profiles */
+
+.tooltipLayer_ZDdyhE > div:has(> .tooltip_ZDdyhE :is(.guildTooltipWrapper__-eZlF, .memberListWrapper_OC_CcB)) {
+    opacity: 1 !important;
+}
+
 :is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp):has(.guildTooltipWrapper__-eZlF, .memberListWrapper_OC_CcB),
 .voiceChannelListInvite_OC_CcB {
     --background-surface-high: var(--floating-surface);
     --tooltip-pointer-bg: var(--background-surface-high);
     --border-subtle: var(--frame-color);
     background: var(--background-surface-high);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-hover));
+}
+
+.tooltip_ZDdyhE:has(.guildTooltipWrapper__-eZlF, .memberListWrapper_OC_CcB) {
+    will-change: auto;
 }
 
 .container_OC_CcB .header_OC_CcB {
-    background-color: var(--r2);
+    background-color: var(--surface-color);
+    backdrop-filter: blur(var(--blur-hover));
     box-shadow: inset 0 -1px var(--frame-color);
 }
 
-/* Rich Presence hover cards, including voice-channel and stream previews. */
+:is(#app-mount, body) .outer_P1YEjQ:is(
+    .user-profile-popout, .user-profile-modal, .user-profile-modal-v2, .user-profile-sidebar
+) {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-hover));
+
+    & :is(.inner_P1YEjQ, .overlay_P1YEjQ),
+    &.user-profile-popout .profileFrameContainer_v8co33::before {
+        background: var(--t);
+    }
+}
+
+:is(#app-mount, body) :is(.outer_ZhNJfE, .layoutContainer_s3DB6Y) {
+    --user-profile-overlay-background: var(--r1);
+    --user-profile-overlay-background-hover: var(--hover-surface);
+    --user-profile-border: var(--frame-color);
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-hover));
+
+    & .outer_P1YEjQ.user-profile-modal-v2 {
+        background: var(--t);
+        backdrop-filter: none;
+    }
+
+    & :is(.editingPanel_s3DB6Y, .panel_BfN7RR, .panelInner_BfN7RR, .tabBarPanel_y4ZEM5) {
+        background: var(--t);
+    }
+
+    & .backgroundImage_s3DB6Y::after {
+        backdrop-filter: blur(var(--blur-hover));
+    }
+
+    & :is(.container_FNEkcu, .container_w1xbCm, .widgetContainer_zEJODa.subtle_zEJODa) {
+        background: var(--r1);
+        border-color: var(--frame-color);
+    }
+}
+
 :is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp, .popover_81IzEA, .popoverGradientWrapper_81IzEA):has(
     .activityDetails_ZbIvmP,
     .activityNameUserActivityHover_ZbIvmP,
@@ -43,29 +697,48 @@
     --border-subtle: var(--frame-color);
     background: var(--background-surface-high);
     border-color: var(--frame-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-hover));
 }
 
 .container_DKsPd0 :is(.row_DKsPd0, .contentInventoryContainer_DKsPd0) {
     border-block-start-color: var(--frame-color);
 }
 
-.streamPreview_1v6-1l .previewHover_1v6-1l {
-    background: var(--r2);
+:is(#app-mount, body) :is(
+    .container_DKsPd0,
+    .popover_yDAPhH,
+    .activityPopover_yDAPhH,
+    .previewHover_1v6-1l,
+    .previewContainerUserActivity_1v6-1l
+) {
+    --user-profile-toolbar-background: var(--r1);
+    --user-profile-activity-toolbar-background: var(--r1);
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-hover));
 }
 
-.previewContainerUserActivity_1v6-1l {
-    background-color: var(--r2);
+.popout_R0WNX5 {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-hover));
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-high);
+    filter: none;
 }
 
-/* Activity popovers on voice-channel participant rows. */
+.popout_R0WNX5 :is(
+    .popoutContentWrapper_R0WNX5, .hero_R0WNX5,
+    .streamingPopoutHero_R0WNX5, .interactionsContainer_R0WNX5
+) {
+    background: var(--t) !important;
+}
+
 .popover_81IzEA:is([class^="experimentContainer_"], [class*=" experimentContainer_"]) {
     --background-surface-high: var(--floating-surface);
     --background-surface-higher: var(--floating-surface);
     --border-subtle: var(--frame-color);
     background: var(--floating-surface);
     border-color: var(--frame-color);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-hover));
 
     > .popover_81IzEA[class*="scroller_"] {
         background: var(--t);
@@ -73,12 +746,11 @@
     }
 
     > [class*="durationContainer_"] {
-        background: var(--subtle-accent-color);
+        background: var(--t);
         border-color: var(--frame-color);
     }
 }
 
-/* Context menus, including submenus and legacy hover action bars. */
 @media (forced-colors: none) {
     :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6) {
         --background-surface-high: var(--floating-surface);
@@ -107,18 +779,19 @@
         background-color: var(--line-color);
     }
 
-    /* Action labels like Open Chat and Invite to Voice are tooltips. */
-    :is([data-mana-component="tooltip"], .tooltip_ZDdyhE, .tooltipPrimary_3_v8qp) {
-        --background-surface-high: var(--floating-surface);
-        --tooltip-pointer-bg: var(--floating-surface);
+    :is(#app-mount, body) :is(
+        [data-mana-component="tooltip"], .tooltip_ZDdyhE, .tooltip_3_v8qp,
+        .tooltip_0qTdvW, .tooltip_k8jyN7
+    ) {
+        --background-surface-high: var(--r1);
+        --tooltip-pointer-bg: var(--r1);
         --border-subtle: var(--frame-color);
-        background-color: var(--floating-surface);
+        background: var(--r1);
         color: var(--text-light);
-        backdrop-filter: blur(10px);
+        backdrop-filter: blur(var(--blur-hover));
     }
 }
 
-/* Dropdown variants share the same surface and item states. */
 :is(.selectDropdown_vWC4bk, [role="listbox"]) {
     --background-surface-high: var(--floating-surface);
     --background-surface-higher: var(--floating-surface);
@@ -139,10 +812,9 @@
     color: var(--accent-saturated);
 }
 
-/* Paint popup surfaces directly so the layer does not inspect its contents. */
 @media (forced-colors: none) {
     .layer_VVADeK[id^="popout_"] > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv),
-    :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"]):not(
+    :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, [role="listbox"]):not(
         :where(.popover_81IzEA, .popover_tYiMSv, .menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"]) *
     ) {
         --popover-background: var(--surface-color);
@@ -151,11 +823,33 @@
         --border-subtle: var(--frame-color);
         background: var(--popover-background);
         border-radius: 14px;
-        backdrop-filter: blur(var(--popover-blur));
+        backdrop-filter: blur(var(--blur-hover));
     }
 }
 
-/* Unread-message banners and the compact unread-message pill. */
+/* Chat and channels */
+
+.selectDropdown_vWC4bk {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-hover));
+    opacity: 1 !important;
+    transition-property: transform !important;
+}
+
+:is(#app-mount, body) :is(
+    .bar_Rp_Lxb,
+    .controlAction_NemNeq,
+    .controlBackground_NemNeq,
+    .controlUserContainer_NemNeq,
+    .callDurationPlated_zln_tS
+) {
+    backdrop-filter: blur(var(--blur-static));
+}
+
+:is(#app-mount, body) :is(.jumpButton_gduzfv, .popoutContainer_j9Vvzj) {
+    backdrop-filter: blur(var(--blur-hover));
+}
+
 .bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn),
 .bar_oJAkDB.unread_oJAkDB,
 .newMessagesBar_j9Vvzj,
@@ -163,7 +857,7 @@
 .newMessagesClear_j9Vvzj {
     background-color: var(--critical-color);
     color: var(--text-light);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-hover));
 }
 
 .bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn),
@@ -196,15 +890,20 @@
     border-inline-start-color: var(--frame-color);
 }
 
-/* Hover fill for post entries in the active-posts popout. */
 #app-mount .popout_j5xNzb .list_j5xNzb > .row_j5xNzb:not(:last-child):hover {
     background-color: var(--hover-surface);
 }
 
-/* Chat composer: the outer shell owns the fill. */
-#app-mount .form_z_gUBg :is(.channelTextArea_z_gUBg, .inlineContainer_2x8-Qn),
-#app-mount .input_-dEX_A {
-    background: var(--floating-surface);
+#app-mount .formWithLoadedChatInput_z_gUBg::before {
+    content: none;
+}
+
+#app-mount :is(.chatGradient_8AE1Qq, .chatTypingGradientAtBottom_8AE1Qq, .chatTypingGradientNotAtBottom_8AE1Qq) {
+    background: var(--t);
+}
+
+#app-mount .form_z_gUBg :is(.channelTextArea_z_gUBg, .inlineContainer_2x8-Qn, .stackedBars_2x8-Qn) {
+    background: var(--t);
     border-color: var(--frame-color);
 }
 
@@ -213,8 +912,9 @@
     background: var(--t);
 }
 
-#app-mount .form_z_gUBg .stackedBars_2x8-Qn {
-    background: var(--surface-color);
+#app-mount .input_-dEX_A {
+    background: var(--floating-surface);
+    backdrop-filter: blur(var(--blur-static));
     border-color: var(--frame-color);
 }
 
@@ -248,19 +948,38 @@
     background-color: var(--scroll-thumb-color);
 }
 
-/* The channel header and adjacent sidebar surfaces share the canvas color. */
+#app-mount .buttons_2x8-Qn :is(.button_2x8-Qn, .stickerButton_2x8-Qn),
+#app-mount .buttons_2x8-Qn > button,
+#app-mount .buttons_2x8-Qn .buttonContainer_2x8-Qn > button {
+    background: var(--t);
+    backdrop-filter: none;
+}
+
+:is(.buttonContainer_s8hOwn, .button_s8hOwn),
+:is(.form_z_gUBg, .buttons_2x8-Qn) .button_hfM7yP {
+    --interactive-background-selected: var(--t);
+
+    &:hover {
+        background: var(--t) !important;
+    }
+}
+
+#app-mount .container_ejC3ZL::before {
+    content: none;
+}
+
 #app-mount :is(.title_z_gUBg, .subtitleContainer_z_gUBg):not(:is(.title_z_gUBg, .subtitleContainer_z_gUBg) *),
 #app-mount :is(.guildSidebar_z_gUBg, .inviteToolbar_zrUwGA) {
     background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
 }
 
 #app-mount .modeSelected_TNyK-N .link_TNyK-N {
     background: var(--r8);
 }
 
-/* Mentioned messages keep their palette colors in every interaction state. */
 #app-mount .message_SY_P2T.mentioned_SY_P2T {
-    background: var(--surface-color);
+    background: var(--r2);
 }
 
 #app-mount .message_SY_P2T.mentioned_SY_P2T:is(:hover, .selected_SY_P2T) {
@@ -272,22 +991,20 @@
     border-color: var(--accent-saturated);
 }
 
-/* Spoiler colors are resolved on Discord's local spoiler elements. */
 #app-mount :is(.spoilerContainer_0_7_Rr, .spoilerContent_0_7_Rr) {
-    --__spoiler-background-color--hidden: var(--surface-color);
+    --__spoiler-background-color--hidden: var(--r2);
     --__spoiler-background-color--hidden--hover: var(--frame-color);
     --__spoiler-background-color--revealed: var(--t);
     --__spoiler-border-color--hidden: var(--frame-color);
     --__spoiler-border-color--hidden--hover: var(--accent-saturated);
     --__spoiler-border-color--revealed: var(--t);
     --__spoiler-container-box-shadow-color: var(--canvas-color);
-    --__spoiler-warning-background-color: var(--surface-color);
-    --__spoiler-warning-background-color--hover: var(--surface-color);
+    --__spoiler-warning-background-color: var(--r2);
+    --__spoiler-warning-background-color--hover: var(--r2);
     --__spoiler-warning-text-color: var(--text-light);
     --__spoiler-warning-text-color--hover: var(--text-light);
 }
 
-/* Style the mention frame and fill while allowing inline role text colors. */
 #app-mount .wrapper_NDaLCQ {
     background-color: var(--r8) !important;
     box-shadow: inset 0 0 0 1px var(--t);
@@ -311,7 +1028,6 @@
     }
 }
 
-/* Channel names and icons share their color in each channel state. */
 @media (forced-colors: none) {
     #app-mount .wrapper_TNyK-N :is(.name_TNyK-N, .icon_TNyK-N) {
         color: var(--r6);
@@ -326,18 +1042,40 @@
     }
 }
 
-/* Server Tag enable switch and its settings row. */
+#app-mount .container_H5ozaj .wrapper_QQRrAh {
+    display: inline-grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 0;
+    background-color: var(--floating-surface);
+    backdrop-filter: blur(var(--blur-static));
+}
+
+#app-mount .container_H5ozaj .users_QQRrAh {
+    background-color: var(--active-accent-color);
+    color: var(--accent-color);
+}
+
+#app-mount .container_H5ozaj .total_QQRrAh {
+    background-color: var(--t);
+    color: var(--accent-desaturated);
+}
+
+#app-mount .container_H5ozaj .total_QQRrAh::after {
+    content: none;
+}
+
 .enableSwitchContainer_SMlho9 {
-    background-color: var(--r2);
+    background-color: var(--surface-color);
+    backdrop-filter: blur(var(--blur-static));
     --switch-background-selected-default: var(--main-color);
     --switch-background-selected-hover: var(--main-color);
     --switch-border-selected-default: var(--frame-color);
     --switch-border-selected-hover: var(--accent-saturated);
 }
 
-/* Discord animates switch colors inline. */
 .container_9AraPt .switchIndicator_9AraPt {
-    background-color: var(--surface-color) !important;
+    background-color: var(--r2) !important;
     border-color: var(--frame-color) !important;
 }
 
@@ -349,7 +1087,67 @@
     border-color: var(--accent-saturated) !important;
 }
 
-/* Settings use a separate layer from the main window. */
+#app-mount :is(
+    .privateChannels_u88IQl,
+    .container_zrUwGA,
+    .page_iar92T,
+    .shop_Mqg79R,
+    .homeWrapper_8iSxT3
+),
+#app-mount .questHomePage_iar92T:not(.page_iar92T *),
+#app-mount .shopContainer_XBXDcd:not(.shop_Mqg79R *),
+#app-mount .mainPageScroller_IRnLy8:not(.homeWrapper_8iSxT3 *) {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
+}
+
+#app-mount .privateChannels_u88IQl :is(.scroller_Bce46W, .searchBarComponent_u88IQl),
+#app-mount .container_zrUwGA :is(.tabBody_zrUwGA, .nowPlayingColumn_zrUwGA),
+#app-mount .page_iar92T .questHomePage_iar92T,
+#app-mount .shop_Mqg79R .shopContainer_XBXDcd,
+#app-mount :is(.shop_Mqg79R, .shopContainer_XBXDcd) :is(.shopWrapper_Mqg79R, .shopScroll_Mqg79R),
+#app-mount .homeWrapper_8iSxT3 .mainPageScroller_IRnLy8 {
+    background: var(--t);
+}
+
+#app-mount :is(.bar_3zSH5d, .titleBar_gnMEnp, .titleBar_9Aa-7R, .titleBar_ngaTpP) {
+    background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
+}
+
+#app-mount .base_pog62O:has(.privateChannels_u88IQl, .container_H5ozaj) {
+    isolation: isolate;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background: var(--r1);
+        backdrop-filter: blur(var(--blur-static));
+    }
+
+    & :is(
+        .bar_3zSH5d, .titleBar_gnMEnp, .titleBar_9Aa-7R, .titleBar_ngaTpP, .content_pog62O,
+        .guilds_pog62O, .privateChannels_u88IQl, .container_zrUwGA,
+        .container_H5ozaj, .chatContent_z_gUBg, .membersWrap_86es0b, .container_86es0b,
+        .title_z_gUBg, .subtitleContainer_z_gUBg, .header_XH4OpX,
+        .headerGlass_XH4OpX, .headerEllipseBackdrop_XH4OpX,
+        .page_iar92T, .questHomePage_iar92T, .shop_Mqg79R, .shopContainer_XBXDcd,
+        .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8
+    ) {
+        background: var(--t);
+        backdrop-filter: none;
+    }
+
+    & .members_86es0b .member_86es0b {
+        background: var(--t);
+    }
+}
+
+/* Settings */
+
 #app-mount .standardSidebarView_jnk11m .sidebarRegion_jnk11m,
 #app-mount .standardSidebarView_jnk11m .contentRegion_jnk11m {
     background: var(--t);
@@ -357,10 +1155,12 @@
 
 #app-mount .standardSidebarView_jnk11m .sidebarRegionScroller_jnk11m {
     background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
 }
 
 #app-mount .standardSidebarView_jnk11m .contentRegionScroller_jnk11m {
     background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
 }
 
 #app-mount .sidebar_jnk11m .item_6zZYhF:not([aria-disabled="true"]):hover {
@@ -375,14 +1175,17 @@
 
 .container_NdjzJd .sidebar_cR4ic2 {
     background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
 }
 
 .container_NdjzJd .content_3Rvb29 {
     background: var(--r1);
+    backdrop-filter: blur(var(--blur-static));
 }
 
 .container_NdjzJd .contentHeader_3Rvb29 {
-    background: var(--r2);
+    background: var(--surface-color);
+    backdrop-filter: blur(var(--blur-static));
     border-bottom-color: var(--frame-color);
 }
 
