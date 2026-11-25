@@ -1,5 +1,13 @@
 # Patch Notes
 
+## Unreleased
+
+- Expanded the shared palette to eight RGB colors and linked more surfaces, frames, dividers, and interaction states to it.
+- Matched channel icons to the corresponding read, unread, selected, and connected channel colors. Applied the shared hover fill to messages and posts in the active-posts popout.
+- Standardized button fills and hover borders, including the active-posts action and server icon upload. Updated switch styling, event tabs, RSVP badges, and event icons.
+- Updated the chat composer and mention styling, including hover borders and support for plugin-provided mention text colors.
+- Reduced style recalculation during settings navigation by targeting profile activity cards directly and removing a global SVG override that matched icons by their inline color. Continued performance tuning is in progress.
+
 ## v0.3
 
 - Reorganized the stylesheet into theme variables, shared components, and page layouts. Removed older selectors that had no matching classes in the local Discord cache.

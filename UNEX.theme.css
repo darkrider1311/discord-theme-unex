@@ -18,181 +18,267 @@ Special thanks for help to: https://github.com/net-runner
 /* 1. Theme variables */
 
 :is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
+  /* Wallpaper settings */
+  --app-background: var(--local-wallpaper);
+  --local-wallpaper: url("vencord:///themes/wallpaper.png"); /* bg0.png */
+  --profile-background: url("vencord:///themes/wallpaper.png"); /* Background of the profile popout. */
+  --wallpaper-blur: 3px;
+
   /* Direct color values */
-  --r1: rgb(23 12 17);
-  --r2: rgb(29 13 18);
-  --r3: rgb(128 35 45);
-  --r4: rgb(153 39 39);
-  --r5: rgb(253 122 124);
-  --r6: rgb(180 122 122);
-  --r7: rgb(255 181 181);
-  --g: rgb(67 181 129);
-  --y: rgb(250 166 26);
-  --n1: rgb(255 255 255 / 30%);
-  --n2: rgb(0 0 0 / 0%);
-  --n3: rgb(0 0 0 / 10%);
-  --n4: rgb(0 0 0 / 90%);
-  --n5: rgb(255 255 255 / 5%);
-  --n6: rgb(255 255 255 / 10%);
-  --n7: rgb(0 0 0 / 95%);
-  --n8: rgb(0 0 0 / 50%);
-  --n9: rgb(255 255 255 / 70%);
+  --r1: rgb(23 12 17); /* Near-black burgundy for the app canvas, main header, sidebars, and recessed fields. */
+  --r2: rgb(29 13 18); /* Dark burgundy for cards, popups, the chat composer, and mention backgrounds. */
+  --r3: rgb(128 35 45); /* Deep red for standard frames, dividers, reply lines, mention outlines, and critical actions. */
+  --r4: rgb(153 39 39 / 100%); /* Primary red for toggles, active accents, and brand details. */
+  --r5: rgb(253 122 124); /* Coral for focus and hover borders, unread markers, and warning accents. */
+  --r6: rgb(180 122 122); /* Muted rose for secondary text, read channel names and icons, placeholders, and subdued icons. */
+  --r7: rgb(255 181 181); /* Light rose for main text, active and unread channels, links, button labels, mentions, and success feedback. */
+  --r8: rgb(43 16 20 / 10%); /* Burgundy fill for buttons, active channels, inline mentions, server tags, and hover surfaces. */
 
   /* Color references and derived values */
-  --interactive-muted: var(--n1);
-  --background-primary: var(--n2);
-  --background-secondary: var(--n2);
-  --background-secondary-alt: var(--n2);
-  --background-tertiary: var(--n3);
-  --background-floating: var(--n4);
-  --background-modifier-hover: var(--n5);
-  --background-modifier-active: var(--n5);
-  --background-modifier-selected: var(--n6);
-  --background-modifier-accent: var(--n6);
-  --modal-background: var(--n7);
-  --modal-footer-background: var(--n7);
-  --scrollbar-auto-track: var(--n3);
-  --scrollbar-thin-track: var(--n2);
-  --input-background: var(--n8);
-  --channels-default: var(--n9);
-
-  --canvas-color: var(--r1);
-  --surface-color: var(--r2);
-  --critical-color: var(--r3);
-  --feedback-positive: var(--g);
-  --feedback-warning: var(--y);
-  --text-light: var(--r7);
-  --main-color: var(--r4);
-  --accent-saturated: var(--r5);
-  --accent-desaturated: var(--r6);
-
-  --page-surface: rgb(from var(--surface-color) r g b / 72%);
-  --critical-tint: rgb(from var(--critical-color) r g b / 25%);
-  --critical-hover: color-mix(in srgb, var(--critical-color) 45%, var(--main-color));
-  --divider-color: color-mix(in srgb, var(--main-color) 50%, rgb(0 0 0 / 0%));
-  --floating-surface: rgb(from var(--surface-color) r g b / 88%);
-  --menu-item-highlight: var(--main-color-semitransparent-selected);
-  --main-color-semitransparent: rgb(from var(--main-color) r g b / 15%);
-  --main-color-semitransparent-selected: rgb(from var(--main-color) r g b / 30%);
   --accent-color: var(--text-light);
-  --accent-color-semitransparent: rgb(from var(--accent-color) r g b / 9.4%);
+  --accent-desaturated: var(--r6);
+  --accent-saturated: var(--r5);
+  --active-accent-color: var(--main-color);
+  --app-border-frame: var(--frame-color);
+  --app-frame-border: var(--frame-color);
+  --background-floating: var(--r2);
+  --background-modifier-accent: var(--r2);
+  --background-modifier-active: var(--r3);
+  --background-modifier-hover: var(--r2);
+  --background-modifier-selected: var(--r3);
+  --background-primary: var(--t);
+  --background-secondary: var(--t);
+  --background-secondary-alt: var(--t);
+  --background-tertiary: var(--r1);
+  --button-surface: var(--r8);
   --button-text: var(--text-light);
   --button-text-selected: var(--text-light);
-  --profile-activity: color-mix(in srgb, var(--critical-color) 75%, var(--canvas-color));
-  --scroll-thumb-color: color-mix(in srgb, var(--main-color) 55%, var(--accent-desaturated));
+  --canvas-color: var(--r1);
+  --channels-default: var(--r6);
+  --critical-color: var(--r3);
+  --critical-hover: var(--main-color);
+  --divider-color: var(--line-color);
+  --feedback-positive: var(--r7);
+  --feedback-warning: var(--r5);
+  --floating-surface: var(--surface-color);
+  --frame-color: var(--r3);
+  --hover-surface: var(--r8);
+  --input-background: var(--r1);
+  --interactive-muted: var(--r6);
+  --line-color: var(--r3);
+  --main-color: var(--r4);
+  --menu-item-highlight: var(--hover-surface);
+  --modal-background: var(--r2);
+  --modal-footer-background: var(--r2);
+  --page-surface: var(--surface-color);
+  --profile-activity: var(--critical-color);
+  --scroll-thumb-color: var(--accent-desaturated);
+  --scrollbar-auto-track: var(--r1);
+  --scrollbar-thin-track: var(--t);
+  --subtle-accent-color: var(--surface-color);
+  --surface-color: var(--r2);
+  --t: transparent;
+  --text-light: var(--r7);
+  --unread-line-color: var(--r5);
+
+  /* Discord UI colors controlled by the UNEX palette */
+  --app-frame-background: var(--canvas-color);
+  --app-message-embed-secondary-text: var(--accent-desaturated);
+  --background-gradient-app-frame: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-chat: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-high: linear-gradient(var(--floating-surface), var(--floating-surface));
+  --background-gradient-higher: linear-gradient(var(--floating-surface), var(--floating-surface));
+  --background-gradient-highest: linear-gradient(var(--floating-surface), var(--floating-surface));
+  --background-gradient-low: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-lower: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-gradient-lowest: linear-gradient(var(--page-surface), var(--page-surface));
+  --background-scrim: var(--page-surface);
+  --background-scrim-lightbox: var(--page-surface);
+  --background-tile-gradient-pink-end: var(--surface-color);
+  --background-tile-gradient-pink-start: var(--canvas-color);
+  --badge-common-background: var(--r2);
+  --badge-common-border: var(--r3);
+  --badge-common-text: var(--r7);
+  --badge-critical-background: var(--r3);
+  --badge-critical-border: var(--r5);
+  --badge-critical-text: var(--r7);
+  --badge-epic-background: var(--r2);
+  --badge-epic-border-gradient-end: var(--r3);
+  --badge-epic-border-gradient-start: var(--r3);
+  --badge-epic-text: var(--r7);
+  --badge-expressive-background: var(--r2);
+  --badge-expressive-border: var(--r5);
+  --badge-expressive-text: var(--r7);
+  --badge-inverted-background: var(--r7);
+  --badge-inverted-border: var(--r3);
+  --badge-inverted-text: var(--r1);
+  --badge-mythic-background: var(--r2);
+  --badge-mythic-border-gradient-end: var(--r5);
+  --badge-mythic-border-gradient-start: var(--r5);
+  --badge-mythic-text: var(--r7);
+  --badge-notification-background: var(--r3);
+  --badge-notification-border: var(--r5);
+  --badge-notification-text: var(--r7);
+  --badge-premium-background-gradient-end: var(--r2);
+  --badge-premium-background-gradient-mid: var(--r2);
+  --badge-premium-background-gradient-start: var(--r2);
+  --badge-premium-text: var(--r7);
+  --badge-primary-background: var(--r2);
+  --badge-primary-border: var(--r3);
+  --badge-primary-text: var(--r7);
+  --badge-rare-background: var(--r2);
+  --badge-rare-border-gradient-end: var(--r3);
+  --badge-rare-border-gradient-start: var(--r3);
+  --badge-rare-text: var(--r7);
+  --badge-secondary-background: var(--r2);
+  --badge-secondary-border: var(--r3);
+  --badge-secondary-text: var(--r7);
+  --badge-success-background: var(--r2);
+  --badge-success-border: var(--r3);
+  --badge-success-text: var(--r7);
+  --badge-warning-background: var(--r2);
+  --badge-warning-border: var(--r3);
+  --badge-warning-text: var(--r7);
+  --button--underline-color: var(--accent-saturated);
+  --chat-background-default: var(--canvas-color);
+  --chat-text-muted: var(--accent-desaturated);
+  --brand-05a: var(--subtle-accent-color);
+  --brand-300: var(--accent-desaturated);
+  --mention-background: var(--subtle-accent-color);
+  --mention-foreground: var(--r7);
+  --message-automod-background-default: var(--background-message-automod);
+  --message-automod-background-hover: var(--background-message-automod-hover);
+  --message-highlight-background-default: var(--background-message-highlight);
+  --message-highlight-background-hover: var(--background-message-highlight-hover);
+  --message-mentioned-background-default: var(--background-mentioned);
+  --message-mentioned-background-hover: var(--background-mentioned-hover);
+  --spine-default: var(--line-color);
+  --text-code-addition: var(--r5);
+  --text-code-attribute: var(--r5);
+  --text-code-builtin: var(--r5);
+  --text-code-bullet: var(--r7);
+  --text-code-comment: var(--r6);
+  --text-code-decorator: var(--r7);
+  --text-code-deletion: var(--r5);
+  --text-code-error: var(--r5);
+  --text-code-escape: var(--r7);
+  --text-code-keyword: var(--r5);
+  --text-code-link: var(--r7);
+  --text-code-namespace: var(--r7);
+  --text-code-number: var(--r5);
+  --text-code-operator: var(--r5);
+  --text-code-property: var(--r7);
+  --text-code-regexp: var(--r7);
+  --text-code-section: var(--r7);
+  --text-code-string: var(--r7);
+  --text-code-tag: var(--r5);
+  --text-code-title: var(--r7);
+  --text-code-type: var(--r5);
+  --text-code-variable: var(--r7);
 
   /* Discord compatibility colors from the current palette */
-  --brand-experiment: var(--main-color);
-  --text-link-low-saturation: var(--accent-desaturated);
-  --text-positive: var(--feedback-positive);
-  --text-warning: var(--feedback-warning);
-  --text-danger: var(--accent-saturated);
-  --background-nested-floating: var(--floating-surface);
+  --activity-card-background: var(--canvas-color);
+  --android-navigation-bar-background: var(--canvas-color);
+  --android-ripple: var(--r2);
+  --background-mentioned: var(--surface-color);
+  --background-mentioned-hover: var(--hover-surface);
+  --background-message-automod: var(--critical-color);
+  --background-message-automod-hover: var(--hover-surface);
+  --background-message-highlight: var(--main-color);
+  --background-message-highlight-hover: var(--hover-surface);
+  --background-message-hover: var(--hover-surface);
   --background-mobile-primary: var(--page-surface);
   --background-mobile-secondary: var(--floating-surface);
+  --background-nested-floating: var(--floating-surface);
+  --brand-experiment: var(--main-color);
+  --button-danger-background: var(--critical-color);
+  --button-danger-background-active: var(--critical-color);
+  --button-danger-background-disabled: var(--critical-color);
+  --button-danger-background-hover: var(--main-color);
+  --button-outline-brand-background: var(--t);
+  --button-outline-brand-background-active: var(--button-surface);
+  --button-outline-brand-border: var(--accent-saturated);
+  --button-outline-brand-border-hover: var(--accent-saturated);
+  --button-outline-brand-text: var(--text-light);
+  --button-outline-brand-text-active: var(--text-light);
+  --button-outline-brand-text-hover: var(--text-light);
+  --button-outline-danger-background: var(--t);
+  --button-outline-danger-background-active: var(--main-color);
+  --button-outline-danger-background-hover: var(--critical-color);
+  --button-outline-danger-border: var(--accent-saturated);
+  --button-outline-danger-border-active: var(--critical-color);
+  --button-outline-danger-border-hover: var(--critical-color);
+  --button-outline-danger-text: var(--text-light);
+  --button-outline-danger-text-active: var(--text-light);
+  --button-outline-danger-text-hover: var(--text-light);
+  --button-outline-positive-background: var(--t);
+  --button-outline-positive-background-active: var(--main-color);
+  --button-outline-positive-background-hover: var(--critical-color);
+  --button-outline-positive-border: var(--feedback-positive);
+  --button-outline-positive-border-active: var(--feedback-positive);
+  --button-outline-positive-border-hover: var(--feedback-positive);
+  --button-outline-positive-text: var(--text-light);
+  --button-outline-positive-text-active: var(--text-light);
+  --button-outline-positive-text-hover: var(--text-light);
+  --button-outline-primary-background: var(--t);
+  --button-outline-primary-background-active: var(--button-surface);
+  --button-outline-primary-background-hover: var(--button-surface);
+  --button-outline-primary-border: var(--subtle-accent-color);
+  --button-outline-primary-border-active: var(--active-accent-color);
+  --button-outline-primary-border-hover: var(--subtle-accent-color);
+  --button-outline-primary-text: var(--text-light);
+  --button-outline-primary-text-active: var(--text-light);
+  --button-outline-primary-text-hover: var(--text-light);
+  --button-positive-background: var(--critical-color);
+  --button-positive-background-active: var(--main-color);
+  --button-positive-background-disabled: var(--surface-color);
+  --button-positive-background-hover: var(--main-color);
+  --button-secondary-background: var(--button-surface);
+  --button-secondary-background-active: var(--button-surface);
+  --button-secondary-background-disabled: var(--button-surface);
+  --button-secondary-background-hover: var(--button-surface);
+  --channel-icon: var(--accent-desaturated);
+  --channeltextarea-background: var(--floating-surface);
   --chat-background: var(--page-surface);
   --chat-border: var(--canvas-color);
   --chat-input-container-background: var(--page-surface);
-  --info-positive-background: rgb(from var(--feedback-positive) r g b / 10%);
-  --info-positive-foreground: var(--feedback-positive);
-  --info-positive-text: rgb(255 255 255);
-  --info-warning-background: rgb(from var(--feedback-warning) r g b / 10%);
-  --info-warning-foreground: var(--feedback-warning);
-  --info-warning-text: rgb(255 255 255);
-  --info-danger-background: rgb(from var(--accent-saturated) r g b / 10%);
-  --info-danger-foreground: var(--accent-saturated);
-  --info-danger-text: rgb(255 255 255);
-  --info-help-background: rgb(from var(--main-color) r g b / 10%);
-  --info-help-foreground: var(--text-light);
-  --info-help-text: rgb(255 255 255);
-  --status-positive-background: rgb(from var(--feedback-positive) r g b / 45%);
-  --status-positive-text: rgb(255 255 255);
-  --status-warning-background: var(--feedback-warning);
-  --status-warning-text: rgb(0 0 0);
-  --status-danger-background: var(--accent-saturated);
-  --status-danger-text: rgb(255 255 255);
-  --status-danger: var(--accent-saturated);
-  --status-positive: var(--feedback-positive);
-  --status-warning: var(--feedback-warning);
-  --button-danger-background: var(--critical-color);
-  --button-danger-background-hover: var(--main-color);
-  --button-danger-background-active: var(--critical-color);
-  --button-danger-background-disabled: var(--critical-color);
-  --button-positive-background: rgb(from var(--feedback-positive) r g b / 45%);
-  --button-positive-background-hover: rgb(from var(--feedback-positive) r g b / 60%);
-  --button-positive-background-active: rgb(from var(--feedback-positive) r g b / 70%);
-  --button-positive-background-disabled: rgb(from var(--feedback-positive) r g b / 45%);
-  --button-secondary-background: var(--main-color-semitransparent);
-  --button-secondary-background-hover: var(--main-color-semitransparent-selected);
-  --button-secondary-background-active: var(--main-color-semitransparent-selected);
-  --button-secondary-background-disabled: var(--main-color-semitransparent);
-  --button-outline-danger-text: rgb(255 255 255);
-  --button-outline-danger-border: var(--accent-saturated);
-  --button-outline-danger-background: rgb(255 255 255 / 0%);
-  --button-outline-danger-background-hover: var(--critical-color);
-  --button-outline-danger-text-hover: rgb(255 255 255);
-  --button-outline-danger-border-hover: var(--critical-color);
-  --button-outline-danger-background-active: var(--main-color);
-  --button-outline-danger-text-active: rgb(255 255 255);
-  --button-outline-danger-border-active: var(--critical-color);
-  --button-outline-positive-text: rgb(255 255 255);
-  --button-outline-positive-border: var(--feedback-positive);
-  --button-outline-positive-background: rgb(255 255 255 / 0%);
-  --button-outline-positive-background-hover: rgb(from var(--feedback-positive) r g b / 45%);
-  --button-outline-positive-text-hover: rgb(255 255 255);
-  --button-outline-positive-border-hover: rgb(from var(--feedback-positive) r g b / 45%);
-  --button-outline-positive-background-active: rgb(from var(--feedback-positive) r g b / 60%);
-  --button-outline-positive-text-active: rgb(255 255 255);
-  --button-outline-positive-border-active: rgb(from var(--feedback-positive) r g b / 60%);
-  --button-outline-brand-text: rgb(255 255 255);
-  --button-outline-brand-border: var(--accent-saturated);
-  --button-outline-brand-background: rgb(255 255 255 / 0%);
-  --button-outline-brand-text-hover: rgb(255 255 255);
-  --button-outline-brand-border-hover: var(--accent-saturated);
-  --button-outline-brand-background-active: var(--main-color);
-  --button-outline-brand-text-active: rgb(255 255 255);
-  --button-outline-primary-text: rgb(255 255 255);
-  --button-outline-primary-border: var(--main-color-semitransparent);
-  --button-outline-primary-background: rgb(255 255 255 / 0%);
-  --button-outline-primary-background-hover: var(--main-color-semitransparent);
-  --button-outline-primary-text-hover: rgb(255 255 255);
-  --button-outline-primary-border-hover: var(--main-color-semitransparent);
-  --button-outline-primary-background-active: var(--main-color-semitransparent-selected);
-  --button-outline-primary-text-active: rgb(255 255 255);
-  --button-outline-primary-border-active: var(--main-color-semitransparent-selected);
-  --scrollbar-auto-thumb: var(--scroll-thumb-color);
-  --scrollbar-thin-thumb: var(--scroll-thumb-color);
-  --scrollbar-auto-scrollbar-color-thumb: var(--canvas-color);
-  --scrollbar-auto-scrollbar-color-track: var(--floating-surface);
-  --input-placeholder-text: var(--accent-desaturated);
-  --logo-primary: rgb(255 255 255);
   --control-brand-foreground: var(--main-color);
   --control-brand-foreground-new: var(--main-color);
-  --background-mentioned: rgb(from var(--feedback-warning) r g b / 10%);
-  --background-mentioned-hover: rgb(from var(--feedback-warning) r g b / 8%);
-  --background-message-hover: rgb(from var(--main-color) r g b / 7%);
-  --background-message-automod: rgb(from var(--accent-saturated) r g b / 5%);
-  --background-message-automod-hover: rgb(from var(--accent-saturated) r g b / 10%);
-  --background-message-highlight: rgb(from var(--main-color) r g b / 8%);
-  --background-message-highlight-hover: rgb(from var(--main-color) r g b / 6%);
-  --channel-icon: var(--accent-desaturated);
-  --channeltextarea-background: var(--floating-surface);
-  --activity-card-background: var(--canvas-color);
-  --textbox-markdown-syntax: var(--accent-desaturated);
-  --spoiler-revealed-background: var(--surface-color);
-  --spoiler-hidden-background: var(--canvas-color);
-  --android-navigation-bar-background: var(--canvas-color);
-  --android-ripple: rgb(255 255 255 / 7%);
-  --deprecated-card-bg: rgb(from var(--surface-color) r g b / 60%);
-  --deprecated-card-editable-bg: rgb(from var(--surface-color) r g b / 30%);
+  --deprecated-card-bg: var(--surface-color);
+  --deprecated-card-editable-bg: var(--surface-color);
+  --deprecated-quickswitcher-input-background: var(--active-accent-color);
+  --deprecated-quickswitcher-input-placeholder: var(--r6);
   --deprecated-store-bg: var(--page-surface);
-  --deprecated-quickswitcher-input-background: var(--main-color-semitransparent-selected);
-  --deprecated-quickswitcher-input-placeholder: rgb(255 255 255 / 30%);
   --deprecated-text-input-bg: var(--canvas-color);
-  --deprecated-text-input-border: rgb(0 0 0 / 30%);
-  --deprecated-text-input-border-hover: var(--divider-color);
+  --deprecated-text-input-border: var(--r2);
   --deprecated-text-input-border-disabled: var(--canvas-color);
+  --deprecated-text-input-border-hover: var(--frame-color);
   --deprecated-text-input-prefix: var(--text-light);
+  --info-danger-background: var(--critical-color);
+  --info-danger-foreground: var(--accent-saturated);
+  --info-danger-text: var(--text-light);
+  --info-help-background: var(--surface-color);
+  --info-help-foreground: var(--text-light);
+  --info-help-text: var(--text-light);
+  --info-positive-background: var(--surface-color);
+  --info-positive-foreground: var(--feedback-positive);
+  --info-positive-text: var(--text-light);
+  --info-warning-background: var(--surface-color);
+  --info-warning-foreground: var(--feedback-warning);
+  --info-warning-text: var(--text-light);
+  --input-placeholder-text: var(--accent-desaturated);
+  --logo-primary: var(--text-light);
+  --scrollbar-auto-scrollbar-color-thumb: var(--canvas-color);
+  --scrollbar-auto-scrollbar-color-track: var(--floating-surface);
+  --scrollbar-auto-thumb: var(--scroll-thumb-color);
+  --scrollbar-thin-thumb: var(--scroll-thumb-color);
+  --spoiler-hidden-background: var(--canvas-color);
+  --spoiler-revealed-background: var(--surface-color);
+  --text-danger: var(--accent-saturated);
+  --text-link-low-saturation: var(--accent-desaturated);
+  --text-positive: var(--feedback-positive);
+  --text-warning: var(--feedback-warning);
+  --textbox-markdown-syntax: var(--accent-desaturated);
 
   /* Discord semantic colors shared by all pages and component variants. */
   --background-accent: var(--main-color);
@@ -201,18 +287,18 @@ Special thanks for help to: https://github.com/net-runner
   --background-base-lowest: var(--canvas-color);
   --background-brand: var(--main-color);
   --background-code: var(--canvas-color);
-  --background-code-addition: rgb(from var(--feedback-positive) r g b / 15%);
-  --background-code-deletion: var(--critical-tint);
-  --background-feedback-mod-critical: var(--critical-tint);
-  --background-feedback-mod-info: var(--main-color-semitransparent);
-  --background-feedback-mod-positive: rgb(from var(--feedback-positive) r g b / 15%);
-  --background-feedback-mod-warning: rgb(from var(--feedback-warning) r g b / 15%);
-  --background-feedback-notification: var(--main-color-semitransparent);
-  --background-feedback-positive: rgb(from var(--feedback-positive) r g b / 15%);
-  --background-mod-muted: var(--main-color-semitransparent);
-  --background-mod-normal: var(--main-color-semitransparent-selected);
-  --background-mod-strong: var(--main-color-semitransparent-selected);
-  --background-mod-subtle: var(--main-color-semitransparent);
+  --background-code-addition: var(--surface-color);
+  --background-code-deletion: var(--critical-color);
+  --background-feedback-mod-critical: var(--critical-color);
+  --background-feedback-mod-info: var(--subtle-accent-color);
+  --background-feedback-mod-positive: var(--surface-color);
+  --background-feedback-mod-warning: var(--surface-color);
+  --background-feedback-notification: var(--subtle-accent-color);
+  --background-feedback-positive: var(--surface-color);
+  --background-mod-muted: var(--subtle-accent-color);
+  --background-mod-normal: var(--active-accent-color);
+  --background-mod-strong: var(--active-accent-color);
+  --background-mod-subtle: var(--subtle-accent-color);
   --background-surface-high: var(--floating-surface);
   --background-surface-higher: var(--floating-surface);
   --background-surface-highest: var(--floating-surface);
@@ -220,10 +306,10 @@ Special thanks for help to: https://github.com/net-runner
   --border-feedback-critical: var(--accent-saturated);
   --border-feedback-warning: var(--feedback-warning);
   --border-focus: var(--accent-saturated);
-  --border-muted: var(--divider-color);
-  --border-normal: var(--divider-color);
+  --border-muted: var(--frame-color);
+  --border-normal: var(--frame-color);
   --border-strong: var(--accent-saturated);
-  --border-subtle: var(--divider-color);
+  --border-subtle: var(--frame-color);
   --brand-200: var(--text-light);
   --brand-360: var(--text-light);
   --brand-400: var(--text-light);
@@ -236,8 +322,8 @@ Special thanks for help to: https://github.com/net-runner
   --brand-630: var(--canvas-color);
   --brand-700: var(--canvas-color);
   --checkbox-background-default: var(--canvas-color);
-  --checkbox-background-hover: var(--main-color-semitransparent);
-  --checkbox-border-default: var(--divider-color);
+  --checkbox-background-hover: var(--subtle-accent-color);
+  --checkbox-border-default: var(--frame-color);
   --checkbox-border-hover: var(--accent-saturated);
   --checkbox-icon-active: var(--main-color);
   --control-critical-primary-background-active: var(--critical-hover);
@@ -248,11 +334,11 @@ Special thanks for help to: https://github.com/net-runner
   --control-critical-primary-icon-default: var(--text-light);
   --control-critical-primary-text-active: var(--text-light);
   --control-critical-primary-text-hover: var(--text-light);
-  --control-critical-secondary-background-active: var(--critical-tint);
-  --control-critical-secondary-background-default: var(--main-color-semitransparent);
-  --control-critical-secondary-background-hover: var(--critical-tint);
+  --control-critical-secondary-background-active: var(--critical-color);
+  --control-critical-secondary-background-default: var(--subtle-accent-color);
+  --control-critical-secondary-background-hover: var(--critical-color);
   --control-critical-secondary-border-active: var(--accent-saturated);
-  --control-critical-secondary-border-default: var(--divider-color);
+  --control-critical-secondary-border-default: var(--frame-color);
   --control-critical-secondary-border-hover: var(--accent-saturated);
   --control-critical-secondary-text-active: var(--text-light);
   --control-critical-secondary-text-default: var(--text-light);
@@ -272,18 +358,17 @@ Special thanks for help to: https://github.com/net-runner
   --icon-overlay-light: var(--canvas-color);
   --icon-strong: var(--text-light);
   --icon-subtle: var(--accent-desaturated);
-  --icon-voice-connected: var(--feedback-positive);
   --input-background-default: var(--page-surface);
-  --input-background-error-default: var(--critical-tint);
-  --input-border-default: var(--divider-color);
+  --input-background-error-default: var(--critical-color);
+  --input-border-default: var(--frame-color);
   --input-border-error-default: var(--accent-saturated);
   --input-border-hover: var(--accent-saturated);
-  --input-border-readonly: var(--divider-color);
+  --input-border-readonly: var(--frame-color);
   --input-text-default: var(--text-light);
   --input-text-error-default: var(--text-light);
-  --interactive-background-active: var(--main-color-semitransparent-selected);
-  --interactive-background-hover: var(--main-color-semitransparent);
-  --interactive-background-selected: var(--main-color-semitransparent-selected);
+  --interactive-background-active: var(--active-accent-color);
+  --interactive-background-hover: var(--hover-surface);
+  --interactive-background-selected: var(--active-accent-color);
   --interactive-icon-active: var(--text-light);
   --interactive-icon-default: var(--accent-desaturated);
   --interactive-icon-hover: var(--text-light);
@@ -294,180 +379,211 @@ Special thanks for help to: https://github.com/net-runner
   --text-invert: var(--canvas-color);
   --text-overlay-dark: var(--text-light);
   --text-overlay-light: var(--canvas-color);
-  --text-status-online: var(--feedback-positive);
-  --text-voice-connected: var(--feedback-positive);
 
   /* Text colors shared by the main window and settings dialog. */
-  --text-default: var(--text-light);
-  --text-strong: var(--text-light);
-  --text-link: var(--text-light);
-  --text-brand: var(--text-light);
-  --text-code: var(--text-light);
-  --interactive-text-hover: var(--text-light);
-  --interactive-text-active: var(--text-light);
-  --text-subtle: var(--accent-desaturated);
-  --text-muted: var(--accent-desaturated);
-  --interactive-text-default: var(--accent-desaturated);
-  --input-placeholder-text-default: var(--accent-desaturated);
   --channel-text-area-placeholder: var(--accent-desaturated);
-
   --header-primary: var(--text-light);
   --header-secondary: var(--accent-desaturated);
-  --text-normal: var(--text-light);
-  --interactive-normal: var(--accent-desaturated);
-  --interactive-hover: var(--text-light);
+  --input-placeholder-text-default: var(--accent-desaturated);
   --interactive-active: var(--text-light);
+  --interactive-hover: var(--text-light);
+  --interactive-normal: var(--accent-desaturated);
+  --interactive-text-active: var(--text-light);
+  --interactive-text-default: var(--accent-desaturated);
+  --interactive-text-hover: var(--text-light);
+  --text-brand: var(--text-light);
+  --text-code: var(--text-light);
+  --text-default: var(--text-light);
+  --text-link: var(--text-light);
+  --text-muted: var(--accent-desaturated);
+  --text-normal: var(--text-light);
+  --text-strong: var(--text-light);
+  --text-subtle: var(--accent-desaturated);
 
   /* Active text fields use a red focus ring. */
   --input-border-active: var(--accent-saturated);
 
   /* Shared button, radio and switch colors. */
-  --control-primary-background-default: var(--main-color);
-  --control-primary-background-hover: var(--main-color);
-  --control-primary-background-active: var(--main-color);
-  --control-primary-border-default: var(--divider-color);
-  --control-primary-border-hover: var(--accent-saturated);
-  --control-primary-border-active: var(--accent-saturated);
-  --control-primary-text-default: var(--text-light);
-  --control-primary-text-hover: var(--text-light);
-  --control-primary-text-active: var(--text-light);
-  --button-outline-brand-background-hover: var(--main-color-semitransparent);
+  --button-outline-brand-background-hover: var(--button-surface);
   --button-outline-brand-border-active: var(--accent-saturated);
-
-  --control-secondary-background-default: var(--main-color-semitransparent);
-  --control-secondary-background-hover: var(--main-color-semitransparent-selected);
-  --control-secondary-background-active: var(--main-color-semitransparent-selected);
-  --control-secondary-border-default: var(--divider-color);
-  --control-secondary-border-hover: var(--accent-saturated);
-  --control-secondary-border-active: var(--accent-saturated);
-  --control-secondary-text-default: var(--text-light);
-  --control-secondary-text-hover: var(--text-light);
-  --control-secondary-text-active: var(--text-light);
-  --control-secondary-icon-default: var(--text-light);
-  --control-secondary-icon-hover: var(--text-light);
-  --control-secondary-icon-active: var(--text-light);
-
-  --control-overlay-secondary-background-default: var(--main-color-semitransparent);
-  --control-overlay-secondary-background-hover: var(--main-color-semitransparent-selected);
-  --control-overlay-secondary-background-active: var(--main-color-semitransparent-selected);
-  --control-overlay-secondary-border-default: var(--divider-color);
-  --control-overlay-secondary-border-hover: var(--accent-saturated);
-  --control-overlay-secondary-border-active: var(--accent-saturated);
-  --control-overlay-secondary-text-default: var(--text-light);
-  --control-overlay-secondary-text-hover: var(--text-light);
-  --control-overlay-secondary-text-active: var(--text-light);
-  --control-overlay-secondary-icon-default: var(--text-light);
-  --control-overlay-secondary-icon-hover: var(--text-light);
-  --control-overlay-secondary-icon-active: var(--text-light);
-
-  --control-overlay-primary-background-default: var(--main-color);
-  --control-overlay-primary-background-hover: var(--main-color);
-  --control-overlay-primary-background-active: var(--main-color);
-  --control-overlay-primary-border-default: var(--divider-color);
-  --control-overlay-primary-border-hover: var(--accent-saturated);
-  --control-overlay-primary-border-active: var(--accent-saturated);
-  --control-overlay-primary-text-default: var(--text-light);
-  --control-overlay-primary-text-hover: var(--text-light);
-  --control-overlay-primary-text-active: var(--text-light);
-  --control-overlay-primary-icon-default: var(--text-light);
-  --control-overlay-primary-icon-hover: var(--text-light);
-  --control-overlay-primary-icon-active: var(--text-light);
-
-  --control-expressive-background-default: var(--main-color);
-  --control-expressive-background-hover: var(--main-color);
-  --control-expressive-background-active: var(--main-color);
-  --control-expressive-border-default: var(--divider-color);
-  --control-expressive-border-hover: var(--accent-saturated);
-  --control-expressive-border-active: var(--accent-saturated);
-  --control-expressive-text-default: var(--text-light);
-  --control-expressive-text-hover: var(--text-light);
-  --control-expressive-text-active: var(--text-light);
-  --control-expressive-icon-default: var(--text-light);
-  --control-expressive-icon-hover: var(--text-light);
-  --control-expressive-icon-active: var(--text-light);
-
-  --control-connected-background-default: var(--main-color-semitransparent-selected);
-  --control-connected-background-hover: var(--main-color);
-  --control-connected-background-active: var(--main-color);
-  --control-connected-border-default: var(--divider-color);
-  --control-connected-border-hover: var(--accent-saturated);
+  --checkbox-background-selected-default: var(--main-color);
+  --checkbox-background-selected-hover: var(--main-color);
+  --checkbox-border-selected-default: var(--frame-color);
+  --checkbox-border-selected-hover: var(--accent-saturated);
+  --control-connected-background-active: var(--button-surface);
+  --control-connected-background-default: var(--button-surface);
+  --control-connected-background-hover: var(--button-surface);
   --control-connected-border-active: var(--accent-saturated);
-  --control-connected-text-default: var(--text-light);
-  --control-connected-text-hover: var(--text-light);
-  --control-connected-text-active: var(--text-light);
+  --control-connected-border-default: var(--frame-color);
+  --control-connected-border-hover: var(--accent-saturated);
+  --control-connected-icon-active: var(--text-light);
   --control-connected-icon-default: var(--text-light);
   --control-connected-icon-hover: var(--text-light);
-  --control-connected-icon-active: var(--text-light);
-
-  --control-icon-only-background-hover: var(--main-color-semitransparent);
-  --control-icon-only-background-active: var(--main-color-semitransparent-selected);
-  --control-icon-only-border-hover: var(--divider-color);
+  --control-connected-text-active: var(--text-light);
+  --control-connected-text-default: var(--text-light);
+  --control-connected-text-hover: var(--text-light);
+  --control-expressive-background-active: var(--button-surface);
+  --control-expressive-background-default: var(--button-surface);
+  --control-expressive-background-hover: var(--button-surface);
+  --control-expressive-border-active: var(--accent-saturated);
+  --control-expressive-border-default: var(--frame-color);
+  --control-expressive-border-hover: var(--accent-saturated);
+  --control-expressive-icon-active: var(--text-light);
+  --control-expressive-icon-default: var(--text-light);
+  --control-expressive-icon-hover: var(--text-light);
+  --control-expressive-text-active: var(--text-light);
+  --control-expressive-text-default: var(--text-light);
+  --control-expressive-text-hover: var(--text-light);
+  --control-icon-only-background-active: var(--button-surface);
+  --control-icon-only-background-hover: var(--button-surface);
   --control-icon-only-border-active: var(--accent-saturated);
-
-  --radio-background-default: rgb(from var(--canvas-color) r g b / 72%);
-  --radio-background-hover: var(--main-color-semitransparent);
-  --radio-background-active: var(--main-color-semitransparent-selected);
+  --control-icon-only-border-hover: var(--frame-color);
+  --control-overlay-primary-background-active: var(--button-surface);
+  --control-overlay-primary-background-default: var(--button-surface);
+  --control-overlay-primary-background-hover: var(--button-surface);
+  --control-overlay-primary-border-active: var(--accent-saturated);
+  --control-overlay-primary-border-default: var(--frame-color);
+  --control-overlay-primary-border-hover: var(--accent-saturated);
+  --control-overlay-primary-icon-active: var(--text-light);
+  --control-overlay-primary-icon-default: var(--text-light);
+  --control-overlay-primary-icon-hover: var(--text-light);
+  --control-overlay-primary-text-active: var(--text-light);
+  --control-overlay-primary-text-default: var(--text-light);
+  --control-overlay-primary-text-hover: var(--text-light);
+  --control-overlay-secondary-background-active: var(--button-surface);
+  --control-overlay-secondary-background-default: var(--button-surface);
+  --control-overlay-secondary-background-hover: var(--button-surface);
+  --control-overlay-secondary-border-active: var(--accent-saturated);
+  --control-overlay-secondary-border-default: var(--frame-color);
+  --control-overlay-secondary-border-hover: var(--accent-saturated);
+  --control-overlay-secondary-icon-active: var(--text-light);
+  --control-overlay-secondary-icon-default: var(--text-light);
+  --control-overlay-secondary-icon-hover: var(--text-light);
+  --control-overlay-secondary-text-active: var(--text-light);
+  --control-overlay-secondary-text-default: var(--text-light);
+  --control-overlay-secondary-text-hover: var(--text-light);
+  --control-primary-background-active: var(--button-surface);
+  --control-primary-background-default: var(--button-surface);
+  --control-primary-background-hover: var(--button-surface);
+  --control-primary-border-active: var(--accent-saturated);
+  --control-primary-border-default: var(--frame-color);
+  --control-primary-border-hover: var(--accent-saturated);
+  --control-primary-text-active: var(--text-light);
+  --control-primary-text-default: var(--text-light);
+  --control-primary-text-hover: var(--text-light);
+  --control-secondary-background-active: var(--button-surface);
+  --control-secondary-background-default: var(--button-surface);
+  --control-secondary-background-hover: var(--button-surface);
+  --control-secondary-border-active: var(--accent-saturated);
+  --control-secondary-border-default: var(--frame-color);
+  --control-secondary-border-hover: var(--accent-saturated);
+  --control-secondary-icon-active: var(--text-light);
+  --control-secondary-icon-default: var(--text-light);
+  --control-secondary-icon-hover: var(--text-light);
+  --control-secondary-text-active: var(--text-light);
+  --control-secondary-text-default: var(--text-light);
+  --control-secondary-text-hover: var(--text-light);
+  --radio-background-active: var(--active-accent-color);
+  --radio-background-default: var(--canvas-color);
+  --radio-background-hover: var(--hover-surface);
   --radio-background-selected-default: var(--main-color);
-  --radio-background-selected-hover: var(--main-color);
-  --radio-border-default: var(--divider-color);
-  --radio-border-hover: var(--accent-saturated);
+  --radio-background-selected-hover: var(--hover-surface);
   --radio-border-active: var(--accent-saturated);
+  --radio-border-default: var(--frame-color);
+  --radio-border-hover: var(--accent-saturated);
   --radio-border-selected-default: var(--accent-saturated);
   --radio-border-selected-hover: var(--text-light);
   --radio-thumb-background-active: var(--text-light);
   --switch-background-selected-default: var(--main-color);
   --switch-background-selected-hover: var(--main-color);
-  --switch-border-selected-default: var(--divider-color);
+  --switch-border-selected-default: var(--frame-color);
   --switch-border-selected-hover: var(--accent-saturated);
 
-  --checkbox-background-selected-default: var(--main-color);
-  --checkbox-background-selected-hover: var(--main-color);
-  --checkbox-border-selected-default: var(--divider-color);
-  --checkbox-border-selected-hover: var(--accent-saturated);
-
-  /* Wallpaper and profile assets */
-  --local-wallpaper: url("vencord:///themes/wallpaper.png"); /* bg0.png */
-  --app-background: var(--local-wallpaper);
-  --profile-background: url("vencord:///themes/wallpaper.png"); /* Background of the profile popout. */
-
   /* Blur */
-  --wallpaper-blur: 3px;
   --popover-blur: 12px;
+}
 
-  /* Opacity */
-  --popover-opacity: 0.8;
-  --popover-tint: 70%;
+/* Discord reads the hover token on message rows. */
+#app-mount .message_SY_P2T {
+  --message-background-hover: var(--background-message-hover);
+}
+
+/* Chat separators set local color tokens in Discord. */
+#app-mount .divider_4TfzT5 {
+  --divider-color: var(--line-color);
+  border-block-start-color: var(--line-color);
+}
+
+#app-mount .divider_4TfzT5.isUnread_4TfzT5 {
+  --divider-color: var(--unread-line-color);
+  border-block-start-color: var(--unread-line-color);
+}
+
+:where(hr, [role="separator"]) {
+  border-color: var(--line-color);
 }
 
 /* 2. Shared components */
 
-button {
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+/* Server tag labels use the same fill in chat, member lists, and DMs. */
+#app-mount .chipletContainerInner_k8jyN7,
+#app-mount :is(.clanTagChiplet_2i8Bfm, .clanTag_YUoOxm, .clanTag_zln_tS, .serverTag_E7xgJz):not(:has(.chipletContainerInner_k8jyN7)) {
+    background-color: var(--r8);
+}
+
+/* Native brand fills that use raw HSL channels take their color from the palette. */
+#app-mount :is(.addCard_uUFOpe, .addIconWrapper_uUFOpe, .newUpsellBackground_qIotUB) {
+    background-color: var(--subtle-accent-color);
+    background-image: none;
+}
+
+#app-mount :is(.clickBackground_BDrUP9, .tivNavItemIconContainerSelected_zP0tg_, .reaction_MmKct8.reactionMe_MmKct8) {
+    background-color: var(--main-color);
+}
+
+#app-mount .addCard_uUFOpe {
+    border-color: var(--frame-color);
+}
+
+#app-mount .tivNavItemIconContainerSelected_zP0tg_ {
+    color: var(--text-light);
+}
+
+/* Text sits directly on its surrounding surface. */
+:is(
+    [data-text-variant],
+    [data-mana-component="text"],
+    .markup_ku1OHH,
+    .markup_ku1OHH :is(a, span),
+    p, h1, h2, h3, h4, h5, h6,
+    em, strong, small, mark, code
+):not(button, input, textarea, select, [role="button"], [contenteditable], [class*="spoiler"], .wrapper_NDaLCQ, .wrapper_NDaLCQ *, .chipletContainerInner_k8jyN7, .clanTagChiplet_2i8Bfm, .clanTag_YUoOxm, .clanTag_zln_tS, .serverTag_E7xgJz) {
+    background: var(--t) !important;
 }
 
 button[class*=lookFilled_][class*=colorPrimary_] {
-  background: var(--accent-color-semitransparent);
+  background: var(--button-surface);
   color: var(--button-text);
 }
 
 button[class*=lookFilled_][class*=colorPrimary_]:hover {
-  background: var(--accent-color-semitransparent);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
 button[class*=colorBrand_]:not([class*=lookBlank], [class*=lookLink]) {
-  background: var(--main-color);
+  background: var(--button-surface);
   color: var(--button-text);
 }
 
 button[class*=colorBrand_]:not([class*=lookBlank], [class*=lookLink]):hover {
-  background: var(--main-color);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
 button[class*=lookOutlined_]:not([class*=lookBlank]) {
   color: var(--button-text);
-  border-color: rgb(0 0 0 / 0%);
+  border-color: var(--t);
 }
 
 button[class*=colorGreen_],
@@ -486,9 +602,20 @@ button[class*=lookLink_] {
   color: var(--button-text);
 }
 
+button[class*=lookLink_] > [class*=contents] {
+  background: none;
+  border-bottom: 1px solid var(--t);
+  margin-bottom: -1px;
+}
+
 button[class*=lookLink_]:hover {
   text-decoration: none;
   color: var(--button-text-selected);
+}
+
+button[class*=lookLink_]:hover > [class*=contents] {
+  background: none;
+  border-color: currentColor;
 }
 
 button[class*=lookLink_][class*=colorLink_] {
@@ -499,98 +626,83 @@ button[class*=lookLink_][class*=colorLink_]:hover {
   color: var(--accent-saturated);
 }
 
-button[class*=lookLink_] > [class*=contents] {
-  background: none;
-  border-bottom: 1px solid rgb(0 0 0 / 0%);
-  margin-bottom: -1px;
-}
-
-button[class*=lookLink_]:hover > [class*=contents] {
-  background: none;
-  border-color: currentColor;
-}
-
-input {
-  transition: all 0.3s;
-}
-
 input:focus {
   border-color: var(--accent-desaturated);
   box-shadow: none;
 }
 
 [class*=-select][class*=lookFilled] {
-  background: rgb(0 0 0 / 20%);
-  border-color: rgb(0 0 0 / 20%);
+  background: var(--r1);
+  border-color: var(--r2);
 }
 
 [class*=-select][class*=lookFilled][class*=open] {
-  background: rgb(0 0 0 / 90%);
+  background: var(--r1);
 }
 
 [class*=tooltipGrey],
 [class*=tooltipPrimary],
 [class*=tooltipGreen] {
-  background: rgb(0 0 0 / 95%);
-  border: 2px solid rgb(0 0 0);
-  color: rgb(255 255 255 / 50%);
+  background: var(--r2);
+  border: 2px solid var(--canvas-color);
+  color: var(--r6);
   font-weight: bold;
+}
+
+[class*=followButton] {
+  background: var(--button-surface);
+  color: var(--button-text);
+}
+
+[class*=followButton]:hover {
+  background: var(--button-surface);
+  color: var(--button-text-selected);
 }
 
 [class*=tooltipGrey] [class*=tooltipPointer],
 [class*=tooltipPrimary] [class*=tooltipPointer],
 [class*=tooltipGreen] [class*=tooltipPointer] {
-  border-top-color: rgb(0 0 0);
-}
-
-[class*=followButton] {
-  background: var(--main-color);
-  color: var(--button-text);
-}
-
-[class*=followButton]:hover {
-  background: var(--main-color);
-  color: var(--button-text-selected);
+  border-top-color: var(--canvas-color);
 }
 
 [id*=-chat-messages] [class*=description] [class*=colorBrand]:hover,
 [id*=-chat-messages] [class*=description] [class*=colorBrand][class*=selected] {
-  background: rgb(0 255 128 / 20%);
-  color: rgb(0 255 128 / 90%);
+  background: var(--active-accent-color);
+  color: var(--text-light);
 }
 
 [id*=-chat-messages] [class*=description] [class*=colorPrimary]:hover,
 [id*=-chat-messages] [class*=description] [class*=colorPrimary][class*=selected] {
-  background: rgb(0 0 0 / 40%);
-  color: rgb(255 255 255);
+  background: var(--r2);
+  color: var(--text-light);
 }
 
 [class*=message] [class*=buttonContainer] [class*=container] [class*=wrapper] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--button-surface);
 }
 
 [id*=popout] > [class*=container] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r2);
   box-shadow: none;
 }
 
 [class*=actionButtons] [class*=jumpButton] {
-  background: rgb(0 0 0 / 30%);
+  background: var(--button-surface);
   border-radius: 3px;
   color: var(--button-text);
 }
 
 [class*=actionButtons] [class*=jumpButton]:hover {
-  background: rgb(0 0 0 / 60%);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
 [class*=pageControlContainer] [class*=activeButton] {
-  background: var(--main-color);
+  background: var(--button-surface);
 }
 
 [class*=pageControlContainer] [class*=roundButton]:not([class*=activeButton]):hover {
-  background: var(--main-color-semitransparent);
+  background: var(--button-surface);
 }
 
 code .hljs-selector-class {
@@ -664,54 +776,34 @@ code .hljs-selector-tag {
 }
 
 [class*=connection] div:nth-child(2) button:nth-child(2) {
-  background-color: rgb(0 0 0 / 0%);
-  background-image: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTIgOWMtMS42IDAtMy4xNS4yNS00LjYuNzJ2My4xYzAgLjM5LS4yMy43NC0uNTYuOS0uOTguNDktMS44NyAxLjEyLTIuNjYgMS44NS0uMTguMTgtLjQzLjI4LS43LjI4LS4yOCAwLS41My0uMTEtLjcxLS4yOUwuMjkgMTMuMDhjLS4xOC0uMTctLjI5LS40Mi0uMjktLjcgMC0uMjguMTEtLjUzLjI5LS43MUMzLjM0IDguNzggNy40NiA3IDEyIDdzOC42NiAxLjc4IDExLjcxIDQuNjdjLjE4LjE4LjI5LjQzLjI5LjcxIDAgLjI4LS4xMS41My0uMjkuNzFsLTIuNDggMi40OGMtLjE4LjE4LS40My4yOS0uNzEuMjktLjI3IDAtLjUyLS4xMS0uNy0uMjgtLjc5LS43NC0xLjY5LTEuMzYtMi42Ny0xLjg1LS4zMy0uMTYtLjU2LS41LS41Ni0uOXYtMy4xQzE1LjE1IDkuMjUgMTMuNiA5IDEyIDl6Ii8+PC9zdmc+);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 20px;
-  opacity: 0.5;
+  position: relative;
+  background-color: var(--t);
+}
+
+[class*=connection] div:nth-child(2) button:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--text-light);
+  mask: url(data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjRkZGRkZGIiBoZWlnaHQ9IjI0IiB2aWV3Qm94PSIwIDAgMjQgMjQiIHdpZHRoPSIyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIgZmlsbD0ibm9uZSIvPiAgICA8cGF0aCBkPSJNMTIgOWMtMS42IDAtMy4xNS4yNS00LjYuNzJ2My4xYzAgLjM5LS4yMy43NC0uNTYuOS0uOTguNDktMS44NyAxLjEyLTIuNjYgMS44NS0uMTguMTgtLjQzLjI4LS43LjI4LS4yOCAwLS41My0uMTEtLjcxLS4yOUwuMjkgMTMuMDhjLS4xOC0uMTctLjI5LS40Mi0uMjktLjcgMC0uMjguMTEtLjUzLjI5LS43MUMzLjM0IDguNzggNy40NiA3IDEyIDdzOC42NiAxLjc4IDExLjcxIDQuNjdjLjE4LjE4LjI5LjQzLjI5LjcxIDAgLjI4LS4xMS41My0uMjkuNzFsLTIuNDggMi40OGMtLjE4LjE4LS40My4yOS0uNzEuMjktLjI3IDAtLjUyLS4xMS0uNy0uMjgtLjc5LS43NC0xLjY5LTEuMzYtMi42Ny0xLjg1LS4zMy0uMTYtLjU2LS41LS41Ni0uOXYtMy4xQzE1LjE1IDkuMjUgMTMuNiA5IDEyIDl6Ii8+PC9zdmc+) center / 20px no-repeat;
+  pointer-events: none;
 }
 
 [class*=connection] div:nth-child(2) button:nth-child(2) svg {
   display: none;
 }
 
-[class*=connection] div:nth-child(2) button:nth-child(2):hover {
-  -webkit-animation: disconnect1 0.06s infinite alternate;
-  animation: disconnect1 0.06s infinite alternate;
-  background-color: rgb(0 0 0 / 0%);
-  opacity: 1;
-}
-
-@-webkit-keyframes disconnect1 {
-  from {
-    -webkit-transform: rotate(-7deg);
-    transform: rotate(-7deg);
-  }
-  to {
-    -webkit-transform: rotate(7deg);
-    transform: rotate(7deg);
-  }
-}
-
-@keyframes disconnect1 {
-  from {
-    -webkit-transform: rotate(-7deg);
-    transform: rotate(-7deg);
-  }
-  to {
-    -webkit-transform: rotate(7deg);
-    transform: rotate(7deg);
-  }
+[class*=focusLock] [class*=modal] [class*=radioBar] > div:not([class*=info]) circle {
+  fill: var(--main-color);
 }
 
 [class*=wrapper][class*=guilds] [class*=circleIconButton] {
-  background: rgb(0 0 0 / 30%);
+  background: var(--button-surface);
   color: var(--accent-saturated);
 }
 
 [class*=wrapper][class*=guilds] #bd-pub-button {
-  background-color: rgb(0 0 0 / 30%);
+  background-color: var(--button-surface);
 }
 
 button[style="background-color: rgb(88, 101, 242);"] {
@@ -719,76 +811,56 @@ button[style="background-color: rgb(88, 101, 242);"] {
 }
 
 [class*=footerButton] {
-  background: var(--main-color);
+  background: var(--button-surface);
   color: var(--button-text);
 }
 
 [class*=footerButton]:hover {
-  background: var(--main-color);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
 [class*=panels] > [class*=activityPanel] button:hover,
 [class*=panels] > [class*=container] button:hover {
-  background: rgb(0 0 0 / 20%);
+  background: var(--button-surface);
 }
 
 [class*=panels] [class*=actionButtons] button {
-  background: var(--main-color-semitransparent);
+  background: var(--button-surface);
   color: var(--button-text);
 }
 
 [class*=panels] [class*=actionButtons] button:hover {
-  background: var(--main-color-semitransparent-selected);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
-[class*=focusLock] [class*=modal] [class*=radioBar] > div:not([class*=info]) circle {
-  fill: var(--main-color);
-}
-
 [class*=circleButton] {
-  background-color: var(--main-color-semitransparent);
+  background-color: var(--button-surface);
 }
 
 [class*=circleButton]:hover {
-  background-color: var(--main-color-semitransparent-selected);
-}
-
-[class*=contentExpandContainer] [class*=selected] [class*=statusGreen] {
-  background: rgb(0 230 77 / 20%);
-}
-
-[class*=contentExpandContainer] [class*=selected] [class*=statusYellow] {
-  background: rgb(255 196 0 / 20%);
-}
-
-[class*=contentExpandContainer] [class*=selected] [class*=statusOrange] {
-  background: rgb(242 97 0 / 20%);
-}
-
-[class*=contentExpandContainer] [class*=selected] [class*=statusRed] {
-  background: rgb(from var(--r5) r g b / 20%);
+  background-color: var(--button-surface);
 }
 
 button[class*=participantsButton] {
-  background: rgb(0 0 0 / 60%);
+  background: var(--button-surface);
   color: var(--button-text);
   transition: 0.2s all ease-in-out;
 }
 
 button[class*=participantsButton]:hover {
-  background: rgb(0 0 0 / 90%);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
 [class*=tileSizer] [class*=tile] button[class*=button] {
-  background: var(--main-color);
+  background: var(--button-surface);
   color: var(--button-text);
 }
 
 [class*=tileSizer] [class*=tile] button[class*=button]:hover {
-  background: var(--main-color);
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
@@ -797,16 +869,16 @@ button[class*=participantsButton]:hover {
 }
 
 [class*=categoryPill][class*=selected] > div {
-  color: rgb(255 255 255 / 80%);
+  color: var(--r7);
 }
 
-:not(.custom-profile-theme)[style*=profile] [class*=activity] button {
-  background: var(--main-color);
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *) button {
+  background: var(--button-surface);
   color: var(--button-text);
 }
 
-:not(.custom-profile-theme)[style*=profile] [class*=activity] button:hover {
-  background: var(--main-color);
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *) button:hover {
+  background: var(--button-surface);
   color: var(--button-text-selected);
 }
 
@@ -819,197 +891,79 @@ button[class*=participantsButton]:hover {
   }
 }
 
-.bd-tab-bar .bd-tab-item.selected {
-  background: var(--main-color);
-}
-
-.bd-button:not(.bd-addon-button):not(.bd-changelog-button) {
-  background: var(--main-color);
-  color: var(--button-text);
-}
-
-.bd-button:not(.bd-addon-button):not(.bd-changelog-button):hover {
-  background: var(--main-color);
-  color: var(--button-text-selected);
-}
-
-.bd-switch-body {
-  background: var(--accent-color-semitransparent);
-}
-
-.bd-switch-checked .bd-switch-body {
-  background: var(--main-color);
+.bd-controls > .bd-addon-button:last-of-type {
+  margin-left: 10px;
 }
 
 .bd-switch-checked .bd-switch-body path {
   fill: var(--main-color);
 }
 
+.bd-tab-bar .bd-tab-item.selected {
+  background: var(--main-color);
+}
+
+.bd-button:not(.bd-addon-button):not(.bd-changelog-button) {
+  background: var(--button-surface);
+  color: var(--button-text);
+}
+
+.bd-button:not(.bd-addon-button):not(.bd-changelog-button):hover {
+  background: var(--button-surface);
+  color: var(--button-text-selected);
+}
+
+.bd-switch-body {
+  background: var(--surface-color);
+}
+
+.bd-switch-checked .bd-switch-body {
+  background: var(--main-color);
+}
+
 .bd-addon-views > button {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
 .bd-addon-views > button.selected {
-  background: var(--main-color);
+  background: var(--button-surface);
 }
 
 .bd-addon-button {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
-.bd-controls > .bd-addon-button:last-of-type {
-  margin-left: 10px;
+/* Shared surface for floating cards, menus and dropdowns. */
+.clickTrapContainer_VVADeK:has(
+    > .layer_VVADeK[id^="popout_"] > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv),
+    > .layer_VVADeK[id^="popout_"] > [data-popout-animating] :where(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"])
+) {
+    overflow: clip;
 }
 
-[role=radiogroup] [aria-checked=true] [style*=green] {
-  background: rgb(0 230 77 / 20%);
+/* Expressive buttons use the shared red fill instead of separate animated artwork. */
+.expressiveWrapper_F7qvhY :is(.expressiveRive_F7qvhY, .expressiveBackground_F7qvhY) {
+    visibility: hidden;
 }
 
-[role=radiogroup] [aria-checked=true] [style*=yellow] {
-  background: rgb(255 153 0 / 20%);
+:is(.colorBrand_9OQtot, .colorLink_9OQtot, .lookLink_9OQtot.colorPrimary_9OQtot) {
+    --brand-360: var(--text-light);
+    --brand-500: var(--accent-saturated);
 }
 
-[role=radiogroup] [aria-checked=true] [style*=red] {
-  background: rgb(from var(--r5) r g b / 20%);
-}
-
-[role=radiogroup] > [class*=item] {
-  background: rgb(0 0 0 / 10%);
-}
-
-[role=radiogroup] > [class*=item]:hover {
-  background: rgb(0 0 0 / 20%);
-}
-
-[role=radiogroup] > [class*=item][aria-checked=true] {
-  background: rgb(0 0 0 / 40%);
-}
-
-[role=radiogroup] > [class*=item][aria-checked=true] [class*=radioBar] div:not([class*=info]) circle {
-  fill: rgb(255 255 255);
-}
-
-[class*=keybindGroup] button {
-  background: var(--main-color);
-  color: var(--button-text);
-}
-
-[class*=keybindGroup] button:hover {
-  background: var(--main-color);
-  color: var(--button-text-selected);
-}
-
-[id*=-popout] [class*=searchableSelect] {
-  background: rgb(0 0 0 / 95%);
-  box-shadow: none;
-}
-
-[class*=notificationSettings] label:not([class*=selected], [class*=disabled]) {
-  background: rgb(255 255 255 / 50%);
-}
-
-[class*=notificationSettings] label:not([class*=selected], [class*=disabled]):hover {
-  background: rgb(255 255 255 / 70%);
-}
-
-[class*=notificationSettings] label[class*=selected]:not([class*=disabled]) {
-  background: var(--main-color);
-  border-color: rgb(0 0 0 / 0%);
-  box-shadow: none;
-}
-
-[class*=notificationSettings] label[class*=selected][class*=disabled] path:last-child {
-  fill: var(--main-color);
-}
-
-[class*=applicationStore] button {
-  background: var(--main-color);
-  color: var(--button-text);
-}
-
-[class*=applicationStore] button:hover {
-  background: var(--main-color);
-  color: var(--button-text-selected);
-}
-
-.ChannelDms-channelpopout-popout {
-  background: rgb(0 0 0 / 95%);
-}
-
-.ChannelDms-channelpopout-popout > [role=button] {
-  background-color: var(--main-color-semitransparent-selected);
-}
-
-.ChannelDms-channelpopout-popout > button {
-  background: rgb(0 0 0 / 95%);
-  border-radius: 5px;
-}
-
-[id*=-popout] > div > [role=dialog] {
-  background: rgb(0 0 0 / 95%);
-  border-radius: 10px;
-}
-
-#guild-context-invite-people:not(:hover),
-#channel-context-invite-people:not(:hover),
-#guild-header-popout-invite-people:not(:hover) {
-  color: var(--accent-color);
-}
-
-[data-list-item-id=guildsnav___home]:hover > div,
-[data-list-item-id=guildsnav___home][class*=selected] > div {
-  background: var(--main-color);
-}
-
-#app-mount .lookFilled_9OQtot.colorBrand_9OQtot {
-    background-color: var(--main-color);
-    color: var(--button-text);
-}
-
-#app-mount .lookFilled_9OQtot.colorBrand_9OQtot:hover {
-    background-color: var(--main-color);
-    color: var(--button-text-selected);
-}
-
-.joinOptions_i0EgQh .joinOptionTab_i0EgQh[aria-disabled="false"]:hover .joinOptionContent_i0EgQh {
-    background: var(--main-color-semitransparent);
-}
-
-.joinOptions_i0EgQh .joinOptionContent_i0EgQh.active_i0EgQh {
-    background: var(--main-color-semitransparent-selected);
-    border-color: var(--divider-color);
-}
-
-.container_aTnRjo .lookFilled_9OQtot.colorGreen_9OQtot:not(:disabled),
-:is(.container_aTnRjo, .pendingChangesToolbar_s3DB6Y) .primary_F7qvhY:not(:disabled) {
-    background-color: var(--main-color);
-    color: var(--text-light);
-}
-
-.container_aTnRjo .lookFilled_9OQtot.colorGreen_9OQtot:not(:disabled):hover,
-:is(.container_aTnRjo, .pendingChangesToolbar_s3DB6Y) .primary_F7qvhY:not(:disabled):hover {
-    background-color: var(--main-color);
+/* Keep destructive actions distinct within the same red palette. */
+:is(.critical-primary_F7qvhY, .lookFilled_9OQtot.colorRed_9OQtot) {
+    --control-critical-primary-background-default: var(--critical-color);
+    --control-critical-primary-background-hover: var(--critical-hover);
+    --control-critical-primary-background-active: var(--critical-hover);
+    --control-critical-primary-border-default: var(--accent-saturated);
+    --control-critical-primary-text-default: var(--text-light);
 }
 
 /* Popup surfaces are rendered on their own layers. */
 :is([role="dialog"], [data-mana-component="modal"], [data-mana-component="layer-modal"], .root__KoJTP, .panel_BfN7RR) {
-    --modal-background: rgb(from var(--surface-color) r g b / 90%);
-    --modal-footer-background: rgb(from var(--canvas-color) r g b / 65%);
-}
-
-:is([data-mana-component="modal"], .root__KoJTP, .panel_BfN7RR) {
-    background-color: var(--modal-background);
-    border-color: var(--divider-color);
-    backdrop-filter: blur(10px);
-}
-
-.container_SMlho9 .pickerItem_SMlho9:is(.pickerItemSelected_SMlho9, :focus-visible, :not(:disabled):hover) {
-    background-color: var(--main-color-semitransparent-selected);
-    border-color: var(--accent-saturated);
-}
-
-.container_SMlho9 .divider_ZcHFUr {
-    background-color: var(--divider-color);
+    --modal-background: var(--floating-surface);
+    --modal-footer-background: var(--r2);
 }
 
 /* Center the radio and leading icon within each option row. */
@@ -1017,10 +971,6 @@ button[class*=participantsButton]:hover {
     padding-block: 8px;
     padding-inline-start: calc(var(--custom-radio-text-start) + 10px);
     padding-inline-end: 10px;
-}
-
-.radioGroupOption_oJuRbG.withLeadingIcon_oJuRbG {
-    padding-inline-start: calc(var(--custom-radio-text-start) + var(--custom-radio-icon-offset) + 10px);
 }
 
 .radioGroupOption_oJuRbG :is(.radioIndicator_oJuRbG, .radioItemIcon_oJuRbG) {
@@ -1036,99 +986,207 @@ button[class*=participantsButton]:hover {
     inset-inline-start: calc(var(--custom-radio-text-start) + 10px);
 }
 
-.wrapper_UcGqzv:not([data-read-only="true"], [data-error="true"]):has(input:focus, textarea:focus),
-.tagInputWrapper_SMlho9:focus-within {
-    --border-focus: var(--accent-saturated);
-    --focus: var(--accent-saturated);
-    outline-color: var(--accent-saturated);
+.radioGroupOption_oJuRbG.withLeadingIcon_oJuRbG {
+    padding-inline-start: calc(var(--custom-radio-text-start) + var(--custom-radio-icon-offset) + 10px);
+}
+
+[role=radiogroup] > [class*=item][aria-checked=true] [class*=radioBar] div:not([class*=info]) circle {
+  fill: var(--text-light);
+}
+
+[class*=notificationSettings] label[class*=selected][class*=disabled] path:last-child {
+  fill: var(--main-color);
+}
+
+[role=radiogroup] [aria-checked=true] [style*=green] {
+  background: var(--background-feedback-mod-positive);
+}
+
+[role=radiogroup] [aria-checked=true] [style*=yellow] {
+  background: var(--background-feedback-mod-warning);
+}
+
+[role=radiogroup] [aria-checked=true] [style*=red] {
+  background: var(--critical-color);
+}
+
+[role=radiogroup] > [class*=item] {
+  background: var(--r1);
+}
+
+[role=radiogroup] > [class*=item]:hover {
+  background: var(--r2);
+}
+
+[role=radiogroup] > [class*=item][aria-checked=true] {
+  background: var(--r3);
+}
+
+[class*=keybindGroup] button {
+  background: var(--button-surface);
+  color: var(--button-text);
+}
+
+[class*=keybindGroup] button:hover {
+  background: var(--button-surface);
+  color: var(--button-text-selected);
+}
+
+[id*=-popout] [class*=searchableSelect] {
+  background: var(--r2);
+  box-shadow: none;
+}
+
+[class*=notificationSettings] label:not([class*=selected], [class*=disabled]) {
+  background: var(--r2);
+}
+
+[class*=notificationSettings] label:not([class*=selected], [class*=disabled]):hover {
+  background: var(--r7);
+}
+
+[class*=notificationSettings] label[class*=selected]:not([class*=disabled]) {
+  background: var(--main-color);
+  border-color: var(--t);
+  box-shadow: none;
+}
+
+[class*=applicationStore] button {
+  background: var(--button-surface);
+  color: var(--button-text);
+}
+
+[class*=applicationStore] button:hover {
+  background: var(--button-surface);
+  color: var(--button-text-selected);
+}
+
+.ChannelDms-channelpopout-popout {
+  background: var(--r2);
+}
+
+.ChannelDms-channelpopout-popout > [role=button] {
+  background-color: var(--button-surface);
+}
+
+.ChannelDms-channelpopout-popout > button {
+  background: var(--button-surface);
+  border-radius: 5px;
+}
+
+#guild-context-invite-people:not(:hover),
+#channel-context-invite-people:not(:hover),
+#guild-header-popout-invite-people:not(:hover) {
+  color: var(--accent-color);
+}
+
+[id*=-popout] > div > [role=dialog] {
+  background: var(--r2);
+  border-radius: 10px;
+}
+
+[data-list-item-id=guildsnav___home]:hover > div,
+[data-list-item-id=guildsnav___home][class*=selected] > div {
+  background: var(--main-color);
+}
+
+.joinOptions_i0EgQh .joinOptionTab_i0EgQh[aria-disabled="false"]:hover .joinOptionContent_i0EgQh {
+    background: var(--subtle-accent-color);
+}
+
+.joinOptions_i0EgQh .joinOptionContent_i0EgQh.active_i0EgQh {
+    background: var(--active-accent-color);
+    border-color: var(--frame-color);
+}
+
+.container_aTnRjo .lookFilled_9OQtot.colorGreen_9OQtot:not(:disabled),
+:is(.container_aTnRjo, .pendingChangesToolbar_s3DB6Y) .primary_F7qvhY:not(:disabled) {
+    background-color: var(--main-color);
+    color: var(--text-light);
+}
+
+.container_aTnRjo .lookFilled_9OQtot.colorGreen_9OQtot:not(:disabled):hover,
+:is(.container_aTnRjo, .pendingChangesToolbar_s3DB6Y) .primary_F7qvhY:not(:disabled):hover {
+    background-color: var(--main-color);
+}
+
+:is([data-mana-component="modal"], .root__KoJTP, .panel_BfN7RR) {
+    background-color: var(--modal-background);
+    border-color: var(--frame-color);
+    backdrop-filter: blur(10px);
+}
+
+.container_SMlho9 .pickerItem_SMlho9:is(.pickerItemSelected_SMlho9, :focus-visible, :not(:disabled):hover) {
+    background-color: var(--active-accent-color);
+    border-color: var(--accent-saturated);
+}
+
+.container_SMlho9 .pickerItem_SMlho9:is(:focus-visible, :not(:disabled):hover) {
+    background-color: var(--hover-surface);
+}
+
+.container_SMlho9 .divider_ZcHFUr {
+    background-color: var(--line-color);
 }
 
 /* Server Tag enable switch and its settings row. */
 .enableSwitchContainer_SMlho9 {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
+    background-color: var(--r2);
     --switch-background-selected-default: var(--main-color);
     --switch-background-selected-hover: var(--main-color);
-    --switch-border-selected-default: var(--divider-color);
+    --switch-border-selected-default: var(--frame-color);
     --switch-border-selected-hover: var(--accent-saturated);
 }
 
+/* Discord animates switch colors inline. */
+.container_9AraPt .switchIndicator_9AraPt {
+    background-color: var(--surface-color) !important;
+    border-color: var(--frame-color) !important;
+}
+
 .container_9AraPt:has(input:checked) .switchIndicator_9AraPt {
-    background-color: var(--main-color);
-    border-color: var(--divider-color);
+    background-color: var(--main-color) !important;
 }
 
-.container_9AraPt:not([data-disabled]):has(input:checked):hover .switchIndicator_9AraPt {
-    background-color: var(--main-color);
-    border-color: var(--accent-saturated);
-}
-
-:is(.colorBrand_9OQtot, .colorLink_9OQtot, .lookLink_9OQtot.colorPrimary_9OQtot) {
-    --brand-360: var(--text-light);
-    --brand-500: var(--accent-saturated);
+.container_9AraPt:not([data-disabled]):hover .switchIndicator_9AraPt {
+    border-color: var(--accent-saturated) !important;
 }
 
 /* Radio option cards share the same states in settings and popups. */
 .radioGroupOption_oJuRbG:not([data-disabled]) {
-    background-color: rgb(from var(--canvas-color) r g b / 45%);
+    background-color: var(--r1);
 }
 
 .radioGroupOption_oJuRbG:is([data-selected], :hover, :focus-visible):not([data-disabled]) {
-    background-color: var(--main-color-semitransparent-selected);
+    background-color: var(--active-accent-color);
+}
+
+.radioGroupOption_oJuRbG:is(:hover, :focus-visible):not([data-disabled]) {
+    background-color: var(--hover-surface);
 }
 
 /* Style select triggers, their popouts and the rendered options. */
 .selectField_vWC4bk:not(.isInert_vWC4bk) {
-    --custom-input-background-color: rgb(from var(--surface-color) r g b / 62%);
-    --custom-input-border-color: var(--divider-color);
+    --custom-input-background-color: var(--r2);
+    --custom-input-border-color: var(--frame-color);
     --custom-input-focus-border-color: var(--accent-saturated);
-}
-
-/* Expressive buttons use the shared red fill instead of separate animated artwork. */
-.expressiveWrapper_F7qvhY :is(.expressiveRive_F7qvhY, .expressiveBackground_F7qvhY) {
-    visibility: hidden;
-}
-
-/* Keep destructive actions distinct within the same red palette. */
-:is(.critical-primary_F7qvhY, .lookFilled_9OQtot.colorRed_9OQtot) {
-    --control-critical-primary-background-default: var(--critical-color);
-    --control-critical-primary-background-hover: var(--critical-hover);
-    --control-critical-primary-background-active: var(--critical-hover);
-    --control-critical-primary-border-default: var(--accent-saturated);
-    --control-critical-primary-text-default: var(--text-light);
-}
-
-:is(.button_F7qvhY, .lookFilled_9OQtot, .lookOutlined_9OQtot, .lookLink_9OQtot):focus-visible {
-    --border-focus: var(--accent-saturated);
-    --focus: var(--accent-saturated);
-    outline-color: var(--accent-saturated);
 }
 
 /* The older channel select puts state on the outer control and paint on its child. */
 .container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-disabled="true"], [aria-invalid="true"])
     > .select_uFkqU2 {
-    --custom-input-background-color: rgb(from var(--surface-color) r g b / 62%);
-    --custom-input-border-color: var(--divider-color);
+    --custom-input-background-color: var(--r2);
+    --custom-input-border-color: var(--frame-color);
     --custom-input-hover-border-color: var(--accent-saturated);
     --custom-input-focus-border-color: var(--accent-saturated);
     background-color: var(--custom-input-background-color);
-    border-color: var(--divider-color);
+    border-color: var(--frame-color);
     color: var(--text-light);
-}
-
-.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-invalid="true"]) {
-    --focus: var(--accent-saturated);
-    --border-focus: var(--accent-saturated);
 }
 
 .container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-disabled="true"], [aria-invalid="true"])
     :is(.select_uFkqU2:hover, .select_uFkqU2:focus-within) {
     border-color: var(--accent-saturated);
-}
-
-.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:is(:focus-visible, [aria-expanded="true"]):not([aria-invalid="true"])
-    > .select_uFkqU2 {
-    border-color: var(--accent-saturated);
-    outline-color: var(--accent-saturated);
 }
 
 /* Custom buttons can read the brand palette directly instead of control colors. */
@@ -1141,88 +1199,113 @@ button[class*=participantsButton]:hover {
     .sendButton_bWT6VE,
     .subButton_9n0AUP
 ) {
-    --brand-200: color-mix(in srgb, var(--text-light) 60%, rgb(255 255 255));
+    --brand-200: var(--text-light);
     --brand-360: var(--text-light);
     --brand-400: var(--text-light);
     --brand-430: var(--accent-saturated);
-    --brand-460: color-mix(in srgb, var(--main-color) 35%, var(--accent-saturated));
+    --brand-460: var(--accent-saturated);
     --brand-500: var(--main-color);
     --brand-530: var(--main-color);
     --brand-560: var(--main-color);
     --brand-600: var(--critical-color);
-    --brand-500-hsl: 0 59% 38%;
-    --brand-530-hsl: var(--brand-500-hsl);
     --blurple-50: var(--main-color);
     --blurple-60: var(--main-color);
     --blurple-65: var(--critical-color);
 }
 
-/* Apply the button palette on the painted element as well as its theme variables. */
-:is(.primary_F7qvhY, .lookFilled_9OQtot.colorBrand_9OQtot) {
-    background-color: var(--main-color);
-    border-color: var(--divider-color);
-    color: var(--text-light);
-}
-
-:is(.primary_F7qvhY, .lookFilled_9OQtot.colorBrand_9OQtot):not(:disabled, [aria-disabled="true"]):is(:hover, :active, :focus-visible) {
-    background-color: var(--main-color);
-    border-color: var(--accent-saturated);
-}
-
-/* Event Details keeps its connected fill and highlights the border on hover and press. */
-button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasText_F7qvhY.fullWidth_F7qvhY {
-    --connected-hover-fill: var(--main-color-semitransparent-selected);
-
-    &:not(:disabled, [aria-disabled="true"]):is(:hover, :active) {
-        border-color: var(--accent-saturated) !important;
-    }
-}
-
-/* Shared background override for call controls and checked switches. */
-:where(.overlay-primary_F7qvhY, .container_9AraPt:has(input:checked) .switchIndicator_9AraPt) {
-    --control-fill: var(--main-color);
+/* Shared background override for call controls. */
+:where(.overlay-primary_F7qvhY) {
+    --control-fill: var(--button-surface);
 }
 
 :where(.overlay-secondary_F7qvhY, [class*=panels] [class*=actionButtons] button, [class*=circleButton]),
 :where(.icon-only_F7qvhY):hover {
-    --control-fill: var(--main-color-semitransparent);
+    --control-fill: var(--button-surface);
 }
 
 :where(.active_F7qvhY),
 :where(.overlay-secondary_F7qvhY, [class*=panels] [class*=actionButtons] button, [class*=circleButton]):is(:hover, :active),
 :where(.icon-only_F7qvhY):active {
-    --control-fill: var(--main-color-semitransparent-selected);
+    --control-fill: var(--button-surface);
 }
 
 :where(.active_F7qvhY):is(:hover, :active) {
-    --control-fill: var(--connected-hover-fill, var(--main-color));
+    --control-fill: var(--connected-hover-fill, var(--button-surface));
 }
 
-:is(
-    .overlay-primary_F7qvhY,
-    .overlay-secondary_F7qvhY,
-    .active_F7qvhY,
-    .icon-only_F7qvhY:is(:hover, :active),
-    [class*=panels] [class*=actionButtons] button,
+.wrapper_UcGqzv:not([data-read-only="true"], [data-error="true"]):focus-within,
+.tagInputWrapper_SMlho9:focus-within {
+    --border-focus: var(--accent-saturated);
+    --focus: var(--accent-saturated);
+    outline-color: var(--accent-saturated);
+}
+
+:is(.button_F7qvhY, .lookFilled_9OQtot, .lookOutlined_9OQtot, .lookLink_9OQtot):focus-visible {
+    --border-focus: var(--accent-saturated);
+    --focus: var(--accent-saturated);
+    outline-color: var(--accent-saturated);
+}
+
+.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:is(:focus-visible, [aria-expanded="true"]):not([aria-invalid="true"])
+    > .select_uFkqU2 {
+    border-color: var(--accent-saturated);
+    outline-color: var(--accent-saturated);
+}
+
+.container_uFkqU2[aria-haspopup="listbox"][data-variant="filled"]:not([aria-invalid="true"]) {
+    --focus: var(--accent-saturated);
+    --border-focus: var(--accent-saturated);
+}
+
+/* Shared appearance for Discord buttons and the active-posts action. */
+#app-mount :where(
+    button:not([role="tab"], .item_ydey4M),
+    input:is([type="button"], [type="submit"], [type="reset"]),
+    [data-mana-component="button"],
+    .button_F7qvhY,
+    .button_9OQtot,
     [class*=circleButton],
-    .container_9AraPt:has(input:checked) .switchIndicator_9AraPt
-):not(:disabled, [aria-disabled="true"]) {
-    background-color: var(--control-fill) !important;
+    [class*=circleIconButton],
+    .ChannelDms-channelpopout-popout > [role="button"],
+    .popout_j5xNzb .list_j5xNzb > .row_j5xNzb:last-child,
+    .page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0, .uploadButton_nhgNJ0, .addActionItem_nhgNJ0, .actionItemEditButton_nhgNJ0),
+    .onboardingContainer_r_cyVx .addPrompt_2nqf8W,
+    .back_NKrv-e .backButton_NKrv-e
+) {
+    --control-fill: var(--button-surface);
+    --connected-hover-fill: var(--button-surface);
+
+    background: var(--button-surface);
+    border: 1px solid var(--frame-color);
+    color: var(--button-text);
+
+    &:not(:disabled, [aria-disabled="true"]):is(
+        :hover,
+        :active,
+        :focus-visible,
+        :where(.iconInput_nJ7Ws3:is(:hover, :focus-within)) > :where(.button_F7qvhY[tabindex="-1"])
+    ) {
+        border-color: var(--accent-saturated);
+    }
 }
 
-/* Server-list hover cards and their member previews. */
-:is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp):has(.guildTooltipWrapper__-eZlF, .memberListWrapper_OC_CcB),
-.voiceChannelListInvite_OC_CcB {
-    --background-surface-high: var(--floating-surface);
-    --tooltip-pointer-bg: var(--background-surface-high);
-    --border-subtle: var(--divider-color);
-    background: var(--background-surface-high);
-    backdrop-filter: blur(10px);
+#app-mount .back_NKrv-e:is(:hover, :focus-visible) .backButton_NKrv-e {
+    border-color: var(--accent-saturated);
 }
 
-.container_OC_CcB .header_OC_CcB {
-    background-color: rgb(from var(--surface-color) r g b / 45%);
-    box-shadow: inset 0 -1px var(--divider-color);
+/* Text buttons need their own spacing inside the shared frame. */
+#app-mount .textButton_nJgowo {
+    border-radius: var(--radius-sm);
+    padding: var(--space-4) var(--space-8);
+}
+
+#app-mount .textButton_nJgowo .text_nJgowo {
+    text-decoration: none;
+}
+
+#app-mount .lookLink_9OQtot:hover > .contents_9OQtot {
+    border-color: var(--t);
+    text-decoration: none;
 }
 
 .guildTooltipWrapper__-eZlF .guildNameText__-eZlF,
@@ -1234,21 +1317,62 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     color: var(--accent-desaturated);
 }
 
+:is(
+    .overlay-primary_F7qvhY,
+    .overlay-secondary_F7qvhY,
+    .active_F7qvhY,
+    .icon-only_F7qvhY:is(:hover, :active),
+    [class*=panels] [class*=actionButtons] button,
+    [class*=circleButton]
+):not(:disabled, [aria-disabled="true"]) {
+    background-color: var(--control-fill) !important;
+}
+
+/* Event detail tabs, RSVP badges, and event icons. */
+.tabs_ydey4M {
+    --tabs-indicator-default: var(--accent-saturated);
+    --tabs-indicator-overlay: var(--accent-saturated);
+}
+
+.rsvpCount_dUw4ZS {
+    background-color: var(--button-surface);
+    color: var(--text-light);
+}
+
+:is(.rsvpIcon_dUw4ZS, .eventIcon_5RxyqA, .leadingAction_7pDS2B svg) {
+    color: var(--text-light);
+}
+
+/* Server-list hover cards and their member previews. */
+:is(.tooltip_ZDdyhE, .tooltipPrimary_3_v8qp):has(.guildTooltipWrapper__-eZlF, .memberListWrapper_OC_CcB),
+.voiceChannelListInvite_OC_CcB {
+    --background-surface-high: var(--floating-surface);
+    --tooltip-pointer-bg: var(--background-surface-high);
+    --border-subtle: var(--frame-color);
+    background: var(--background-surface-high);
+    backdrop-filter: blur(10px);
+}
+
+.container_OC_CcB .header_OC_CcB {
+    background-color: var(--r2);
+    box-shadow: inset 0 -1px var(--frame-color);
+}
+
 /* Unread-message banners and the compact unread-message pill. */
 .bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn),
 .bar_oJAkDB.unread_oJAkDB,
 .newMessagesBar_j9Vvzj,
 .newMessagesPill_j9Vvzj,
 .newMessagesClear_j9Vvzj {
-    background-color: rgb(from var(--critical-color) r g b / 82%);
+    background-color: var(--critical-color);
     color: var(--text-light);
     backdrop-filter: blur(10px);
 }
 
 .bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn),
 .bar_oJAkDB.unread_oJAkDB {
-    background-color: rgb(from var(--surface-color) r g b / 86%);
-    border-color: var(--divider-color);
+    background-color: var(--floating-surface);
+    border-color: var(--frame-color);
 }
 
 .bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn) :is(.barText_t1P8Sn, .unreadIcon_t1P8Sn),
@@ -1260,15 +1384,24 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     font-weight: 600;
 }
 
+.activityNameUserActivityHover_ZbIvmP {
+    color: var(--text-light);
+}
+
 .bar_t1P8Sn:not(.mentionsBar_t1P8Sn, .voiceBar_t1P8Sn, .emptyBar_t1P8Sn):is(:hover, :focus-visible),
 .bar_oJAkDB.unread_oJAkDB:is(:hover, :focus-visible),
 .newMessagesBar_j9Vvzj .barButtonAlt_j9Vvzj:is(:hover, :focus-visible),
 :is(.newMessagesPill_j9Vvzj, .newMessagesClear_j9Vvzj):is(:hover, :focus-visible) {
-    background-color: var(--main-color);
+    background-color: var(--button-surface);
 }
 
 .newMessagesClear_j9Vvzj {
-    border-inline-start-color: var(--divider-color);
+    border-inline-start-color: var(--frame-color);
+}
+
+/* Hover fill for post entries in the active-posts popout. */
+#app-mount .popout_j5xNzb .list_j5xNzb > .row_j5xNzb:not(:last-child):hover {
+    background-color: var(--hover-surface);
 }
 
 /* Rich Presence hover cards, including voice-channel and stream previews. */
@@ -1287,68 +1420,43 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     --background-surface-high: var(--floating-surface);
     --tooltip-pointer-bg: var(--background-surface-high);
     --user-profile-activity-toolbar-background: var(--background-surface-high);
-    --user-profile-toolbar-border: var(--divider-color);
-    --border-subtle: var(--divider-color);
+    --user-profile-toolbar-border: var(--frame-color);
+    --border-subtle: var(--frame-color);
     background: var(--background-surface-high);
-    border-color: var(--divider-color);
+    border-color: var(--frame-color);
     backdrop-filter: blur(10px);
 }
 
-.streamPreview_1v6-1l .previewHover_1v6-1l {
-    background: rgb(from var(--surface-color) r g b / 60%);
+.container_DKsPd0 :is(.row_DKsPd0, .contentInventoryContainer_DKsPd0) {
+    border-block-start-color: var(--frame-color);
 }
 
-.container_DKsPd0 :is(.row_DKsPd0, .contentInventoryContainer_DKsPd0) {
-    border-block-start-color: var(--divider-color);
+.streamPreview_1v6-1l .previewHover_1v6-1l {
+    background: var(--r2);
 }
 
 .previewContainerUserActivity_1v6-1l {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-}
-
-.activityNameUserActivityHover_ZbIvmP {
-    color: var(--text-light);
+    background-color: var(--r2);
 }
 
 /* Activity popovers on voice-channel participant rows. */
 .popover_81IzEA:is([class^="experimentContainer_"], [class*=" experimentContainer_"]) {
     --background-surface-high: var(--floating-surface);
     --background-surface-higher: var(--floating-surface);
-    --border-subtle: var(--divider-color);
+    --border-subtle: var(--frame-color);
     background: var(--floating-surface);
-    border-color: var(--divider-color);
+    border-color: var(--frame-color);
     backdrop-filter: blur(10px);
 
     > .popover_81IzEA[class*="scroller_"] {
-        background: rgb(0 0 0 / 0%);
+        background: var(--t);
         box-shadow: none;
     }
 
     > [class*="durationContainer_"] {
-        background: color-mix(in srgb, var(--main-color) 15%, rgb(0 0 0 / 0%));
-        border-color: var(--divider-color);
+        background: var(--subtle-accent-color);
+        border-color: var(--frame-color);
     }
-}
-
-/* Request-stream action in the voice participant activity popover. */
-.popover_81IzEA:is([class^="experimentContainer_"], [class*=" experimentContainer_"])
-    :is(.primary_F7qvhY, .lookFilled_9OQtot.colorBrand_9OQtot) {
-    background-color: var(--main-color-semitransparent);
-    border: 1px solid var(--divider-color);
-    color: color-mix(in srgb, var(--text-light) 85%, rgb(255 255 255));
-
-    &:not(:disabled, [aria-disabled="true"]):is(:hover, :active, :focus-visible) {
-        background-color: var(--main-color-semitransparent-selected);
-        border-color: var(--accent-saturated);
-    }
-}
-
-/* Shared surface for floating cards, menus and dropdowns. */
-.clickTrapContainer_VVADeK:has(
-    > .layer_VVADeK[id^="popout_"] > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv),
-    > .layer_VVADeK[id^="popout_"] > [data-popout-animating] :where(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"])
-) {
-    overflow: clip;
 }
 
 .layer_VVADeK[id^="popout_"]:has(
@@ -1358,8 +1466,8 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     --popover-background: var(--surface-color);
     --background-surface-high: var(--popover-background);
     --background-surface-higher: var(--popover-background);
-    --border-subtle: var(--divider-color);
-    background: rgb(0 0 0 / 0%);
+    --border-subtle: var(--frame-color);
+    background: var(--t);
     border-radius: 14px;
 
     &::before {
@@ -1373,19 +1481,18 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
 
     > [data-popout-animating] {
         position: relative;
-        background: rgb(from var(--popover-background) r g b / var(--popover-tint));
+        background: var(--surface-color);
         border-radius: inherit;
-        opacity: var(--popover-opacity);
     }
 
     > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv),
     > [data-popout-animating] :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"]) {
-        background: rgb(0 0 0 / 0%);
+        background: var(--t);
         backdrop-filter: none;
 
         &::before,
         &::after {
-            background: rgb(0 0 0 / 0%);
+            background: var(--t);
         }
     }
 }
@@ -1395,11 +1502,11 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6) {
         --background-surface-high: var(--floating-surface);
         --background-surface-higher: var(--floating-surface);
-        --background-mod-normal: var(--main-color-semitransparent);
+        --background-mod-normal: var(--subtle-accent-color);
         --interactive-background-hover: var(--menu-item-highlight);
-        --border-subtle: var(--divider-color);
+        --border-subtle: var(--frame-color);
         --border-focus: var(--accent-saturated);
-        border-color: var(--divider-color);
+        border-color: var(--frame-color);
         color: var(--text-light);
     }
 
@@ -1412,18 +1519,18 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     }
 
     :is(.menu_M3qk4j, [role="menu"]) :is(.separator_M3qk4j, [role="separator"]) {
-        border-color: var(--divider-color);
+        border-color: var(--line-color);
     }
 
     .popover_DpHsW6 .separator_DpHsW6 {
-        background-color: var(--divider-color);
+        background-color: var(--line-color);
     }
 
     /* Action labels like Open Chat and Invite to Voice are tooltips. */
     :is([data-mana-component="tooltip"], .tooltip_ZDdyhE, .tooltipPrimary_3_v8qp) {
         --background-surface-high: var(--floating-surface);
         --tooltip-pointer-bg: var(--floating-surface);
-        --border-subtle: var(--divider-color);
+        --border-subtle: var(--frame-color);
         background-color: var(--floating-surface);
         color: var(--text-light);
         backdrop-filter: blur(10px);
@@ -1435,7 +1542,7 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
     --background-surface-high: var(--floating-surface);
     --background-surface-higher: var(--floating-surface);
     --interactive-background-hover: var(--menu-item-highlight);
-    border-color: var(--divider-color);
+    border-color: var(--frame-color);
     color: var(--text-light);
 }
 
@@ -1457,13 +1564,24 @@ button[data-mana-component="button"].button_F7qvhY.sm_F7qvhY.active_F7qvhY.hasTe
         .layer_VVADeK[id^="popout_"] > [data-popout-animating] *,
         :where(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"]) *
     ) {
-        background: rgb(from var(--surface-color) r g b / var(--popover-tint));
+        background: var(--surface-color);
         backdrop-filter: blur(var(--popover-blur));
-        opacity: var(--popover-opacity);
     }
 }
 
 /* 3. Page layouts */
+
+[aria-checked=true] [class*=iconContainer] svg > path:first-child {
+  fill: var(--main-color);
+}
+
+[aria-checked=true] [class*=iconContainer] svg > path:last-child {
+  fill: var(--button-text-selected);
+}
+
+.bd-server-splash {
+  filter: none;
+}
 
 body::after {
   background-image: var(--app-background);
@@ -1479,69 +1597,97 @@ body::after {
   z-index: -90;
 }
 
-#app-mount > [class*=typeMacOS],
-#app-mount > [class*=typeWindows] {
-  height: 18px;
-  margin-top: 0px;
-  background-color: rgb(0 0 0 / 10%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding-top: 4px;
-}
-
-[aria-checked=true] [class*=iconContainer] svg > path:first-child {
-  fill: var(--main-color);
-}
-
-[aria-checked=true] [class*=iconContainer] svg > path:last-child {
-  fill: var(--button-text-selected);
-}
-
 [class*=-pro],
 [class*=protip] {
   color: var(--accent-saturated);
 }
 
-[class*=floating] > section {
-  background: rgb(0 0 0 / 10%);
+[class*=avatarSpeaking] {
+  box-shadow: inset 0 0 0 2px var(--accent-color), inset 0 0 0 3px var(--surface-color);
 }
 
-[class*=floating]::before {
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  z-index: -1;
-  background: var(--app-background) center/cover no-repeat fixed;
-  background-position: unset;
+[class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=emojiItem] {
+  transition: transform 0.2s ease-in-out;
+}
+
+[class*=reactions_] [class*=reaction_]:not([class*=-reactionCount], [class*=-reactionBtn]):hover {
+  border-color: var(--t);
+}
+
+#app-mount > [class*=typeMacOS],
+#app-mount > [class*=typeWindows] {
+  height: 18px;
+  margin-top: 0px;
+  background-color: var(--r1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 4px;
+}
+
+[class*=floating] > section {
+  background: var(--r1);
+}
+
+[class*=unreadPillCap] {
+  visibility: hidden;
+}
+
+[class*=voiceCallWrapper_] [class*=border_][class*=speaking_] {
+  box-shadow: inset 0 0 0 3px var(--accent-color), inset 0 0 0 4px var(--canvas-color);
+}
+
+/* Channel names and icons share their color in each channel state. */
+@media (forced-colors: none) {
+    #app-mount .wrapper_TNyK-N :is(.name_TNyK-N, .icon_TNyK-N) {
+        color: var(--r6);
+    }
+
+    #app-mount :is(.modeUnreadImportant_TNyK-N, .modeSelected_TNyK-N, .modeConnected_TNyK-N) :is(.name_TNyK-N, .icon_TNyK-N) {
+        color: var(--r7);
+    }
+
+    #app-mount .modeMuted_TNyK-N :is(.name_TNyK-N, .icon_TNyK-N) {
+        opacity: 1;
+    }
+}
+
+.content_ohxi6x {
+    --card-background-default: var(--r2);
+    --card-secondary-bg: var(--r2);
 }
 
 [id*=-chat-messages] [class*=description] [class*=colorBrand] {
-  background: rgb(0 255 128 / 10%);
-  color: rgb(0 255 128 / 70%);
+  background: var(--subtle-accent-color);
+  color: var(--text-light);
 }
 
 [id*=-chat-messages] [class*=description] [class*=colorPrimary] {
-  background: rgb(0 0 0 / 20%);
-  color: rgb(255 255 255 / 60%);
+  background: var(--r1);
+  color: var(--r7);
 }
 
 [class*=chatContent] [class*=scrollerInner] > [class*=wrapper],
 [class*=chatContent] [class*=scrollerInner] > [class*=wrapper] > [class*=wrapper] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
+}
+
+[class*=reactionCount_] {
+  color: var(--accent-color);
 }
 
 [class*=reactions_] [class*=reaction_]:not([class*=-reactionCount], [class*=-reactionBtn]) {
-  background: rgb(0 0 0 / 20%);
+  background: var(--r1);
   transform: scale(1.07);
   display: flex;
   align-content: center;
 }
 
-[class*=reactions_] [class*=reaction_]:not([class*=-reactionCount], [class*=-reactionBtn]):hover {
-  border-color: rgb(0 0 0 / 0%);
+[class*=base] [class*=content] [class*=container]:not([class*=embedWrapper]) [class*=container] > [class*=children]::after {
+  display: none;
+}
+
+[class*=nowPlayingColumn] [class*=itemCard] [class*=body] [class*=separator] {
+  display: none;
 }
 
 [class*=reactions_] [class*=reaction_]:not([class*=-reactionCount], [class*=-reactionBtn]) img {
@@ -1550,43 +1696,40 @@ body::after {
 
 [class*=reactions_] [class*=reaction_]:not([class*=-reactionCount], [class*=-reactionBtn])[class*=reactionMe] {
   border-color: var(--main-color);
-  background: rgb(0 0 0 / 40%);
-}
-
-[class*=reactionCount_] {
-  color: var(--accent-color);
+  background: var(--r1);
 }
 
 [class*=messagesPopoutWrap] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r2);
+}
+
+[href="https://support.discord.com"] {
+  display: none;
+}
+
+[class*=botTagRegular] [class*=botText] {
+  display: none;
+}
+
+[class*=embedVideo] [class*=playPausePop] {
+  display: none;
 }
 
 [id*=-message-content-Uploader] > div[class*=attachment] {
-  background: rgb(0 0 0 / 30%);
-  border-color: rgb(0 0 0);
+  background: var(--r2);
+  border-color: var(--canvas-color);
 }
 
 [id*=-message-content-Uploader] > div[class*=attachment] [class*=progressBar] {
   background: var(--accent-color);
 }
 
-[id*=-message-content] [class*=mention] {
-  color: var(--accent-desaturated);
-  background: rgb(0 0 0 / 20%);
-  border-radius: 3px;
-}
-
-[id*=-message-content] [class*=mention]:hover {
-  background: rgb(0 0 0 / 40%);
-}
-
 [class*=mentioned] {
-  background: linear-gradient(90deg, rgb(0 0 0 / 0%) 5px, var(--accent-color-semitransparent) 5px, rgb(0 0 0 / 0%) 80%);
+  background: var(--surface-color);
 }
 
-[class*=mentioned] [class*=mention] {
-  color: var(--accent-saturated);
-  background: rgb(0 0 0 / 20%);
+[class*=hasThread] [class*=cta] {
+  color: var(--accent-color);
 }
 
 [class*=mentioned]::before {
@@ -1597,50 +1740,42 @@ body::after {
 }
 
 [class*=layer] #emoji-picker-tab-panel[class*=wrapper] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r2);
 }
 
 [class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=header],
 [class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=categoryList],
 [class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=inspector],
 [class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=emojiPicker] {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=emojiItem] {
-  transition: transform 0.2s ease-in-out;
+  background: var(--t);
 }
 
 [class*=layer] #emoji-picker-tab-panel[class*=wrapper] [class*=emojiItemSelected] {
-  background: rgb(255 255 255 / 30%);
+  background: var(--r3);
   transform: scale(1.1);
 }
 
 [class*=layer] [class*=browser] {
-  background: rgb(0 0 0 / 95%);
-}
-
-[class*=hasThread] [class*=cta] {
-  color: var(--accent-color);
+  background: var(--r1);
 }
 
 [class*=messagesWrapper] [class*=content] [class*=divider] {
-  border-color: rgb(0 0 0 / 0%);
-  background-color: rgb(0 0 0 / 0%);
+  border-color: var(--t);
+  background-color: var(--t);
   margin-top: 35px;
   margin-bottom: 35px;
 }
 
 [class*=messagesWrapper] [class*=content] [class*=divider] [class*=content] {
-  background-color: rgb(0 0 0 / 0%);
+  background-color: var(--t);
   color: var(--accent-saturated);
   width: 95%;
   transform: translateY(6px);
 }
 
 [class*=messagesWrapper] [class*=content] [class*=divider]:not([class*=isUnread]) > span {
-  color: rgb(255 255 255 / 70%);
-  background: rgb(204 204 204 / 10%);
+  color: var(--r7);
+  background: var(--r2);
   font-size: 14px;
   border-radius: 5px;
   padding: 7px 15px;
@@ -1649,14 +1784,14 @@ body::after {
 }
 
 [class*=messagesWrapper] [class*=content] [class*=divider] [class*=isUnread] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
   color: var(--accent-saturated);
   width: 95%;
   transform: translateY(6px);
 }
 
 [class*=messagesWrapper] [class*=content] [class*=divider] [class*=unreadPill] {
-  background: var(--main-color-semitransparent);
+  background: var(--subtle-accent-color);
   color: var(--accent-saturated);
   padding: 12px 0;
   width: 100%;
@@ -1664,56 +1799,8 @@ body::after {
   border-radius: 5px;
 }
 
-[class*=unreadPillCap] {
-  visibility: hidden;
-}
-
-[id*=-status-picker] {
-  transition: background 200ms ease-out;
-}
-
-#account-status-picker--online {
-  color: var(--g);
-}
-
-#account-status-picker--online[class*=focused] {
-  background: rgb(67 181 130 / 26.66667%);
-}
-
-#account-status-picker--idle {
-  color: var(--y);
-}
-
-#account-status-picker--idle[class*=focused] {
-  background: rgb(250 168 26 / 25.88235%);
-}
-
-#account-status-picker--dnd {
-  color: var(--r5);
-}
-
-#account-status-picker--dnd[class*=focused] {
-  background: rgb(from var(--r3) r g b / 23.92157%);
-}
-
-#account-status-picker--invisible {
-  color: rgb(116 127 141);
-}
-
-#account-status-picker--invisible[class*=focused] {
-  background: rgb(116 127 141 / 23.92157%);
-}
-
 #account-status-picker--custom-status[class*=focused] {
-  background: rgb(255 77 181 / 23.92157%);
-}
-
-[id*=-message-accessories] > [class*=wrapper] {
-  background: rgb(0 0 0 / 20%);
-}
-
-[id*=-message-accessories] > [class*=wrapper] [class*=guildIconImage] {
-  background-color: rgb(0 0 0 / 20%);
+  background: var(--active-accent-color);
 }
 
 [class*=title] [class*=search] {
@@ -1721,102 +1808,16 @@ body::after {
   margin-left: 4px;
 }
 
-[class*=title] [class*=search] [class*=search]:not([class*=open]) [class*=searchBar] {
-  width: 27px;
-  transition: 250ms;
-  background: rgb(0 0 0 / 0%);
-  border-bottom: 2px solid rgb(0 0 0 / 0%);
-}
-
-[class*=title] [class*=search] [class*=search]:not([class*=open]) [class*=searchBar] [class*=iconContainer] {
-  transform: scale(1.3);
-  transition: 250ms;
-}
-
 [class*=title] [class*=search] [class*=search]:not([class*=open]) [class*=searchBar] [class*=iconContainer] [class*=icon] {
   color: var(--interactive-normal);
-}
-
-[class*=title] [class*=search] [class*=search]:not([class*=open]):hover [class*=searchBar] {
-  width: 240px;
-  background: rgb(0 0 0 / 15%);
-}
-
-[class*=title] [class*=search] [class*=search]:not([class*=open]):hover [class*=searchBar] [class*=iconContainer] {
-  transform: scale(1);
 }
 
 [class*=title] [class*=search] [class*=search]:not([class*=open]):hover [class*=searchBar] [class*=iconContainer] [class*=icon] {
   color: var(--text-muted);
 }
 
-[class*=datePicker] {
-  background: rgb(0 0 0 / 90%);
-}
-
-[class*=react-datepicker] {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=searchResultsWrap] [class*=channelSeparator] [class*=channelName] {
-  background: rgb(0 0 0 / 0%);
-  text-align: right;
-  border-radius: 8px;
-  padding: 5px;
-}
-
-[class*=searchResultsWrap] [class*=channelSeparator] [class*=channelName]:hover {
-  background: var(--main-color-semitransparent-selected);
-  text-decoration: none;
-}
-
-[class*=searchResultsWrap] [class*=searchHeader] {
-  background: rgb(0 0 0 / 30%);
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-[class*=searchResultsWrap] [class*=searchResult][class*=expanded] {
-  border-color: rgb(0 0 0 / 0%);
-  border-bottom: 1px solid rgb(255 255 255 / 4%);
-  background: rgb(0 0 0 / 10%);
-  opacity: 1;
-}
-
-[class*=pageControlContainer] {
-  background: rgb(0 0 0 / 30%);
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-[class*=backgroundFlash] {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=backgroundFlash] li {
-  background: var(--accent-color-semitransparent);
-  border-radius: 5px 0 0 5px;
-}
-
-[class*=replyBar] {
-  background: rgb(0 0 0 / 10%);
-  margin-top: 8px;
-}
-
 [class*=replyBar] [class*=colorLink] {
   color: var(--button-text);
-}
-
-[class*=channelAttachmentArea] > li {
-  background: rgb(0 0 0 / 10%);
-}
-
-[class*=channelAttachmentArea] > li [class*=actionBar] [class*=wrapper] {
-  background: rgb(0 0 0 / 70%);
-}
-
-code {
-  background: rgb(0 0 0 / 20%);
 }
 
 code .hljs-keyword {
@@ -1843,8 +1844,118 @@ code .hljs-number {
   color: var(--main-color);
 }
 
+[id*=-message-accessories] > [class*=wrapper] {
+  background: var(--r1);
+}
+
+[id*=-message-accessories] > [class*=wrapper] [class*=guildIconImage] {
+  background-color: var(--r1);
+}
+
+[id*=-status-picker] {
+  transition: background 200ms ease-out;
+}
+
+[class*=title] [class*=search] [class*=search]:not([class*=open]) [class*=searchBar] {
+  width: 27px;
+  transition: 250ms;
+  background: var(--t);
+  border-bottom: 2px solid var(--t);
+}
+
+[class*=title] [class*=search] [class*=search]:not([class*=open]) [class*=searchBar] [class*=iconContainer] {
+  transform: scale(1.3);
+  transition: 250ms;
+}
+
+[class*=labelContainer] svg {
+  transition: transform 0.2s ease-in-out;
+}
+
+[class*=title] [class*=search] [class*=search]:not([class*=open]):hover [class*=searchBar] {
+  width: 240px;
+  background: var(--r2);
+}
+
+[class*=datePicker] {
+  background: var(--r2);
+}
+
+[class*=react-datepicker] {
+  background: var(--t);
+}
+
+[class*=searchResultsWrap] [class*=channelSeparator] [class*=channelName] {
+  background: var(--t);
+  text-align: right;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+[class*=searchResultsWrap] [class*=channelSeparator] [class*=channelName]:hover {
+  background: var(--hover-surface);
+  text-decoration: none;
+}
+
+[class*=searchResultsWrap] [class*=searchHeader] {
+  background: var(--r2);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+[class*=searchResultsWrap] [class*=searchResult][class*=expanded] {
+  border-color: var(--t);
+  border-bottom: 1px solid var(--r3);
+  background: var(--r1);
+  opacity: 1;
+}
+
+[class*=pageControlContainer] {
+  background: var(--r1);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+[class*=backgroundFlash] {
+  background: var(--t);
+}
+
+[class*=backgroundFlash] li {
+  background: var(--surface-color);
+  border-radius: 5px 0 0 5px;
+}
+
+[class*=replyBar] {
+  background: var(--r2);
+  margin-top: 8px;
+}
+
+[class*=channelAttachmentArea] > li {
+  background: var(--r2);
+}
+
+[class*=channelAttachmentArea] > li [class*=actionBar] [class*=wrapper] {
+  background: var(--r2);
+}
+
+[class*=chat] form {
+  margin: 0;
+}
+
+[class*=title] [class*=search] [class*=search]:not([class*=open]):hover [class*=searchBar] [class*=iconContainer] {
+  transform: scale(1);
+}
+
+[class*=labelContainer][class*=focused] svg {
+  transform: scale(1.2);
+}
+
+code {
+  background: var(--r1);
+}
+
 [class*=replying] {
-  background-color: rgb(0 0 0 / 10%);
+  background-color: var(--r1);
 }
 
 [class*=replying]::before {
@@ -1854,8 +1965,125 @@ code .hljs-number {
   border-left: 2px solid var(--accent-saturated);
 }
 
-[class*=chat] form {
-  margin: 0;
+[class*=wrapper][class*=guilds] [class*=listItemWrapper] > a {
+  background: var(--r1);
+  border-color: var(--accent-saturated);
+  color: var(--accent-saturated);
+}
+
+[class*=header] h3 {
+  color: var(--r7);
+}
+
+[class*=footer] h3 {
+  color: var(--r7);
+}
+
+[class*=sidebar] [class*=containerDefault] [class*=icon] {
+  color: var(--r6);
+}
+
+[class*=sidebar] [class*=containerDefault] [class*=modeMuted] [class*=name] {
+  color: var(--r6);
+}
+
+[class*=sidebar] [class*=containerDefault] [class*=muted] [class*=name] {
+  color: var(--r6);
+}
+
+[class*=sidebar] [class*=containerDefault] [class*=modeSelected] :is([class*=name_], [class*=icon_]) {
+  color: var(--r7);
+}
+
+[class*=tabBarItem]:hover {
+  border-bottom-color: var(--main-color);
+}
+
+[class*=wrapper][class*=guilds] [class*=listItemWrapper] > a:hover {
+  background: var(--r2);
+}
+
+[class*=wrapper][class*=guilds] [class*=folderPreviewWrapper],
+[class*=wrapper][class*=guilds] [class*=folderGroupBackground] {
+  background: var(--r2);
+}
+
+[class*=labelContainer][class*=focused] {
+  background: var(--main-color);
+}
+
+[class*=sidebar] [class*=containerDefault] [class*=content]:hover {
+  background: var(--t);
+}
+
+[class*=sidebar] [class*=containerDefault] [class*=modeSelected] [class*=link_] {
+  background: var(--r8);
+}
+
+[class*=sidebar] [class*=containerDefault]:hover [class*=modeSelected] [class*=link_] {
+  background: var(--r8);
+}
+
+[class*=avatarSpeaking]::before {
+  content: "";
+  z-index: -10;
+  position: absolute;
+  left: 20px;
+  height: 24px;
+  width: 60%;
+  border-radius: -5px;
+  background: var(--surface-color);
+  opacity: 1;
+  border-color: var(--t);
+}
+
+[data-list-item-id*=active-threads] [class*=name],
+[data-list-item-id*=active-threads] [class*=icon] {
+  color: var(--button-text);
+}
+
+[class*=categoryPill] > div {
+  color: var(--r6);
+}
+
+[class*=member] [class*=activityText] {
+  color: var(--r6);
+}
+
+.bd-settings-title {
+  color: var(--text-light);
+  font-weight: bold;
+}
+
+[class*=base] [class*=content] [class*=container]:not([class*=embedWrapper]) [class*=iconWrapper] svg {
+  color: var(--r7);
+}
+
+#app-mount :is(.questHomePage_iar92T, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8) {
+    --background-base-low: var(--page-surface);
+    --background-base-lower: var(--page-surface);
+    --background-base-lowest: var(--r1);
+    --background-mod-subtle: var(--r1);
+    --background-surface-high: var(--r2);
+}
+
+nav[class*=container] > [class*=container] > header:hover {
+  background: var(--t);
+}
+
+[class*=layer] [class*=animator] [class*=container][class*=scrollerBase] {
+  background: var(--r1);
+}
+
+[class*=postEnrollmentBackground],
+[class*=panels] {
+  border-top: unset;
+  background: var(--t);
+}
+
+.page_nhgNJ0 .rightColumn_nhgNJ0 .previewImage_nhgNJ0 {
+    outline: 1px solid var(--frame-color);
+    outline-offset: -1px;
 }
 
 [src*="avatars/214676791955161091"][class*=clickable],
@@ -1877,124 +2105,7 @@ body::after {
   animation: fadeIn 2s ease-out;
 }
 
-[class*=wrapper][class*=guilds] [class*=listItemWrapper] > a {
-  background: rgb(0 0 0 / 60%);
-  border-color: var(--accent-saturated);
-  color: var(--accent-saturated);
-}
-
-[class*=wrapper][class*=guilds] [class*=listItemWrapper] > a:hover {
-  background: rgb(0 0 0 / 70%);
-}
-
-[class*=wrapper][class*=guilds] [class*=folderPreviewWrapper],
-[class*=wrapper][class*=guilds] [class*=folderGroupBackground] {
-  background: rgb(0 0 0 / 30%);
-}
-
-svg[style="color: rgb(88, 101, 242);"] path {
-  fill: var(--accent-color);
-}
-
-[class*=header] h3 {
-  color: rgb(255 255 255 / 80%);
-}
-
-[class*=footer] h3 {
-  color: rgb(255 255 255 / 80%);
-}
-
-[class*=labelContainer] svg {
-  transition: transform 0.2s ease-in-out;
-}
-
-[class*=labelContainer][class*=focused] {
-  background: var(--main-color);
-}
-
-[class*=labelContainer][class*=focused] svg {
-  transform: scale(1.2);
-}
-
-[class*=tabBarItem]:hover {
-  border-bottom-color: var(--main-color);
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=icon] {
-  color: rgb(255 255 255 / 60%);
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=icon] > path {
-  opacity: 0.6;
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=icon] > path:last-of-type {
-  opacity: 0.9;
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=content]:hover {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=modeMuted] [class*=name] {
-  color: rgb(255 255 255 / 50%);
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=muted] [class*=name] {
-  color: rgb(255 255 255 / 50%);
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=modeSelected] [class*=link_] {
-  background: var(--main-color-semitransparent-selected);
-}
-
-[class*=sidebar] [class*=containerDefault] [class*=modeSelected] [class*=name_] {
-  color: rgb(255 255 255);
-}
-
-[class*=sidebar] [class*=containerDefault]:hover [class*=modeSelected] [class*=link_] {
-  background: var(--main-color-semitransparent-selected);
-}
-
-[data-list-item-id*=active-threads] [class*=name],
-[data-list-item-id*=active-threads] [class*=icon] {
-  color: var(--button-text);
-}
-
-[class*=avatarSpeaking] {
-  box-shadow: inset 0 0 0 2px var(--accent-color), inset 0 0 0 3px var(--accent-color-semitransparent);
-}
-
-[class*=avatarSpeaking]::before {
-  content: "";
-  z-index: -10;
-  position: absolute;
-  left: 20px;
-  height: 24px;
-  width: 60%;
-  border-radius: -5px;
-  background: linear-gradient(to right, var(--accent-color-semitransparent), rgb(0 0 0 / 0%));
-  opacity: 1;
-  border-color: rgb(0 0 0 / 0%);
-  filter: brightness(10);
-}
-
-nav[class*=container] > [class*=container] > header:hover {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=layer] [class*=animator] [class*=container][class*=scrollerBase] {
-  background: rgb(0 0 0 / 95%);
-}
-
-[class*=postEnrollmentBackground],
-[class*=panels] {
-  border-top: unset;
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=postEnrollmentBackground]::before,
-[class*=panels]::before {
+[class*=postEnrollmentBackground]::before {
   content: "";
   top: 0;
   right: 0;
@@ -2017,12 +2128,20 @@ nav[class*=container] > [class*=container] > header:hover {
   left: 0;
   position: absolute;
   z-index: -1;
-  background: rgb(0 0 0 / 20%);
+  background: var(--r1);
   border-radius: 10px;
 }
 
 [class*=panels] > [class*=activityPanel] {
-  background-color: rgb(0 0 0 / 0%);
+  background-color: var(--t);
+}
+
+[class*=focusLock] [class*=modal] {
+  background: var(--r2);
+}
+
+[class*=focusLock] [class*=modal] [class*=horizontalReverse] {
+  background: var(--r2);
 }
 
 [class*=panels] > [class*=activityPanel],
@@ -2032,14 +2151,6 @@ nav[class*=container] > [class*=container] > header:hover {
 
 [class*=panels] > [class*=wrapper] > [class*=container] {
   border: 0;
-}
-
-[class*=focusLock] [class*=modal] {
-  background: rgb(0 0 0 / 95%);
-}
-
-[class*=focusLock] [class*=modal] [class*=horizontalReverse] {
-  background: rgb(0 0 0 / 95%);
 }
 
 [class*=stickyHeaderElevated]::before {
@@ -2055,60 +2166,52 @@ nav[class*=container] > [class*=container] > header:hover {
 }
 
 [class*=emojiRemove] {
-  background-color: var(--main-color-semitransparent-selected);
+  background-color: var(--active-accent-color);
 }
 
 [class*=contentExpandContainer] [class*=header] [class*=backgroundModifierContainer],
 [class*=contentExpandContainer] [class*=groupCollapsedContainer],
 [class*=clickableContainer] [class*=backgroundModifierContainer] {
-  background: rgb(0 0 0 / 20%);
+  background: var(--r2);
+}
+
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *) [class*=platformIcon] {
+  right: 16px;
 }
 
 [role=list] > [class*=auditLog] {
-  border-color: rgb(0 0 0);
+  border-color: var(--canvas-color);
 }
 
 [role=list] > [class*=auditLog] > [class*=changeDetails] {
-  background: rgb(0 0 0 / 20%);
+  background: var(--r1);
 }
 
 [class*=revokeInvite] {
-  background-color: var(--main-color-semitransparent-selected);
-}
-
-[class*=voiceCallWrapper_] [class*=border_][class*=speaking_] {
-  box-shadow: inset 0 0 0 3px var(--accent-color), inset 0 0 0 4px rgb(0 0 0);
+  background-color: var(--active-accent-color);
 }
 
 [class*=tileSizer] [class*=tile] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
 [class*=content] [class*=pageWrapper] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
 [class*=searchPage] > [class*=search] {
-  background: rgb(0 0 0 / 20%);
+  background: var(--r1);
 }
 
 [class*=searchPage] > [class*=search] [class*=searchBox] {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=categoryPill] > div {
-  color: rgb(255 255 255 / 50%);
-}
-
-.bd-server-splash {
-  filter: none;
+  background: var(--t);
 }
 
 [class*=profileBanner_] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r1);
 }
 
-:not(.custom-profile-theme)[style*=profile] [class*=activity] {
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *) {
   background: var(--profile-activity);
   margin-top: 40px;
   margin-bottom: 40px;
@@ -2117,15 +2220,11 @@ nav[class*=container] > [class*=container] > header:hover {
   border-radius: 0;
 }
 
-:not(.custom-profile-theme)[style*=profile] [class*=activity] [class*=platformIcon] {
-  right: 16px;
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *) [class*=-bar] {
+  background: var(--r2);
 }
 
-:not(.custom-profile-theme)[style*=profile] [class*=activity] [class*=-bar] {
-  background: rgb(0 0 0 / 20%);
-}
-
-:not(.custom-profile-theme)[style*=profile] [class*=activity]::before {
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *)::before {
   content: "";
   position: absolute;
   height: 21px;
@@ -2141,7 +2240,7 @@ nav[class*=container] > [class*=container] > header:hover {
   opacity: 1;
 }
 
-:not(.custom-profile-theme)[style*=profile] [class*=activity]::after {
+.container_-dEX_A.activity_-dEX_A:not(.custom-profile-theme, .custom-profile-theme *)::after {
   content: "";
   position: absolute;
   height: 21px;
@@ -2158,39 +2257,38 @@ nav[class*=container] > [class*=container] > header:hover {
   transform: rotate(-180deg);
 }
 
-[class*=member] [class*=activityText] {
-  color: rgb(255 255 255 / 50%);
+[class*=homeIcon] {
+  transform: rotate(-180deg);
 }
 
 [class*=members] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
 .bd-error-modal,
 .bd-error-modal-footer {
-  background: rgb(0 0 0 / 90%);
+  background: var(--r2);
   box-shadow: none;
 }
 
 .bd-addon-error {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
 .bd-addon-error-icon {
   background: var(--main-color);
 }
 
-.bd-settings-title {
-  color: rgb(255 255 255 / 90%);
-  font-weight: bold;
-}
-
 .bd-toast:not([class*=success]) {
-  background: rgb(0 0 0 / 90%);
+  background: var(--r2);
 }
 
 .bd-addon-card {
-  background: rgb(0 0 0 / 20%);
+  background: var(--r2);
+}
+
+[class*=nameAndDecorators] [class*=botTagRegular] {
+  transform: translateY(-2px);
 }
 
 [class*=removeKeybind] {
@@ -2198,65 +2296,49 @@ nav[class*=container] > [class*=container] > header:hover {
 }
 
 [class*=removeGame] {
-  background-color: var(--main-color-semitransparent-selected);
-}
-
-[class*=notificationSettings] label[class*=disabled] path:last-child {
-  fill: rgb(255 255 255 / 50%);
-}
-
-[class*=notificationSettings] label[class*=disabled]:hover path:last-child {
-  fill: rgb(255 255 255 / 70%);
+  background-color: var(--active-accent-color);
 }
 
 [class*=base] [class*=content] [class*=container]:not([class*=embedWrapper]),
 [class*=base] [class*=content] [class*=container] [class*=tabBody] {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=base] [class*=content] [class*=container]:not([class*=embedWrapper]) [class*=container] > [class*=children]::after {
-  display: none;
-}
-
-[class*=base] [class*=content] [class*=container]:not([class*=embedWrapper]) [class*=iconWrapper] svg {
-  color: rgb(255 255 255 / 70%);
+  background: var(--t);
 }
 
 [class*=base] [class*=content] [class*=container]:not([class*=embedWrapper]) [class*=divider] {
-  background-color: rgb(255 255 255 / 10%);
+  background-color: var(--r2);
 }
 
 [class*=nowPlayingColumn] [class*=itemCard] {
   border: 0;
-  background: rgb(0 0 0 / 50%);
+  background: var(--r2);
+}
+
+[class*=focusLock] [class*=root] [class*=avatar] {
+  border: none;
 }
 
 [class*=nowPlayingColumn] [class*=itemCard] [class*=body] {
-  background: rgb(0 0 0 / 0%);
-}
-
-[class*=nowPlayingColumn] [class*=itemCard] [class*=body] [class*=separator] {
-  display: none;
+  background: var(--t);
 }
 
 [class*=applicationStore] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
 }
 
 #permissions-modal {
-  background: rgb(0 0 0 / 90%);
+  background: var(--r2);
 }
 
 #permissions-modal div {
-  background: rgb(0 0 0 / 90%);
+  background: var(--r2);
 }
 
 #permissions-modal div div {
-  background: rgb(0 0 0 / 90%);
+  background: var(--r2);
 }
 
 .ChannelDms-channelmembers-wrap > [class*=header] {
-  background: rgb(0 0 0 / 10%);
+  background: var(--r2);
 }
 
 [class*=messagesWrapper] [class*=topicsPillContainer]::before,
@@ -2274,24 +2356,48 @@ nav[class*=container] > [class*=container] > header:hover {
   animation: fadeIn 2s ease-out;
 }
 
+[class*=botTagRegular]:not([class*=WithNickname]) {
+  top: 0;
+  right: 0;
+}
+
 [class*=messagesWrapper] [class*=topicsDropdown] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r1);
 }
 
 [class*=messagesWrapper] [class*=summariesBetaTag] {
   background: var(--main-color);
 }
 
+/* Role editor surfaces, previews and list separators. */
+#app-mount .standardSidebarView_jnk11m:has(.roleRow_YEKbw3, .contentWidth_tLZg6c) {
+    --background-base-low: var(--page-surface);
+    --background-base-lower: var(--page-surface);
+    --background-base-lowest: var(--r1);
+    --background-mod-subtle: var(--r1);
+    --background-surface-high: var(--r2);
+    --background-surface-higher: var(--r2);
+    --interactive-background-hover: var(--hover-surface);
+}
+
+[class*=notificationSettings] label[class*=disabled] path:last-child {
+  fill: var(--r6);
+}
+
+[class*=notificationSettings] label[class*=disabled]:hover path:last-child {
+  fill: var(--r7);
+}
+
 .vc-notification-root {
-  background: rgb(0 0 0 / 50%);
+  background: var(--r2);
 }
 
 [class*=app] [class*=authBox] {
-  background: rgb(0 0 0 / 50%);
+  background: var(--r1);
 }
 
 [class*=badgeContainer] {
-  background: rgb(0 0 0 / 20%);
+  background: var(--r1);
 }
 
 [class*=numberBadge] {
@@ -2312,47 +2418,46 @@ nav[class*=container] > [class*=container] > header:hover {
   color: var(--button-text);
 }
 
+[class*=botTagRegular] > svg {
+  color: var(--text-light);
+  transform: translate(18px, -5px);
+  z-index: 2;
+}
+
+#app-mount [class*="title"] [class*="search"] [class*="search"]:not([class*="open"], :hover, :focus-within) [class*="searchBar"] [class*="iconContainer"] {
+    flex-shrink: 0;
+    transform: none;
+}
+
 [class*=noiseCancellationPopout] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r2);
 }
 
 [class*=keyboardShortcutsModal] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r2);
 }
 
 [class*=focusLock] [class*=root] {
-  background: rgb(0 0 0 / 95%);
+  background: var(--r1);
+  box-shadow: none;
+}
+
+[class*=card_][class*=justify] {
   box-shadow: none;
 }
 
 [class*=focusLock] [class*=root] [class*=directionRow],
 [class*=focusLock] [class*=root] [class*=body] {
-  background: rgb(0 0 0 / 95%);
-}
-
-[class*=focusLock] [class*=root] [class*=avatar] {
-  border: none;
+  background: var(--r1);
 }
 
 [class*=focusLock] [class*=root] [class*=message] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
   border: none;
 }
 
-[class*=homeIcon] {
-  transform: rotate(-180deg);
-}
-
-[href="https://support.discord.com"] {
-  display: none;
-}
-
-[class*=nameAndDecorators] [class*=botTagRegular] {
-  transform: translateY(-2px);
-}
-
 [class*=botTagRegular] {
-  background: rgb(0 0 0 / 0%);
+  background: var(--t);
   position: relative;
   width: 20px;
   height: 20px;
@@ -2360,40 +2465,25 @@ nav[class*=container] > [class*=container] > header:hover {
   padding: 0;
 }
 
-[class*=botTagRegular]:not([class*=WithNickname]) {
-  top: 0;
-  right: 0;
-}
-
-[class*=botTagRegular] [class*=botText] {
-  display: none;
-}
-
 [class*=botTagRegular]::after {
-  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTIsMkEyLDIgMCAwLDEgMTQsNEMxNCw0Ljc0IDEzLjYsNS4zOSAxMyw1LjczVjdIMTRBNyw3IDAgMCwxIDIxLDE0SDIyQTEsMSAwIDAsMSAyMywxNVYxOEExLDEgMCAwLDEgMjIsMTlIMjFWMjBBMiwyIDAgMCwxIDE5LDIySDVBMiwyIDAgMCwxIDMsMjBWMTlIMkExLDEgMCAwLDEgMSwxOFYxNUExLDEgMCAwLDEgMiwxNEgzQTcsNyAwIDAsMSAxMCw3SDExVjUuNzNDMTAuNCw1LjM5IDEwLDQuNzQgMTAsNEEyLDIgMCAwLDEgMTIsMk03LjUsMTNBMi41LDIuNSAwIDAsMCA1LDE1LjVBMi41LDIuNSAwIDAsMCA3LjUsMThBMi41LDIuNSAwIDAsMCAxMCwxNS41QTIuNSwyLjUgMCAwLDAgNy41LDEzTTE2LjUsMTNBMi41LDIuNSAwIDAsMCAxNCwxNS41QTIuNSwyLjUgMCAwLDAgMTYuNSwxOEEyLjUsMi41IDAgMCwwIDE5LDE1LjVBMi41LDIuNSAwIDAsMCAxNi41LDEzWiIgLz48L3N2Zz4=");
-  background-size: cover;
+  background-color: var(--text-light);
+  mask: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTIsMkEyLDIgMCAwLDEgMTQsNEMxNCw0Ljc0IDEzLjYsNS4zOSAxMyw1LjczVjdIMTRBNyw3IDAgMCwxIDIxLDE0SDIyQTEsMSAwIDAsMSAyMywxNVYxOEExLDEgMCAwLDEgMjIsMTlIMjFWMjBBMiwyIDAgMCwxIDE5LDIySDVBMiwyIDAgMCwxIDMsMjBWMTlIMkExLDEgMCAwLDEgMSwxOFYxNUExLDEgMCAwLDEgMiwxNEgzQTcsNyAwIDAsMSAxMCw3SDExVjUuNzNDMTAuNCw1LjM5IDEwLDQuNzQgMTAsNEEyLDIgMCAwLDEgMTIsMk03LjUsMTNBMi41LDIuNSAwIDAsMCA1LDE1LjVBMi41LDIuNSAwIDAsMCA3LjUsMThBMi41LDIuNSAwIDAsMCAxMCwxNS41QTIuNSwyLjUgMCAwLDAgNy41LDEzTTE2LjUsMTNBMi41LDIuNSAwIDAsMCAxNCwxNS41QTIuNSwyLjUgMCAwLDAgMTYuNSwxOEEyLjUsMi41IDAgMCwwIDE5LDE1LjVBMi41LDIuNSAwIDAsMCAxNi41LDEzWiIgLz48L3N2Zz4=") center / cover no-repeat;
   content: "";
   position: absolute;
   width: 20px;
   height: 20px;
   bottom: 0;
   right: 0;
-  opacity: 0.8;
 }
 
-[class*=botTagRegular] > svg {
-  color: rgb(255 255 255);
-  transform: translate(18px, -5px);
-  z-index: 2;
+/* Keep the toolbar magnifier inside the collapsed search field. */
+#app-mount [class*="title"] [class*="search"] [class*="search"]:not([class*="open"], :hover, :focus-within) [class*="searchBar"] {
+    width: 36px;
 }
 
 [class*=card_]:not([class*=justify]) {
-  background: rgb(0 0 0 / 30%);
-  border-color: rgb(0 0 0);
-}
-
-[class*=card_][class*=justify] {
-  box-shadow: none;
+  background: var(--r2);
+  border-color: var(--canvas-color);
 }
 
 [class*=mediaBarWrapper] [class*=fakeEdges] {
@@ -2422,18 +2512,14 @@ nav[class*=container] > [class*=container] > header:hover {
   background: var(--main-color);
 }
 
-[class*=embedVideo] [class*=playPausePop] {
-  display: none;
-}
-
 [class*=streamPreviewWrapper] [class*=streamPreview] [class*=previewContainer] {
-  background: rgb(0 0 0 / 0%);
-  border: rgb(0 0 0 / 0%);
+  background: var(--t);
+  border: var(--t);
 }
 
 [class*=streamPreviewWrapper] [class*=streamPreview] {
-  background: rgb(0 0 0 / 95%);
-  border: rgb(0 0 0 / 0%);
+  background: var(--r2);
+  border: var(--t);
 }
 
 /* Put the wallpaper on the main frame, above Discord's background layers. */
@@ -2462,66 +2548,8 @@ nav[class*=container] > [class*=container] > header:hover {
     clip-path: inset(0);
 }
 
-#app-mount .container_pog62O > .base_pog62O {
-    background-color: rgb(0 0 0 / 0%);
-}
-
-#app-mount .sidebar_pog62O,
-#app-mount .chat_z_gUBg,
-#app-mount .members_86es0b {
-    background: rgb(0 0 0 / 0%);
-}
-
-#app-mount .chatContent_z_gUBg,
-#app-mount .guilds_pog62O,
-#app-mount .container_H5ozaj,
-#app-mount .membersWrap_86es0b {
-    background: rgb(from var(--canvas-color) r g b / 63%);
-}
-
-#app-mount .subtitleContainer_z_gUBg,
-#app-mount .form_z_gUBg .scrollableContainer_2x8-Qn {
-    background: var(--floating-surface);
-}
-
-#app-mount .modeSelected_TNyK-N .link_TNyK-N {
-    background: var(--main-color-semitransparent-selected);
-}
-
-#app-mount .mentioned_SY_P2T {
-    background: var(--accent-color-semitransparent);
-}
-
-#app-mount .mentioned_SY_P2T::before {
-    background: var(--accent-saturated);
-}
-
-#app-mount .markup_ku1OHH a {
-    color: var(--accent-color);
-}
-
-/* Settings use a separate layer from the main window. */
-#app-mount .standardSidebarView_jnk11m .sidebarRegion_jnk11m,
-#app-mount .standardSidebarView_jnk11m .contentRegion_jnk11m {
-    background: rgb(0 0 0 / 0%);
-}
-
-#app-mount .standardSidebarView_jnk11m .sidebarRegionScroller_jnk11m {
-    background: rgb(from var(--canvas-color) r g b / 72%);
-}
-
-#app-mount .standardSidebarView_jnk11m .contentRegionScroller_jnk11m {
-    background: rgb(from var(--canvas-color) r g b / 81%);
-}
-
-#app-mount .sidebar_jnk11m .item_6zZYhF:not([aria-disabled="true"]):hover {
-    background-color: var(--main-color-semitransparent);
-}
-
-#app-mount .sidebar_jnk11m .item_6zZYhF.selected_6zZYhF {
-    background-color: var(--main-color-semitransparent-selected);
-    box-shadow: inset 2px 0 var(--accent-saturated);
-    color: var(--button-text-selected);
+#app-mount .container_H5ozaj .total_QQRrAh::after {
+    content: none;
 }
 
 /* The user settings dialog has its own frame, navigation and content. */
@@ -2530,80 +2558,219 @@ nav[class*=container] > [class*=container] > header:hover {
     --text-link: var(--accent-color);
 }
 
+#app-mount .container_pog62O > .base_pog62O {
+    background-color: var(--t);
+}
+
+#app-mount .markup_ku1OHH a {
+    color: var(--accent-color);
+}
+
+#app-mount .sidebar_pog62O,
+#app-mount .chat_z_gUBg,
+#app-mount .members_86es0b {
+    background: var(--t);
+}
+
+#app-mount .chatContent_z_gUBg,
+#app-mount .guilds_pog62O,
+#app-mount .container_H5ozaj,
+#app-mount .membersWrap_86es0b {
+    background: var(--r1);
+}
+
+/* Chat composer: the outer shell owns the fill. */
+#app-mount .form_z_gUBg :is(.channelTextArea_z_gUBg, .inlineContainer_2x8-Qn),
+#app-mount .input_-dEX_A {
+    background: var(--floating-surface);
+    border-color: var(--frame-color);
+}
+
+#app-mount .form_z_gUBg :is(.scrollableContainer_2x8-Qn, .themedBackground_2x8-Qn),
+#app-mount .inputInner_-dEX_A {
+    background: var(--t);
+}
+
+#app-mount .form_z_gUBg .stackedBars_2x8-Qn {
+    background: var(--surface-color);
+    border-color: var(--frame-color);
+}
+
+#app-mount .form_z_gUBg .channelTextArea_2x8-Qn {
+    border-color: var(--frame-color);
+}
+
+#app-mount .form_z_gUBg .channelTextArea_2x8-Qn:focus-within {
+    border-color: var(--accent-saturated);
+}
+
+#app-mount .form_z_gUBg .channelTextArea_2x8-Qn.highlighted_2x8-Qn {
+    box-shadow: 0 0 0 4px var(--accent-saturated);
+}
+
+#app-mount .form_z_gUBg .channelTextArea_2x8-Qn.error_2x8-Qn:not(:hover, :focus-within) {
+    box-shadow: 0 0 0 2px var(--accent-saturated);
+}
+
+#app-mount .form_z_gUBg .textArea_2x8-Qn {
+    color: var(--text-light);
+    caret-color: var(--text-light);
+}
+
+#app-mount .form_z_gUBg :is([class^="placeholder_"], [class*=" placeholder_"]),
+#app-mount .form_z_gUBg .textArea_2x8-Qn::placeholder {
+    color: var(--accent-desaturated);
+}
+
+#app-mount .form_z_gUBg .scrollableContainer_2x8-Qn::-webkit-scrollbar-thumb {
+    background-color: var(--scroll-thumb-color);
+}
+
+/* The channel header and adjacent sidebar surfaces share the canvas color. */
+#app-mount :is(.title_z_gUBg, .subtitleContainer_z_gUBg):not(:is(.title_z_gUBg, .subtitleContainer_z_gUBg) *),
+#app-mount :is(.guildSidebar_z_gUBg, .inviteToolbar_zrUwGA) {
+    background: var(--r1);
+}
+
+#app-mount .modeSelected_TNyK-N .link_TNyK-N {
+    background: var(--r8);
+}
+
+/* Mentioned messages keep their palette colors in every interaction state. */
+#app-mount .message_SY_P2T.mentioned_SY_P2T {
+    background: var(--surface-color);
+}
+
+#app-mount .message_SY_P2T.mentioned_SY_P2T:is(:hover, .selected_SY_P2T) {
+    background: var(--hover-surface);
+}
+
+#app-mount .message_SY_P2T.mentioned_SY_P2T::before {
+    background: var(--accent-saturated);
+    border-color: var(--accent-saturated);
+}
+
+/* Spoiler colors are resolved on Discord's local spoiler elements. */
+#app-mount :is(.spoilerContainer_0_7_Rr, .spoilerContent_0_7_Rr) {
+    --__spoiler-background-color--hidden: var(--surface-color);
+    --__spoiler-background-color--hidden--hover: var(--frame-color);
+    --__spoiler-background-color--revealed: var(--t);
+    --__spoiler-border-color--hidden: var(--frame-color);
+    --__spoiler-border-color--hidden--hover: var(--accent-saturated);
+    --__spoiler-border-color--revealed: var(--t);
+    --__spoiler-container-box-shadow-color: var(--canvas-color);
+    --__spoiler-warning-background-color: var(--surface-color);
+    --__spoiler-warning-background-color--hover: var(--surface-color);
+    --__spoiler-warning-text-color: var(--text-light);
+    --__spoiler-warning-text-color--hover: var(--text-light);
+}
+
+/* Style the mention frame and fill while allowing inline role text colors. */
+#app-mount :is(
+    .wrapper_NDaLCQ,
+    [id*="-message-content"] [class*="mention"],
+    .markup_ku1OHH :is([class^="mention_"], [class*=" mention_"])
+) {
+    background-color: var(--r8) !important;
+    box-shadow: inset 0 0 0 1px var(--t);
+    color: var(--mention-foreground);
+
+    :where(.theme-dark.low-contrast) & {
+        color: var(--brand-300);
+    }
+
+    &:hover {
+        box-shadow: inset 0 0 0 1px var(--r3);
+    }
+
+    & span {
+        background-color: var(--t) !important;
+    }
+
+    &,
+    & span {
+        font-weight: 700;
+    }
+}
+
+/* Settings use a separate layer from the main window. */
+#app-mount .standardSidebarView_jnk11m .sidebarRegion_jnk11m,
+#app-mount .standardSidebarView_jnk11m .contentRegion_jnk11m {
+    background: var(--t);
+}
+
+#app-mount .standardSidebarView_jnk11m .sidebarRegionScroller_jnk11m {
+    background: var(--r1);
+}
+
+#app-mount .standardSidebarView_jnk11m .contentRegionScroller_jnk11m {
+    background: var(--r1);
+}
+
+#app-mount .sidebar_jnk11m .item_6zZYhF:not([aria-disabled="true"]):hover {
+    background-color: var(--subtle-accent-color);
+}
+
+#app-mount .sidebar_jnk11m .item_6zZYhF.selected_6zZYhF {
+    background-color: var(--active-accent-color);
+    box-shadow: inset 2px 0 var(--accent-saturated);
+    color: var(--button-text-selected);
+}
+
 .container_NdjzJd .sidebar_cR4ic2 {
-    background: rgb(from var(--canvas-color) r g b / 65%);
+    background: var(--r1);
 }
 
 .container_NdjzJd .content_3Rvb29 {
-    background: rgb(from var(--canvas-color) r g b / 72%);
+    background: var(--r1);
 }
 
 .container_NdjzJd .contentHeader_3Rvb29 {
-    background: rgb(from var(--surface-color) r g b / 56%);
-    border-bottom-color: var(--divider-color);
+    background: var(--r2);
+    border-bottom-color: var(--frame-color);
 }
 
 .container_NdjzJd .contentBody_3Rvb29 {
-    background: rgb(0 0 0 / 0%);
+    background: var(--t);
 }
 
 .container_NdjzJd .item_xyJHva:not(.destructive_xyJHva):hover {
-    background-color: var(--main-color-semitransparent);
+    background-color: var(--subtle-accent-color);
 }
 
 .container_NdjzJd .item_xyJHva.active_xyJHva {
-    background-color: var(--main-color-semitransparent-selected);
+    background-color: var(--active-accent-color);
     box-shadow: inset 2px 0 var(--accent-saturated);
     color: var(--button-text-selected);
+}
+
+#app-mount .markup_ku1OHH,
+.container_NdjzJd .content_3Rvb29 {
+    color: var(--text-light);
 }
 
 /* Direct messages and the Friends overview share the main wallpaper. */
 #app-mount .privateChannels_u88IQl,
 #app-mount .container_zrUwGA {
-    background: rgb(from var(--canvas-color) r g b / 63%);
+    background: var(--r1);
 }
 
 #app-mount .privateChannels_u88IQl .scroller_Bce46W,
 #app-mount .container_zrUwGA .tabBody_zrUwGA {
-    background: rgb(0 0 0 / 0%);
+    background: var(--t);
 }
 
 #app-mount .privateChannels_u88IQl .searchBarComponent_u88IQl {
-    background: var(--floating-surface);
+    background: var(--r1);
 }
 
 #app-mount .container_zrUwGA .nowPlayingColumn_zrUwGA {
-    background: rgb(from var(--surface-color) r g b / 43%);
+    background: var(--r1);
 }
 
 #app-mount .privateChannels_u88IQl .interactiveSelected_zln_tS {
-    background: var(--main-color-semitransparent-selected);
+    background: var(--active-accent-color);
     box-shadow: inset 2px 0 var(--accent-saturated);
-}
-
-/* Keep the toolbar magnifier inside the collapsed search field. */
-#app-mount [class*="title"] [class*="search"] [class*="search"]:not([class*="open"], :hover, :focus-within) [class*="searchBar"] {
-    width: 36px;
-}
-
-#app-mount [class*="title"] [class*="search"] [class*="search"]:not([class*="open"], :hover, :focus-within) [class*="searchBar"] [class*="iconContainer"] {
-    flex-shrink: 0;
-    transform: none;
-}
-
-/* Thin dividers between main layout sections. */
-#app-mount .sidebarList_pog62O {
-    border-block-start-color: var(--divider-color);
-    border-inline-start-color: var(--divider-color);
-}
-
-#app-mount .container_zrUwGA {
-    border-block-start-color: var(--divider-color);
-    border-inline-start-color: var(--divider-color);
-}
-
-#app-mount .privateChannels_u88IQl .searchBar_u88IQl {
-    border-block-end-color: var(--divider-color);
 }
 
 /* Discord divider elements with a one-pixel fill. */
@@ -2618,100 +2785,82 @@ nav[class*=container] > [class*=container] > header:hover {
 .divider_4Qm5zV,
 .divider_5nm40Y,
 .divider_6_68tM,
+.divider_aKCmn8,
 .divider_Atpnal,
+.divider_bWT6VE,
+.divider_c0tu5x,
 .divider_D8O-nd,
 .divider_DERYpk,
 .divider_E9MqU1,
-.divider_EWQuIu,
 .divider_Envi8p,
-.divider_GO3mMW,
-.divider_HMJaME,
-.divider_KBtu3r,
-.divider_aKCmn8,
-.divider_bWT6VE,
-.divider_c0tu5x,
+.divider_EWQuIu,
 .divider_g7esM5,
+.divider_GO3mMW,
 .divider_gVbU0s,
 .divider_h22-jR,
+.divider_HMJaME,
+.divider_KBtu3r,
 .divider_kIBjy8,
 .divider_lm2_KW,
-.divider_oXfkC0,
+.divider_md_YFn,
+.divider_mL61Cw,
 .divider_omcAqa,
+.divider_oXfkC0,
 .divider_qZFuGA,
+.divider_rVhjOI,
 .divider_s3GN8p,
 .divider_vo2STs,
+.divider_wIG9Rr,
 .divider_y75PxA,
 .divider_ybUK7Z,
 .eventDivider_5RxyqA,
 .groupDivider_m3psIG,
 .guildSeparator_3WHVfy,
-.headerDivider_VYP6oe,
 .headerDivider_utcclU,
+.headerDivider_VYP6oe,
+.helpSeparator_7NrAL2,
+.helpSeparator_SUjSf4,
+.largeSeparator_EpdO4n,
 .nitroBottomDivider_6c9R7U,
 .nitroBottomDivider_dCw_12,
-.nitroTopDividerLockBorderReversed_KU0wA7,
 .nitroTopDividerLockBorder_KU0wA7,
+.nitroTopDividerLockBorderReversed_KU0wA7,
+.planSelectSeparator_HYpJ9I,
 .planSelectSeparatorLower_FPIV9y,
 .planSelectSeparatorUpper_FPIV9y,
-.planSelectSeparator_HYpJ9I,
 .posterDivider_5kshUk,
 .reverseTrialContextInfoDivider_Sn3rKI,
 .sectionDivider_u88IQl,
 .sectionDivider_ysO7Gy,
+.sectionSeparator_nhgNJ0,
 .selectPlanDivider_HYpJ9I,
 .selectPlanDivider_Ril4QO,
 .sendButtonDivider_omcAqa,
-.separator_DpHsW6,
-.separator_ExYoxz,
-.separator_NZ34f3,
-.separator_Z0MHyc,
+.separator_4RYWy2,
+.separator_6zZYhF,
 .separator_aoI0WQ,
 .separator_dLBw_i,
+.separator_DpHsW6,
+.separator_EpdO4n,
+.separator_ExYoxz,
 .separator_htzddj,
+.separator_NZ34f3,
 .separator_o3hXTo,
 .separator_plpOf8,
+.separator_R3nPjw,
 .separator_rE8-46,
 .separator_sYzG8R,
+.separator_Z0MHyc,
 .settingsDivider_DKMuWq,
+.subtitleSeparator_R3nPjw,
+.suggestedSeparator_nhgNJ0,
 .summarySeparator_FDTnC5,
 .tagsDivider_owUmX8,
 .trialForAllSeparator_y-bNoV,
 .valuePropDivider_N-Y7ZJ,
+.verificationRoleDivider_gtRsYC,
 .verticalDivider_Ag-7tW {
-    background-color: var(--divider-color);
-}
-
-/* Discord divider elements drawn with a thin border. */
-.bottomDivider_VuWkDZ,
-.builtInSeparator_mTknAg,
-.divider_4TfzT5,
-.divider_O0J7OR,
-.divider_PpKUqH,
-.divider_ZPv4kD,
-.divider_ZaYWLb,
-.divider___vrnI,
-.divider_k5CETD,
-.finePrintWithOverheadSeparator_GUBo50,
-.lockDividerCircle_cuaHiV,
-.nitroTopDividerLockCircle_KU0wA7,
-.primaryActionPopoutDivider_R0WNX5,
-.reactionEmojiDetailsDivider_OU33XG,
-.scrollSeparator_lQvWfQ,
-.separator_M3qk4j,
-.separator_r0937z,
-.separator_ymaupl,
-.staticDivider_hPmUPu {
-    border-color: var(--divider-color);
-}
-
-#app-mount .markup_ku1OHH,
-.container_NdjzJd .content_3Rvb29 {
-    color: var(--text-light);
-}
-
-/* Regular server channels use a separate Discord text color. */
-#app-mount .container_H5ozaj {
-    --channels-default: var(--accent-desaturated);
+    background-color: var(--line-color);
 }
 
 /* Voice channel occupancy badge. */
@@ -2721,6 +2870,65 @@ nav[class*=container] > [class*=container] > header:hover {
     grid-auto-columns: 1fr;
     gap: 0;
     background-color: var(--floating-surface);
+}
+
+#app-mount .container_H5ozaj .users_QQRrAh {
+    background-color: var(--active-accent-color);
+    color: var(--accent-color);
+}
+
+#app-mount .container_H5ozaj .total_QQRrAh {
+    background-color: var(--t);
+    color: var(--accent-desaturated);
+}
+
+/* Let the chat background show through message embeds. */
+#app-mount .embedFull_XyW1ZT {
+    background: var(--background-surface-high);
+    backdrop-filter: blur(6px);
+}
+
+/* Thin dividers between main layout sections. */
+#app-mount .sidebarList_pog62O {
+    border-block-start-color: var(--line-color);
+    border-inline-start-color: var(--line-color);
+}
+
+#app-mount .container_zrUwGA {
+    border-block-start-color: var(--frame-color);
+    border-inline-start-color: var(--frame-color);
+}
+
+#app-mount .privateChannels_u88IQl .searchBar_u88IQl {
+    border-block-end-color: var(--line-color);
+}
+
+/* Discord divider elements drawn with a thin border. */
+.bottomDivider_VuWkDZ,
+.builtInSeparator_mTknAg,
+.divider_4TfzT5,
+.divider___vrnI,
+.divider_k5CETD,
+.divider_kdnGad,
+.divider_O0J7OR,
+.divider_PpKUqH,
+.divider_ZaYWLb,
+.divider_ZPv4kD,
+.finePrintWithOverheadSeparator_GUBo50,
+.footerWithDivider_Hbqlj0,
+.guildCategorySeparator_40yGEf,
+.guildCategorySeparator_ufks4w,
+.lockDividerCircle_cuaHiV,
+.nitroTopDividerLockCircle_KU0wA7,
+.primaryActionPopoutDivider_R0WNX5,
+.reactionEmojiDetailsDivider_OU33XG,
+.scrollSeparator_lQvWfQ,
+.separator_M3qk4j,
+.separator_r0937z,
+.separator_xu8B3s,
+.separator_ymaupl,
+.staticDivider_hPmUPu {
+    border-color: var(--line-color);
 }
 
 #app-mount .container_H5ozaj .wrapper_QQRrAh > :is(.users_QQRrAh, .total_QQRrAh) {
@@ -2734,63 +2942,30 @@ nav[class*=container] > [class*=container] > header:hover {
     text-align: center;
 }
 
-#app-mount .container_H5ozaj .users_QQRrAh {
-    background-color: color-mix(in srgb, var(--main-color) 30%, var(--floating-surface));
-    color: var(--accent-color);
-}
-
-#app-mount .container_H5ozaj .total_QQRrAh {
-    background-color: rgb(0 0 0 / 0%);
-    color: var(--accent-desaturated);
-}
-
-#app-mount .container_H5ozaj .total_QQRrAh::after {
-    content: none;
-}
-
-/* Let the chat background show through message embeds. */
-#app-mount .embedFull_XyW1ZT {
-    background: color-mix(in srgb, var(--background-surface-high) 25%, rgb(0 0 0 / 0%));
-    backdrop-filter: blur(6px);
+/* Keep the security back action sized to its label. */
+.back_NKrv-e {
+    inline-size: fit-content;
+    max-inline-size: 100%;
 }
 
 /* Quests, Shop and Nitro use their own page backgrounds. */
-#app-mount :is(.questHomePage_iar92T, .page_iar92T:has(.questHomePage_iar92T, .questHomeContent_iar92T)),
+#app-mount :is(.questHomePage_iar92T, .page_iar92T),
 #app-mount :is(.shop_Mqg79R, .shopContainer_XBXDcd),
 #app-mount :is(.homeWrapper_8iSxT3, .mainPageScroller_IRnLy8) {
-    background: rgb(from var(--canvas-color) r g b / 63%);
-    border-block-start-color: var(--divider-color);
+    background: var(--r1);
+    border-block-start-color: var(--frame-color);
 }
 
 #app-mount .page_iar92T .questHomePage_iar92T,
 #app-mount .homeWrapper_8iSxT3 .mainPageScroller_IRnLy8,
 #app-mount .shop_Mqg79R :is(.shopContainer_XBXDcd, .shopWrapper_Mqg79R, .shopScroll_Mqg79R),
 #app-mount .shopContainer_XBXDcd :is(.shopWrapper_Mqg79R, .shopScroll_Mqg79R) {
-    background: rgb(0 0 0 / 0%);
+    background: var(--t);
 }
 
-#app-mount :is(.questHomePage_iar92T, .page_iar92T:has(.questHomeContent_iar92T)) .header_iar92T {
-    background: rgb(from var(--surface-color) r g b / 72%);
-    border-block-end-color: var(--divider-color);
-}
-
-#app-mount :is(.questHomePage_iar92T, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8) {
-    --background-base-low: rgb(from var(--surface-color) r g b / 70%);
-    --background-base-lower: rgb(from var(--surface-color) r g b / 72%);
-    --background-base-lowest: rgb(from var(--canvas-color) r g b / 76%);
-    --background-mod-subtle: rgb(from var(--surface-color) r g b / 36%);
-    --background-surface-high: rgb(from var(--surface-color) r g b / 78%);
-}
-
-/* Role editor surfaces, previews and list separators. */
-#app-mount .standardSidebarView_jnk11m:has(.roleRow_YEKbw3, .contentWidth_tLZg6c) {
-    --background-base-low: rgb(from var(--surface-color) r g b / 72%);
-    --background-base-lower: rgb(from var(--surface-color) r g b / 72%);
-    --background-base-lowest: rgb(from var(--canvas-color) r g b / 76%);
-    --background-mod-subtle: rgb(from var(--surface-color) r g b / 36%);
-    --background-surface-high: rgb(from var(--surface-color) r g b / 78%);
-    --background-surface-higher: rgb(from var(--surface-color) r g b / 83%);
-    --interactive-background-hover: var(--main-color-semitransparent);
+#app-mount :is(.questHomePage_iar92T, .page_iar92T) .header_iar92T {
+    background: var(--page-surface);
+    border-block-end-color: var(--frame-color);
 }
 
 /* The role editor has a separate scroll surface behind the role list. */
@@ -2798,32 +2973,37 @@ nav[class*=container] > [class*=container] > header:hover {
 #app-mount .page_cKeB2a,
 #app-mount .scroller_EDKX0U,
 #app-mount .contentContainer_cKeB2a .scroller_cXmH6r {
-    background: rgb(0 0 0 / 0%);
+    background: var(--t);
 }
 
 #app-mount .contentRegionScroller_jnk11m:has(.rolesTable_EerRtM, .emptyRoles_YEKbw3),
 #app-mount .page_cKeB2a > .contentContainer_cKeB2a,
 #app-mount .sidebarScrollable_EDKX0U + .content_EDKX0U {
-    background: rgb(from var(--canvas-color) r g b / 55%);
+    background: var(--r1);
 }
 
 #app-mount .roleRow_YEKbw3:not(:hover)::before,
 #app-mount .roleRow_YEKbw3:last-child:not(:hover)::after {
-    background-color: var(--divider-color);
+    background-color: var(--line-color);
 }
 
 /* Match the role sidebar's heading surface in the right pane. */
 #app-mount .header_tLZg6c,
 #app-mount .contentRegionScroller_jnk11m:has(.rolesTable_EerRtM) .customHeader_jnk11m {
     background: var(--background-base-low);
-    border-block-end-color: var(--divider-color);
+    border-block-end-color: var(--frame-color);
 }
 
 /* The default permissions card uses its own background and text colors. */
 #app-mount .container_Ax3P1g {
-    background: rgb(from var(--surface-color) r g b / 55%);
-    border-color: var(--divider-color);
+    background: var(--r2);
+    border-color: var(--frame-color);
     color: var(--accent-desaturated);
+}
+
+#app-mount .container_Ax3P1g .icon_Ax3P1g,
+#app-mount .container_Ax3P1g:is(:hover, :focus-visible) {
+    background: var(--hover-surface);
 }
 
 #app-mount .container_Ax3P1g .label_Ax3P1g,
@@ -2831,36 +3011,31 @@ nav[class*=container] > [class*=container] > header:hover {
     color: var(--text-light);
 }
 
-#app-mount .container_Ax3P1g .icon_Ax3P1g,
-#app-mount .container_Ax3P1g:is(:hover, :focus-visible) {
-    background: var(--main-color-semitransparent-selected);
-}
-
 #app-mount .roleRow_YEKbw3 .roleName_YEKbw3 {
     color: var(--accent-desaturated);
-}
-
-#app-mount .roleRow_YEKbw3:not(.roleRowDisableHover_YEKbw3):is(:hover, :focus-visible) {
-    background-color: var(--main-color-semitransparent);
 }
 
 #app-mount .roleRow_YEKbw3:is(:hover, :focus-visible) .roleName_YEKbw3 {
     color: var(--text-light);
 }
 
+#app-mount .roleRow_YEKbw3:not(.roleRowDisableHover_YEKbw3):is(:hover, :focus-visible) {
+    background-color: var(--subtle-accent-color);
+}
+
 /* Let the wallpaper show through the member sidebar and server member table. */
 #app-mount .container_86es0b {
-    background: rgb(from var(--canvas-color) r g b / 63%);
-    border-inline-start-color: var(--divider-color);
+    background: var(--r1);
+    border-inline-start-color: var(--frame-color);
 }
 
 #app-mount .container_86es0b :is(.membersWrap_86es0b, .members_86es0b, .member_86es0b),
 #app-mount :is(.chat_z_gUBg, .chatContent_z_gUBg, .content_z_gUBg):has(.mainTableContainer_-blG2T) {
-    background: rgb(0 0 0 / 0%);
+    background: var(--t);
 }
 
 #app-mount .mainTableContainer_-blG2T {
-    background: rgb(from var(--canvas-color) r g b / 63%);
+    background: var(--r1);
 }
 
 /* Server settings cards, lists and previews. */
@@ -2888,8 +3063,8 @@ nav[class*=container] > [class*=container] > header:hover {
     .placeholderCard_7tmNTL,
     .profilePreview_mL61Cw
 ) {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-    border-color: var(--divider-color);
+    background-color: var(--r2);
+    border-color: var(--frame-color);
 }
 
 /* Keep nested cards and footers from covering the translucent outer surface. */
@@ -2897,15 +3072,15 @@ nav[class*=container] > [class*=container] > header:hover {
 .scrollerContainer_zS9TPG .bannedUser_zS9TPG,
 .profilePreviewContainer_mL61Cw,
 .profilePreview_mL61Cw .body_Xweo-z {
-    background-color: rgb(0 0 0 / 0%);
+    background-color: var(--t);
 }
 
 .bannedUser_zS9TPG:hover {
-    background-color: var(--main-color-semitransparent);
+    background-color: var(--subtle-accent-color);
 }
 
 :is(.divider_5tsZcq, .separator_4RYWy2, .divider_FLhhV_, .separator_R3nPjw, .divider_mL61Cw) {
-    background-color: var(--divider-color);
+    background-color: var(--line-color);
 }
 
 /* Settings change notices open above the page. */
@@ -2915,44 +3090,39 @@ nav[class*=container] > [class*=container] > header:hover {
     .pendingChangesToolbar_s3DB6Y
 ) {
     background: var(--floating-surface);
-    border-color: var(--divider-color);
+    border-color: var(--frame-color);
     backdrop-filter: blur(10px);
 }
 
 /* Use the same backdrop as the other settings pages, below the audit cards. */
 #app-mount .contentRegion_jnk11m:has(.scroller_ohxi6x),
 #app-mount .content_ohxi6x {
-    background: rgb(0 0 0 / 0%);
+    background: var(--t);
 }
 
 #app-mount .scroller_ohxi6x {
-    background: rgb(from var(--canvas-color) r g b / 81%);
-}
-
-.content_ohxi6x {
-    --card-background-default: rgb(from var(--surface-color) r g b / 62%);
-    --card-secondary-bg: rgb(from var(--surface-color) r g b / 63%);
+    background: var(--r1);
 }
 
 /* Sticker tiers use separate cards for the header, grid and empty states. */
 .tier_no-mtA:has(.grid_7tmNTL, .emptyTierWrapper_7tmNTL) {
-    background-color: rgb(0 0 0 / 0%);
-    border-color: var(--divider-color);
-    --card-background-default: rgb(from var(--surface-color) r g b / 62%);
-    --background-mod-subtle: rgb(from var(--surface-color) r g b / 63%);
-    --background-mod-muted: rgb(from var(--surface-color) r g b / 63%);
-    --background-surface-high: rgb(from var(--surface-color) r g b / 63%);
-    --guild-boosting-blue-for-gradients: rgb(from var(--critical-color) r g b / 75%);
-    --guild-boosting-purple-for-gradients: rgb(from var(--surface-color) r g b / 75%);
-}
+    background-color: var(--t);
+    border-color: var(--frame-color);
+    --card-background-default: var(--r2);
+    --background-mod-subtle: var(--r2);
+    --background-mod-muted: var(--r2);
+    --background-surface-high: var(--r2);
+    --guild-boosting-blue-for-gradients: var(--critical-color);
+    --guild-boosting-purple-for-gradients: var(--r1);
 
-.tier_no-mtA:has(.grid_7tmNTL, .emptyTierWrapper_7tmNTL) .tierHeader_no-mtA {
-    border-block-end-color: var(--divider-color);
+    & .tierHeader_no-mtA {
+        border-block-end-color: var(--frame-color);
+    }
 }
 
 .grid_7tmNTL :is(.uploadCard_7tmNTL, .emptyTierWrapper_7tmNTL),
 .tier_no-mtA .emptyTierWrapper_7tmNTL {
-    background-color: rgb(from var(--surface-color) r g b / 55%);
+    background-color: var(--r2);
 }
 
 /* Onboarding previews, after-join questions and Server Guide cards. */
@@ -2966,77 +3136,79 @@ nav[class*=container] > [class*=container] > header:hover {
     .resourceChannel_nhgNJ0,
     .suggestedChannels_nhgNJ0
 ) {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-    border-color: var(--divider-color);
+    background-color: var(--r2);
+    border-color: var(--frame-color);
 }
 
 .onboardingContainer_r_cyVx :is(.header__YOXq0, .channelCoverageDetails_2nqf8W) {
-    background-color: rgb(from var(--surface-color) r g b / 55%);
+    background-color: var(--r2);
 }
 
 .onboardingContainer_r_cyVx :is(.divider__YOXq0, .sectionSeparator_nhgNJ0, .suggestedSeparator_nhgNJ0) {
-    background-color: var(--divider-color);
+    background-color: var(--line-color);
 }
 
 .page_nhgNJ0 .previewImage_nhgNJ0 {
     border-radius: var(--radius-md);
-    opacity: 0.85;
-    mix-blend-mode: luminosity;
 }
 
 .page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0, .uploadButton_nhgNJ0, .addActionItem_nhgNJ0, .actionItemEditButton_nhgNJ0),
 .onboardingContainer_r_cyVx .addPrompt_2nqf8W {
-    background-color: var(--main-color-semitransparent);
-    border-color: var(--divider-color);
+    background-color: var(--button-surface);
+    border-color: var(--frame-color);
     color: var(--text-light);
 }
 
 .page_nhgNJ0 :is(.editWelcomeButton_nhgNJ0, .uploadButton_nhgNJ0, .addActionItem_nhgNJ0, .actionItemEditButton_nhgNJ0):is(:hover, :focus-visible),
 .page_nhgNJ0 [role="tab"][aria-selected="true"],
 .onboardingContainer_r_cyVx .addPrompt_2nqf8W:is(:hover, :focus-visible) {
-    background-color: var(--main-color-semitransparent-selected);
+    background-color: var(--button-surface);
     color: var(--text-light);
 }
 
 /* Access rules and their editable rows. */
 :is(.rules_dkXc93, .rulesTable_aaAuHv) {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-    --input-background-default: rgb(from var(--canvas-color) r g b / 65%);
-    --input-border-default: var(--divider-color);
+    background-color: var(--r2);
+    --input-background-default: var(--r1);
+    --input-border-default: var(--frame-color);
 }
 
 :is(.rules_dkXc93, .rulesContainer_Goax4j) .rulesTextAreaInput_Goax4j {
-    background-color: rgb(from var(--canvas-color) r g b / 65%);
+    background-color: var(--r1);
     color: var(--text-light);
 }
 
 :is(.rules_dkXc93, .rulesContainer_Goax4j) .pill_Goax4j {
-    background-color: var(--main-color-semitransparent);
+    background-color: var(--subtle-accent-color);
     color: var(--text-light);
-}
-
-.rulesTable_aaAuHv .ruleContainer_aaAuHv {
-    border-block-start-color: var(--divider-color);
 }
 
 /* Controls in the deeper server safety pages and AutoMod. */
 :is(.simpleItemWrapper_NKrv-e, .itemBodyInner_NKrv-e, .backgroundModifierContainer_zYsR7a) {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-}
-
-:is(.simpleItemWrapper_NKrv-e, .itemBodyInner_NKrv-e) {
-    border-color: var(--divider-color);
+    background-color: var(--r2);
 }
 
 :is(.contentRegionScroller_jnk11m, .onboardingContainer_r_cyVx)
     :is(.clickable_NKrv-e, .valuePill_NKrv-e) {
-    background-color: var(--main-color-semitransparent);
+    background-color: var(--subtle-accent-color);
     color: var(--text-light);
 }
 
 :is(.contentRegionScroller_jnk11m, .onboardingContainer_r_cyVx)
     :is(.clickable_NKrv-e, .valuePill_NKrv-e):is(:hover, :focus-visible) {
-    background-color: var(--main-color-semitransparent-selected);
+    background-color: var(--active-accent-color);
+}
+
+.page_nhgNJ0 .rightColumn_nhgNJ0 [role="tab"]:not([aria-selected="true"]) {
+    color: var(--accent-desaturated);
+}
+
+.rulesTable_aaAuHv .ruleContainer_aaAuHv {
+    border-block-start-color: var(--frame-color);
+}
+
+:is(.simpleItemWrapper_NKrv-e, .itemBodyInner_NKrv-e) {
+    border-color: var(--frame-color);
 }
 
 /* The Server Guide preview is an image with a separate tab switcher. */
@@ -3046,80 +3218,61 @@ nav[class*=container] > [class*=container] > header:hover {
     border-radius: var(--radius-md);
     isolation: isolate;
     background:
-        linear-gradient(rgb(from var(--surface-color) r g b / 70%), rgb(from var(--surface-color) r g b / 70%)),
+        linear-gradient(var(--page-surface), var(--page-surface)),
         var(--local-wallpaper) center / cover no-repeat var(--canvas-color);
-}
-
-.page_nhgNJ0 .rightColumn_nhgNJ0 .previewImage_nhgNJ0 {
-    outline: 1px solid var(--divider-color);
-    outline-offset: -1px;
-}
-
-.page_nhgNJ0 .rightColumn_nhgNJ0 [role="tab"]:not([aria-selected="true"]) {
-    color: var(--accent-desaturated);
-}
-
-/* Keep the security back action sized to its label. */
-.back_NKrv-e {
-    inline-size: fit-content;
-    max-inline-size: 100%;
 }
 
 .back_NKrv-e .backButton_NKrv-e {
     display: inline-flex;
     padding: 4px 8px;
     border-radius: var(--radius-sm);
-    background-color: var(--main-color-semitransparent);
+    background-color: var(--button-surface);
     color: var(--text-light);
-}
-
-.back_NKrv-e:is(:hover, :focus-visible) .backButton_NKrv-e {
-    background-color: var(--main-color-semitransparent-selected);
 }
 
 /* Raid activity alerts share the safety card palette and field styling. */
 .editCard_xX0l5K:has(.itemWrapper_NKrv-e) {
-    --card-background-default: rgb(from var(--surface-color) r g b / 62%);
-    --background-base-lower: rgb(from var(--surface-color) r g b / 62%);
-    --background-mod-normal: rgb(from var(--surface-color) r g b / 50%);
-    --input-background-default: rgb(from var(--canvas-color) r g b / 65%);
+    --card-background-default: var(--r2);
+    --background-base-lower: var(--r2);
+    --background-mod-normal: var(--r2);
+    --input-background-default: var(--r1);
     background-color: var(--card-background-default);
-    border-color: var(--divider-color);
-}
+    border-color: var(--frame-color);
 
-.editCard_xX0l5K:has(.itemWrapper_NKrv-e) .innerHeader_xX0l5K {
-    background-color: rgb(0 0 0 / 0%);
-}
-
-.editCard_xX0l5K .itemBodyInner_NKrv-e {
-    background-color: rgb(0 0 0 / 0%);
+    & .innerHeader_xX0l5K {
+        background-color: var(--t);
+    }
 }
 
 /* AutoMod keeps its native card structure and uses theme colors. */
 .categoryContainer_JPK15v {
-    --card-background-default: rgb(from var(--surface-color) r g b / 62%);
-    --card-secondary-bg: rgb(from var(--surface-color) r g b / 52%);
-    --background-base-low: rgb(from var(--surface-color) r g b / 62%);
-    --background-base-lower: rgb(from var(--surface-color) r g b / 62%);
-    --background-mod-subtle: rgb(from var(--surface-color) r g b / 38%);
-    --background-mod-normal: rgb(from var(--surface-color) r g b / 52%);
-    --background-surface-high: rgb(from var(--surface-color) r g b / 62%);
-    --border-subtle: var(--divider-color);
-    --interactive-background-hover: var(--main-color-semitransparent);
+    --card-background-default: var(--r2);
+    --card-secondary-bg: var(--r2);
+    --background-base-low: var(--r2);
+    --background-base-lower: var(--r2);
+    --background-mod-subtle: var(--r1);
+    --background-mod-normal: var(--r1);
+    --background-surface-high: var(--r2);
+    --border-subtle: var(--frame-color);
+    --interactive-background-hover: var(--hover-surface);
+}
+
+.editCard_xX0l5K .itemBodyInner_NKrv-e {
+    background-color: var(--t);
 }
 
 /* Server Tag badge picker, actions and message preview. */
 .container_SMlho9 :is(.tagInputWrapper_SMlho9, .pickerItem_SMlho9, .container_YRgiYF, .container_ZcHFUr) {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-    border-color: var(--divider-color);
+    background-color: var(--r2);
+    border-color: var(--frame-color);
 }
 
 /* The unpublished Server Web Page notice is the header of the checklist. */
 .settingsContainer_BFckb0 .container_4RYWy2 {
-    background-color: rgb(from var(--surface-color) r g b / 62%);
-    border-color: var(--divider-color);
+    background-color: var(--r2);
+    border-color: var(--frame-color);
 }
 
 .settingsContainer_BFckb0 .container_4RYWy2 .header_4RYWy2 {
-    background-color: rgb(from var(--surface-color) r g b / 45%);
+    background-color: var(--r2);
 }
