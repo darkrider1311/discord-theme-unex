@@ -1,7 +1,7 @@
 /**
 * @author DarkRider
 * @description Red Cyber x Demon UNEX Discord Theme
-* @version 0.6
+* @version 0.6.1
 */
 
 :is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
@@ -672,6 +672,7 @@
     :is(.root__KoJTP, [data-mana-component="modal"]):not(:where(.root_ZhNJfE)),
     :is(.selectDropdown_vWC4bk, .popout_uFkqU2),
     :is(.reactionTooltip_5l5ajC, .contentWrapper_58b0l2, .contentWrapper_dyDYQj),
+    :is(.container_uTMZTY, .messagesPopoutWrap_6bgemo),
     :is(#app-mount, body) :is(.jumpButton_gduzfv, .popoutContainer_j9Vvzj),
     .menu_M3qk4j::before,
     :is(.emojiPicker_-sZhZn, .emojiPicker_vhuLMo):not(:is(.contentWrapper_58b0l2, .contentWrapper_dyDYQj) *),
@@ -1221,7 +1222,8 @@
 
 @media (forced-colors: none) {
     #app-mount .wrapper_TNyK-N:not(.modeSelected_TNyK-N):hover .link_TNyK-N,
-    #app-mount .interactive_zln_tS:not(.interactiveSelected_zln_tS):hover {
+    #app-mount .interactive_zln_tS:not(.interactiveSelected_zln_tS):hover,
+    #app-mount .tabBar_zrUwGA :is(.item_zrUwGA, .addFriend_zrUwGA):is(:hover, :active) {
         background: var(--t);
     }
 
@@ -1229,11 +1231,21 @@
     #app-mount .interactiveSelected_zln_tS,
     #app-mount .interactive_zln_tS.interactiveSelected_zln_tS:is(:hover, :active),
     #app-mount .item_ydey4M[data-selected="true"],
+    #app-mount .tabBar_zrUwGA :is(.item_zrUwGA, .addFriend_zrUwGA)[aria-selected="true"],
     #app-mount .sidebar_jnk11m .item_6zZYhF.selected_6zZYhF,
     .container_NdjzJd .item_xyJHva.active_xyJHva {
         background: var(--t);
         box-shadow: var(--selection-edges);
         color: var(--r7);
+    }
+
+    #app-mount .tabBar_zrUwGA .addFriend_zrUwGA {
+        background: var(--t);
+        color: var(--r6);
+
+        &:is(:hover, :active, :focus-visible, [aria-selected="true"]) {
+            color: var(--text-light);
+        }
     }
 
     #app-mount .wrapper_TNyK-N:hover :is(.name_TNyK-N, .icon_TNyK-N),

@@ -1,5 +1,11 @@
 # Patch Notes
 
+## v0.6.1
+
+- Removed hover fills from the Friends tabs. The active tab now uses the shared `r5` accent edges on both sides.
+- Matched the Add Friend tab to the theme palette. It stays transparent, with `r6` text at rest and `r7` text on hover, focus, or selection.
+- Applied the shared `r1` surface and hover blur to the Inbox.
+
 ## v0.6
 
 Final theme update before v1.0.
