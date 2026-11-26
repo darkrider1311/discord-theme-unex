@@ -1,5 +1,14 @@
 # Patch Notes
 
+## v0.6.2
+
+- Extended the shared hover styling across buttons, channels, menus, dropdowns, settings, profile actions, and search suggestions. Hover uses a left `r5` accent edge and brighter text, while selected tabs use accent edges on both sides.
+- Matched Message Requests and Spam to the shared selection styling. Replaced the underlines on active Shop and Quests tabs with side accents.
+- Added the left hover edge to ordinary messages while preserving the existing mention marker. Channel action icons brighten only when hovered individually.
+- Removed the extra fill behind Black Friday collections and restored promotional banners in Shop and Nitro. Matched countdown tiles and discount badges to the palette with `r3` borders.
+- Styled the Shop search field and gave the suggestions panel one shared surface with hover blur. Added the same floating surface and blur to the Orbs wallet.
+- Unified the headers and content of stream previews on a single blurred surface. The Vesktop Screen Share Picker now uses transparent cards with `r3` borders and shared selection accents for stream options.
+
 ## v0.6.1
 
 - Removed hover fills from the Friends tabs. The active tab now uses the shared `r5` accent edges on both sides.
