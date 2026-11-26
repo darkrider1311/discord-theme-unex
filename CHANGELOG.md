@@ -1,5 +1,16 @@
 # Patch Notes
 
+## v0.6
+
+Final theme update before v1.0.
+
+- Unified channel, tab, and settings selection states. Active rows use accent edges on both sides, and hover brightens labels and icons without adding a fill.
+- Added a left hover edge for member, Friends, and voice participant rows, with a second edge while active. Member rows stay transparent when clicked, and both edges remain visible while the profile popup is open.
+- Kept normal message text on `r7` and added `r9` for hover. Removed the extra hover fill and edge from normal messages and kept the composer border consistent on focus.
+- Fixed backdrop blur in settings dropdowns and the server selector in the profile editor. Separated the profile backdrop from the modal container so the dropdown blur reaches the text behind it.
+- Matched Audit Log surfaces and Server Settings dividers to the shared palette. Restored visible checkbox ticks and themed slider tracks and fills.
+- Removed the duplicate Server Hub background and the border around the profile status bubble. Darkened the game-card hover fill in profile widgets.
+
 ## v0.5
 
 - Consolidated shared CSS rules for static surfaces, floating windows, settings layouts, and the message composer. Dialogs, dropdowns, menus, and tooltips share the theme's surface, border, and blur settings.

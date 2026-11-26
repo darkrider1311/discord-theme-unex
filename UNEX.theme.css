@@ -1,7 +1,7 @@
 /**
 * @author DarkRider
 * @description Red Cyber x Demon UNEX Discord Theme
-* @version 0.5
+* @version 0.6
 */
 
 :is(:root, .theme-dark, .theme-light, .theme-darker, .theme-midnight) {
@@ -24,6 +24,7 @@
   --r6: rgb(180 122 122 / 100%); /* Secondary text and icons */
   --r7: rgb(255 181 181 / 100%); /* Primary text and icons */
   --r8: rgb(43 16 20 / 70%); /* Buttons, selections, and hover */
+  --r9: rgb(255 210 210 / 100%); /* Message text hover */
 
   /* Color aliases */
   --accent-color: var(--text-light);
@@ -53,6 +54,8 @@
   --feedback-warning: var(--r5);
   --floating-surface: var(--surface-color);
   --frame-color: var(--r3);
+  --selection-edge-start: inset 2px 0 var(--r5);
+  --selection-edges: var(--selection-edge-start), inset -2px 0 var(--r5);
   --hover-surface: var(--r8);
   --input-background: var(--r1);
   --interactive-muted: var(--r6);
@@ -66,6 +69,8 @@
   --scroll-thumb-color: var(--accent-desaturated);
   --scrollbar-auto-track: var(--r1);
   --scrollbar-thin-track: var(--t);
+  --slider-indicator-background: var(--r5);
+  --slider-track-background: var(--r3);
   --subtle-accent-color: var(--r2);
   --surface-color: var(--r1);
   --t: transparent;
@@ -138,11 +143,12 @@
   --mention-background: var(--subtle-accent-color);
   --mention-foreground: var(--r7);
   --message-automod-background-default: var(--background-message-automod);
-  --message-automod-background-hover: var(--background-message-automod-hover);
+  --message-background-hover: var(--t);
+  --message-automod-background-hover: var(--message-automod-background-default);
   --message-highlight-background-default: var(--background-message-highlight);
-  --message-highlight-background-hover: var(--background-message-highlight-hover);
+  --message-highlight-background-hover: var(--message-highlight-background-default);
   --message-mentioned-background-default: var(--background-mentioned);
-  --message-mentioned-background-hover: var(--background-mentioned-hover);
+  --message-mentioned-background-hover: var(--message-mentioned-background-default);
   --spine-default: var(--line-color);
   --text-code-addition: var(--r5);
   --text-code-attribute: var(--r5);
@@ -314,7 +320,7 @@
   --checkbox-background-hover: var(--subtle-accent-color);
   --checkbox-border-default: var(--frame-color);
   --checkbox-border-hover: var(--accent-saturated);
-  --checkbox-icon-active: var(--main-color);
+  --checkbox-icon-active: var(--r7);
   --control-critical-primary-background-active: var(--critical-hover);
   --control-critical-primary-background-default: var(--critical-color);
   --control-critical-primary-background-hover: var(--critical-hover);
@@ -406,7 +412,7 @@
   --control-connected-icon-default: var(--text-light);
   --control-connected-icon-hover: var(--text-light);
   --control-connected-text-active: var(--text-light);
-  --control-connected-text-default: var(--text-light);
+  --control-connected-text-default: var(--r6);
   --control-connected-text-hover: var(--text-light);
   --control-expressive-background-active: var(--button-surface);
   --control-expressive-background-default: var(--button-surface);
@@ -418,7 +424,7 @@
   --control-expressive-icon-default: var(--text-light);
   --control-expressive-icon-hover: var(--text-light);
   --control-expressive-text-active: var(--text-light);
-  --control-expressive-text-default: var(--text-light);
+  --control-expressive-text-default: var(--r6);
   --control-expressive-text-hover: var(--text-light);
   --control-icon-only-background-active: var(--button-surface);
   --control-icon-only-background-hover: var(--button-surface);
@@ -434,7 +440,7 @@
   --control-overlay-primary-icon-default: var(--text-light);
   --control-overlay-primary-icon-hover: var(--text-light);
   --control-overlay-primary-text-active: var(--text-light);
-  --control-overlay-primary-text-default: var(--text-light);
+  --control-overlay-primary-text-default: var(--r6);
   --control-overlay-primary-text-hover: var(--text-light);
   --control-overlay-secondary-background-active: var(--button-surface);
   --control-overlay-secondary-background-default: var(--button-surface);
@@ -446,7 +452,7 @@
   --control-overlay-secondary-icon-default: var(--text-light);
   --control-overlay-secondary-icon-hover: var(--text-light);
   --control-overlay-secondary-text-active: var(--text-light);
-  --control-overlay-secondary-text-default: var(--text-light);
+  --control-overlay-secondary-text-default: var(--r6);
   --control-overlay-secondary-text-hover: var(--text-light);
   --control-primary-background-active: var(--button-surface);
   --control-primary-background-default: var(--button-surface);
@@ -455,7 +461,7 @@
   --control-primary-border-default: var(--frame-color);
   --control-primary-border-hover: var(--accent-saturated);
   --control-primary-text-active: var(--text-light);
-  --control-primary-text-default: var(--text-light);
+  --control-primary-text-default: var(--r6);
   --control-primary-text-hover: var(--text-light);
   --control-secondary-background-active: var(--button-surface);
   --control-secondary-background-default: var(--button-surface);
@@ -467,7 +473,7 @@
   --control-secondary-icon-default: var(--text-light);
   --control-secondary-icon-hover: var(--text-light);
   --control-secondary-text-active: var(--text-light);
-  --control-secondary-text-default: var(--text-light);
+  --control-secondary-text-default: var(--r6);
   --control-secondary-text-hover: var(--text-light);
   --radio-background-active: var(--active-accent-color);
   --radio-background-default: var(--canvas-color);
@@ -512,19 +518,22 @@
     --connected-hover-fill: var(--button-surface);
     background: var(--button-surface);
     border: 1px solid var(--frame-color);
-    color: var(--button-text);
-    &:not(:disabled, [aria-disabled="true"]):is(
-        :hover,
-        :active,
-        :focus-visible,
-        :where(.iconInput_nJ7Ws3:is(:hover, :focus-within)) > :where(.button_F7qvhY[tabindex="-1"])
-    ) {
+    color: var(--r6);
+
+    &:not(:disabled, [aria-disabled="true"]):hover {
+        background: var(--button-surface);
+        border-color: var(--frame-color);
+        color: var(--r7);
+    }
+
+    &:not(:disabled, [aria-disabled="true"]):is(:active, :focus-visible) {
         border-color: var(--accent-saturated);
+        color: var(--r7);
     }
 }
 
-#app-mount .back_NKrv-e:is(:hover,:focus-visible) .backButton_NKrv-e {
-    border-color: var(--accent-saturated);
+#app-mount .back_NKrv-e:hover .backButton_NKrv-e {
+    color: var(--r7);
 }
 
 #app-mount .textButton_nJgowo {
@@ -580,7 +589,8 @@
     .page_iar92T,
     .container_ZTJWQo,
     .shop_Mqg79R,
-    .applicationStore_6U3jXZ
+    .applicationStore_6U3jXZ,
+    .page_QQ_HWZ
 ),
 #app-mount .homeWrapper_8iSxT3:not(.applicationStore_6U3jXZ *),
 #app-mount .questHomePage_iar92T:not(.page_iar92T *),
@@ -659,7 +669,8 @@
 /* Popups and profiles */
 
 @media (forced-colors: none) {
-    :is(.root__KoJTP, [data-mana-component="modal"], .selectDropdown_vWC4bk),
+    :is(.root__KoJTP, [data-mana-component="modal"]):not(:where(.root_ZhNJfE)),
+    :is(.selectDropdown_vWC4bk, .popout_uFkqU2),
     :is(.reactionTooltip_5l5ajC, .contentWrapper_58b0l2, .contentWrapper_dyDYQj),
     :is(#app-mount, body) :is(.jumpButton_gduzfv, .popoutContainer_j9Vvzj),
     .menu_M3qk4j::before,
@@ -668,7 +679,7 @@
     .layer_VVADeK[id^="popout_"] > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv),
     :is([role="menu"], #guild-header-popout, .popover_DpHsW6, [role="listbox"]):not(
         :where(.menu_M3qk4j),
-        :where(.popover_81IzEA, .popover_tYiMSv, .menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"]) *
+        :where(.popover_81IzEA, .popover_tYiMSv, .menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, .popout_uFkqU2, [role="listbox"]) *
     ) {
         --background-surface-high: var(--r1);
         --background-surface-higher: var(--r1);
@@ -680,7 +691,7 @@
 
     .layer_VVADeK[id^="popout_"] > [data-popout-animating] > :is(.popover_81IzEA, .popover_tYiMSv),
     :is(.menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, [role="listbox"]):not(
-        :where(.popover_81IzEA, .popover_tYiMSv, .menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, [role="listbox"]) *
+        :where(.popover_81IzEA, .popover_tYiMSv, .menu_M3qk4j, [role="menu"], #guild-header-popout, .popover_DpHsW6, .selectDropdown_vWC4bk, .popout_uFkqU2, [role="listbox"]) *
     ) {
         border-radius: 14px;
     }
@@ -862,6 +873,23 @@
     }
 }
 
+:is(#app-mount, body) .layoutContainer_s3DB6Y.editingPanelExpanded_s3DB6Y {
+    isolation: isolate;
+    background: var(--t);
+    backdrop-filter: none;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        pointer-events: none;
+        background: var(--r1);
+        backdrop-filter: blur(var(--blur-hover));
+    }
+}
+
 :is(#app-mount, body) :is(.outer_ZhNJfE, .layoutContainer_s3DB6Y) {
     --user-profile-overlay-background: var(--r1);
     --user-profile-overlay-background-hover: var(--hover-surface);
@@ -921,6 +949,14 @@
 ) {
     --user-profile-toolbar-background: var(--r1);
     --user-profile-activity-toolbar-background: var(--r1);
+}
+
+#app-mount .outer_rmCN9_ {
+    border-color: var(--t);
+}
+
+#app-mount .card_2y0Mhw:not(.isDragging_2y0Mhw *):is(:hover, :focus-within)::before {
+    background-color: var(--r2);
 }
 
 #app-mount :is(.card_K8U7Ed, .card_PJ8wak),
@@ -1105,7 +1141,7 @@
 }
 
 #app-mount .form_z_gUBg .channelTextArea_2x8-Qn:focus-within {
-    border-color: var(--accent-saturated);
+    border-color: var(--frame-color);
 }
 
 #app-mount .form_z_gUBg .channelTextArea_2x8-Qn.highlighted_2x8-Qn {
@@ -1183,16 +1219,71 @@
     box-shadow: none;
 }
 
-#app-mount .modeSelected_TNyK-N .link_TNyK-N {
-    background: var(--r8);
+@media (forced-colors: none) {
+    #app-mount .wrapper_TNyK-N:not(.modeSelected_TNyK-N):hover .link_TNyK-N,
+    #app-mount .interactive_zln_tS:not(.interactiveSelected_zln_tS):hover {
+        background: var(--t);
+    }
+
+    #app-mount .modeSelected_TNyK-N .link_TNyK-N,
+    #app-mount .interactiveSelected_zln_tS,
+    #app-mount .interactive_zln_tS.interactiveSelected_zln_tS:is(:hover, :active),
+    #app-mount .item_ydey4M[data-selected="true"],
+    #app-mount .sidebar_jnk11m .item_6zZYhF.selected_6zZYhF,
+    .container_NdjzJd .item_xyJHva.active_xyJHva {
+        background: var(--t);
+        box-shadow: var(--selection-edges);
+        color: var(--r7);
+    }
+
+    #app-mount .wrapper_TNyK-N:hover :is(.name_TNyK-N, .icon_TNyK-N),
+    #app-mount .interactive_zln_tS:hover,
+    #app-mount .interactive_zln_tS:hover .linkButtonIcon_zln_tS,
+    #app-mount .item_ydey4M:not([data-disabled]):hover {
+        color: var(--r7);
+    }
+
 }
 
-#app-mount .message_SY_P2T.mentioned_SY_P2T {
+@media (forced-colors: none) {
+    #app-mount .message_SY_P2T:hover .messageContent_2i8Bfm {
+        color: var(--r9);
+    }
+
+    #app-mount .clickable_J1Adu_:hover .childContainer_J1Adu_,
+    #app-mount .listDefault_YUoOxm .clickable_YUoOxm:hover .content_YUoOxm,
+    #app-mount .peopleListItem_y75PxA:hover {
+        box-shadow: var(--selection-edge-start);
+    }
+
+    #app-mount .clickable_J1Adu_:active .childContainer_J1Adu_,
+    #app-mount .container_J1Adu_.selected_J1Adu_ .childContainer_J1Adu_,
+    #app-mount .listDefault_YUoOxm .clickable_YUoOxm:is(:active, .selected_YUoOxm) .content_YUoOxm,
+    #app-mount .peopleListItem_y75PxA:is(:active, .active_y75PxA) {
+        box-shadow: var(--selection-edges);
+    }
+
+    #app-mount .members_86es0b .member_86es0b {
+        --interactive-background-active: var(--t);
+        --interactive-background-selected: var(--t);
+        background: var(--t);
+    }
+
+    #app-mount .message_SY_P2T:hover:not(
+        .mentioned_SY_P2T, .automodMessage_SY_P2T, .highlighted_SY_P2T, .replying_SY_P2T,
+        .ephemeral_SY_P2T, .nitroMessage_SY_P2T, .guildOfficialMessage_SY_P2T
+    ),
+    #app-mount .clickable_J1Adu_:is(:hover, :active) .childContainer_J1Adu_,
+    #app-mount .container_J1Adu_.selected_J1Adu_ .childContainer_J1Adu_,
+    #app-mount .listDefault_YUoOxm .clickable_YUoOxm:is(:hover, :active, .selected_YUoOxm) .content_YUoOxm,
+    #app-mount .peopleListItem_y75PxA:is(:hover, :active, .active_y75PxA) {
+        background: var(--t);
+    }
+}
+
+#app-mount .message_SY_P2T.mentioned_SY_P2T,
+#app-mount .message_SY_P2T.mentioned_SY_P2T:hover {
     background: var(--r2);
-}
-
-#app-mount .message_SY_P2T.mentioned_SY_P2T:is(:hover, .selected_SY_P2T) {
-    background: var(--hover-surface);
 }
 
 #app-mount .message_SY_P2T.mentioned_SY_P2T::before {
@@ -1296,6 +1387,7 @@
     border-color: var(--accent-saturated) !important;
 }
 
+#app-mount .page_QQ_HWZ .scroller_QQ_HWZ,
 #app-mount .privateChannels_u88IQl :is(.scroller_Bce46W, .searchBarComponent_u88IQl),
 #app-mount .container_zrUwGA :is(.tabBody_zrUwGA, .nowPlayingColumn_zrUwGA),
 #app-mount .container_ZTJWQo :is(.scroller_jkJlMe, .gradient_IBwvwD),
@@ -1349,47 +1441,91 @@
         .headerBar_ViLURN, .headerBar_tSk_LE, .headerBar_ETiMTD,
         .header_zjGJlN, .headerGlass_XH4OpX, .headerEllipseBackdrop_XH4OpX,
         .page_iar92T, .questHomePage_iar92T, .container_ZTJWQo, .shop_Mqg79R, .shopContainer_XBXDcd,
-        .applicationStore_6U3jXZ, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8
+        .applicationStore_6U3jXZ, .homeWrapper_8iSxT3, .mainPageScroller_IRnLy8, .page_QQ_HWZ
     ) {
         background: var(--t);
         backdrop-filter: none;
     }
 
-    & .members_86es0b .member_86es0b {
-        background: var(--t);
-    }
 }
 
 /* Settings */
 
+@media (forced-colors: none) {
+    :is(.standardSidebarView_jnk11m, .container_NdjzJd) {
+        --card-background-default: var(--r1);
+    }
+
+    #app-mount :is(.checkbox_8b5Lkq.checked_8b5Lkq, .checkboxIndicator_vTUVyc) {
+        --checkbox-icon-active: var(--r7);
+    }
+
+    #app-mount :is(.barFill_OnqacX, .barFill_p3RiOL) {
+        background-color: var(--slider-indicator-background);
+        border-color: var(--r3);
+    }
+}
+
 #app-mount :is(.standardSidebarView_jnk11m, .container_NdjzJd)
-    :is(hr, [role="separator"], .separator_6zZYhF, .settingsDivider_DKMuWq, .groupDivider_m3psIG),
+    :is(
+        hr, [role="separator"], .separator_6zZYhF, .settingsDivider_DKMuWq, .groupDivider_m3psIG,
+        .divider_5ixpNX, .divider_D8O-nd, .divider_LajYMK, .divider_Yqbwmt, .divider_ZcHFUr,
+        .divider_bPviaV, .divider_md_YFn, .separator_YMXX4L
+    ),
 #app-mount .content_mL61Cw .divider_mL61Cw {
     background-color: var(--r3);
     border-color: var(--r3);
 }
 
-#app-mount .standardSidebarView_jnk11m :is(.sidebarRegion_jnk11m, .contentRegion_jnk11m),
-.container_NdjzJd .contentBody_3Rvb29 {
+#app-mount :is(.standardSidebarView_jnk11m, .container_NdjzJd)
+    :is(.divider_9ECWuB, .divider_T6XJeD, .divider_TDs_DU, .divider_pdtj88) {
+    border-color: var(--r3);
+}
+
+#app-mount .auditLog_LajYMK {
+    background: var(--r1);
+    border-color: var(--r3);
+
+    & :is(.header_LajYMK, .changeDetails_LajYMK) {
+        background: var(--t);
+    }
+}
+
+#app-mount .standardSidebarView_jnk11m
+    :is(.sidebarRegion_jnk11m, .contentRegion_jnk11m, .contentRegionScroller_jnk11m),
+.container_NdjzJd :is(.content_3Rvb29, .contentBody_3Rvb29) {
     background: var(--t);
 }
 
-#app-mount .standardSidebarView_jnk11m :is(.sidebarRegionScroller_jnk11m, .contentRegionScroller_jnk11m),
-.container_NdjzJd :is(.sidebar_cR4ic2, .content_3Rvb29) {
+#app-mount .standardSidebarView_jnk11m .contentRegion_jnk11m,
+.container_NdjzJd .content_3Rvb29 {
+    isolation: isolate;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+    }
+}
+
+#app-mount .standardSidebarView_jnk11m .sidebarRegionScroller_jnk11m,
+#app-mount .standardSidebarView_jnk11m .contentRegion_jnk11m::before,
+.container_NdjzJd .sidebar_cR4ic2,
+.container_NdjzJd .content_3Rvb29::before {
     background: var(--r1);
     backdrop-filter: blur(var(--blur-static));
 }
 
 #app-mount .sidebar_jnk11m .item_6zZYhF:not([aria-disabled="true"]):hover,
 .container_NdjzJd .item_xyJHva:not(.destructive_xyJHva):hover {
-    background-color: var(--subtle-accent-color);
+    color: var(--r7);
 }
 
-#app-mount .sidebar_jnk11m .item_6zZYhF.selected_6zZYhF,
-.container_NdjzJd .item_xyJHva.active_xyJHva {
-    background-color: var(--active-accent-color);
-    box-shadow: inset 2px 0 var(--accent-saturated);
-    color: var(--button-text-selected);
+#app-mount .sidebar_jnk11m .item_6zZYhF:not([aria-disabled="true"], .selected_6zZYhF):hover,
+.container_NdjzJd .item_xyJHva:not(.destructive_xyJHva, .active_xyJHva):hover {
+    background-color: var(--t);
 }
 
 .container_NdjzJd .contentHeader_3Rvb29 {
