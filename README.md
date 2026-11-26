@@ -1,2 +1,2 @@
 A Discord Theme for Vesktop (Vencord), BetterDiscord, ... 
-Based on Novum Theme
+Inspired by Novum Theme, recreated from scratch with own code logic.

@@ -1,5 +1,14 @@
 # Patch Notes
 
+## v0.5
+
+- Consolidated shared CSS rules for static surfaces, floating windows, settings layouts, and the message composer. Dialogs, dropdowns, menus, and tooltips share the theme's surface, border, and blur settings.
+- Updated tooltip rendering so the backdrop blur appears with the tooltip and the tooltip clears promptly on pointer exit. Disabled scaling for the affected tooltip wrapper to eliminate border flicker.
+- Extended hover blur to the event window, profile customization pickers, server tag popups, reaction tooltips, and the emoji picker. Gave context menus and their submenus separate backdrop layers.
+- Kept text readable across custom profile color schemes and matched profile badges and server tags to the theme palette. Centered the “Use Default” label in the profile frame controls.
+- Replaced the Discord Home icon with the UNEX image and made the Direct Messages button background transparent.
+- Matched server event badges, event calendar icons, Server Profile dividers, and message reaction controls to the UNEX palette. Removed backgrounds and borders from wishlist item cards.
+
 ## v0.4.1
 
 - Matched DM headers and the Quests and Nitro pages to the shared `r1` backdrop and static blur. Removed overlapping page fills and gradients.
