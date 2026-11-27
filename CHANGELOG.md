@@ -1,5 +1,15 @@
 # Patch Notes
 
+## v0.6.3
+
+- Made User Settings appear immediately while preserving Discord's closing fade. Removed the visible zoom and fade from Server Settings transitions. Both settings views apply dimming immediately on opening and use the shared static blur setting. The title bar is transparent.
+- Gave Server Boosts, Members, Channels & Roles, and forum views a shared backdrop. Removed overlapping fills in their headers and content areas and matched onboarding tabs to the shared accent edges.
+- Updated Server Settings surfaces and controls, including the Emoji table, Roles tabs and search, advanced permissions, and permission choices. Matched informational notice borders to the palette and added hover blur to role selection and the server profile preview.
+- Styled the GIF, sticker, and emoji pickers with hover blur and shared tab accents. Picker results use transparent hover backgrounds and a left accent edge.
+- Added hover blur to embeds, code blocks, threads, and forum posts. Removed the extra gradient in the forum header.
+- Matched remaining search and add icons to the palette. Applied brighter text and icons to destructive button and menu hover states, and removed stray hover underlines and fills.
+- Set ordinary chat text to `r6` at rest and `r7` on hover, and removed the unused `r9` token. This build also includes the theme-wide bold typography trial.
+
 ## v0.6.2
 
 - Extended the shared hover styling across buttons, channels, menus, dropdowns, settings, profile actions, and search suggestions. Hover uses a left `r5` accent edge and brighter text, while selected tabs use accent edges on both sides.
